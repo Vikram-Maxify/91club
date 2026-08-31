@@ -1,0 +1,497 @@
+import { useEffect, useRef, useState } from "react";
+
+import AllIcon from "../../../assets/tiranga/allIcon.png";
+import CasinoIcon from "../../../assets/tiranga/casino.png";
+import FishingIcon from "../../../assets/tiranga/fishing.png";
+import LotteryIcon from "../../../assets/tiranga/lotteryIcon.png";
+import OriginalIcon from "../../../assets/tiranga/originalIcon.png";
+import RummyIcon from "../../../assets/tiranga/rummy.png";
+import SlotsIcon from "../../../assets/tiranga/slot.png";
+import SportIcon from "../../../assets/tiranga/sport.png";
+
+import { rechargeList2 } from "../../../store/reducer/userReducer";
+import SportsComponent from "./SportsComponent";
+
+import { useDispatch } from "react-redux";
+import { notification } from "../../../store/reducer/activityReducer";
+
+import { Link, useNavigate } from "react-router-dom";
+import CasinoLiveGame from "../newgame/CasinoLiveGame";
+import FishingGame from "../newgame/FishingGame";
+import OriginalGame from "../newgame/OriginalGame";
+import Popular from "../newgame/Popular";
+import RecommendSlider from "../newgame/RecommendSlider";
+import Slots from "../newgame/Spots";
+import PVCSection from "./PVCSection";
+
+const allCategories = [
+  {
+    name: "Lobby",
+    Icon: LotteryIcon,
+    id: "lobby",
+  },
+  {
+    name: "Lottery",
+    icon: LotteryIcon,
+    id: "lottery",
+  },
+  {
+    name: "Original",
+    icon: OriginalIcon,
+    id: "orignal",
+  },
+  {
+    name: "Slots",
+    icon: SlotsIcon,
+    id: "slots",
+  },
+  {
+    name: "Sports",
+    icon: SportIcon,
+    id: "sports",
+  },
+  {
+    name: "Casino",
+    icon: CasinoIcon,
+    id: "casino",
+  },
+  {
+    name: "PVC",
+    icon: RummyIcon,
+    id: "rummy",
+  },
+  {
+    name: "Fishing",
+    icon: FishingIcon,
+    id: "fishing",
+  },
+  {
+    name: "All",
+    icon: AllIcon, // All ke liye koi bhi icon
+    id: "all",
+  },
+];
+
+const SlotComponents = () => {
+  const dispatch = useDispatch();
+
+  const [activeCategory, setActiveCategory] = useState("jili");
+  const [alertsuccess, setAlertsuccess] = useState(false);
+
+  const categoryRef = useRef();
+  const contentRef = useRef(null);
+
+  const [repopup, setRepopup] = useState(false);
+  const navigate = useNavigate();
+
+  const data = localStorage.getItem("topup");
+  const data22 = localStorage.getItem("topup22");
+  const [tabs, setTabs] = useState("lottery"); // Default "lottery"
+
+  const handleCategoryClick = (category) => {
+    setActiveCategory(category);
+  };
+
+  useEffect(() => {
+    dispatch(notification());
+  }, []);
+
+  const handleWingo = (path) => {
+    dispatch(rechargeList2()).then((res) => {
+      if (res.payload.data2?.length === 0) {
+        setRepopup(true);
+      } else {
+        navigate(path);
+      }
+    });
+  };
+  useEffect(() => {
+    const section = document.getElementById(tabs);
+    if (section) {
+      const yOffset = -80;
+      const y =
+        section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  }, [tabs]);
+
+  const handleCloseRecharge = () => {
+    navigate("/wallet/Recharge", {
+      state: {
+        autoPay: true,
+        amount: 200,
+        type: "UPI-QR",
+      },
+    });
+    setRepopup(false);
+  };
+
+  const handleClick = (category) => {
+    const element = document.getElementById(category.id);
+    if (element) {
+      const yOffset = -100;
+      const y =
+        element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+    setTabs(category.id);
+  };
+
+  return (
+    <div className="container-section mt-5 relative">
+      <div className="bg-white">
+        <div className={`place-bet-popup z-40 ${alertsuccess ? "active" : ""}`}>
+          <div className="text-lg">
+            {"Need first recharge to Play the Game"}
+          </div>
+        </div>
+      </div>
+
+      {/* lottery tabs  */}
+      <div className="w-full p-2 rounded-md overflow-x-auto scrollbar-hide">
+        <div className="flex gap-2 items-center w-max">
+          {allCategories.map((cat) => (
+            <div
+              key={cat.id}
+              onClick={() => setTabs(cat.id)}
+              className="flex flex-col items-center cursor-pointer"
+            >
+              {/* Icon Box */}
+              <div
+                className={`min-w-[0px] rounded-xl flex flex-col items-center justify-center px-2.5 transition
+                              ${tabs === cat.id ? "bg-[#BCFFE5]" : ""}`}
+              >
+                {/* <img src={cat.icon} alt={cat.name} className="w-6 h-6 mb-1" /> */}
+                <p
+                  className={` ${
+                    tabs === cat.id
+                      ? "text-black font-bold text-lg"
+                      : "text-gray-500"
+                  }`}
+                >
+                  {cat.name}
+                </p>
+              </div>
+
+              {/* Category Name */}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        {/* LOBBY Section */}
+        {tabs === "lobby" && (
+          <div id="lobby" className="mt-2">
+            {/* lottery Section*/}
+            <div id="lottery" className="mt-3">
+              <div className="flex justify-between pb-3">
+                <div className="flex">
+                  <img
+                    src="https://i.ibb.co/fVdPhJrX/loteria-0ccd41c5.webp"
+                    alt=""
+                    className="w-5 h-5"
+                  />
+                  <h4 className="border-after text-black font-bold pl-2">
+                    Lottery
+                  </h4>
+                </div>
+                <Link to={"/home/AllOnlineGames?game=Lottery"}>
+                  <button className="ml-3 bg-green-300/20 text-green-400 px-3 py-0 rounded-xl border border-green-300 gray-100">
+                    All 4
+                  </button>
+                </Link>
+              </div>
+              {/* Row 1 → 3 images */}
+              <div className="grid grid-cols-3 gap-3">
+                {gameData.slice(0, 3).map((game) => (
+                  <img
+                    key={game.id}
+                    src={game.image}
+                    alt={game.name}
+                    onClick={() => handleWingo(game.link)}
+                    className="w-full h-40 object-cover rounded-xl cursor-pointer hover:opacity-90 transition"
+                  />
+                ))}
+              </div>
+
+              {/* Row 2 → 1 image */}
+              <div className="grid grid-cols-3 mt-3">
+                {gameData.slice(3, 4).map((game) => (
+                  <img
+                    key={game.id}
+                    src={game.image}
+                    alt={game.name}
+                    onClick={() => handleWingo(game.link)}
+                    className="w-full h-40 object-cover rounded-xl cursor-pointer hover:opacity-90 transition"
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Popular Section */}
+            <div id="popular" className="mt-2">
+              <div className="flex justify-between items-center"></div>
+              <RecommendSlider />
+              <Popular />
+            </div>
+
+            {/* Casino Section */}
+            <div id="casino" className="mt-2">
+              <div className="flex justify-between items-center"></div>
+              <CasinoLiveGame />
+            </div>
+
+            {/* Slots Section */}
+            <div id="slots">
+              <div className="flex justify-between items-center"></div>
+              <Slots />
+            </div>
+
+            {/* Original Section */}
+            <div id="orignal" className="lottery-game-section">
+              <OriginalGame />
+            </div>
+
+            {/* Sports Section */}
+            <div>
+              <SportsComponent />
+            </div>
+
+            {/* Fishing Section */}
+            <div id="fishing" className="lottery-game-section">
+              <FishingGame />
+            </div>
+
+            {/* PVC Section */}
+            <div id="rummy" className="mt-2">
+              <PVCSection />
+            </div>
+          </div>
+        )}
+
+        {/* lottery Section*/}
+        {(tabs === "lottery" || tabs === "all") && (
+          <div id="lottery" className="mt-3">
+            <div className="flex justify-between pb-3">
+              <div className="flex">
+                <img
+                  src="https://i.ibb.co/fVdPhJrX/loteria-0ccd41c5.webp"
+                  alt=""
+                  className="w-5 h-5"
+                />
+                <h4 className="border-after text-black font-bold pl-2">
+                  Lottery
+                </h4>
+              </div>
+              <Link to={"/home/AllOnlineGames?game=Lottery"}>
+                <button className="ml-3 bg-green-300/20 text-green-400 px-3 py-0 rounded-xl border border-green-300 gray-100">
+                  All 4
+                </button>
+              </Link>
+            </div>
+            {/* Row 1 → 3 images */}
+            <div className="grid grid-cols-3 gap-3">
+              {gameData.slice(0, 3).map((game) => (
+                <img
+                  key={game.id}
+                  src={game.image}
+                  alt={game.name}
+                  onClick={() => handleWingo(game.link)}
+                  className="w-full h-40 object-cover rounded-xl cursor-pointer hover:opacity-90 transition"
+                />
+              ))}
+            </div>
+
+            {/* Row 2 → 1 image */}
+            <div className="grid grid-cols-3 mt-3">
+              {gameData.slice(3, 4).map((game) => (
+                <img
+                  key={game.id}
+                  src={game.image}
+                  alt={game.name}
+                  onClick={() => handleWingo(game.link)}
+                  className="w-full h-40 object-cover rounded-xl cursor-pointer hover:opacity-90 transition"
+                />
+              ))}
+            </div>
+          </div>
+        )}
+        {/*  */}
+        {tabs === "slots" && (
+          <div id="slots">
+            <div className="flex justify-between items-center"></div>
+            <Slots />
+          </div>
+        )}
+        {/*  */}
+        {/* <div className=" overflow-hidden">
+          <div ref={contentRef} className="transition-all duration-300">
+            {activeCategory === "jili" && (
+              <div>
+                <JilliGame />
+              </div>
+            )}
+            {activeCategory === "cq9" && <Cq9Game />}
+            {activeCategory === "jdb" && <JDBGame />}
+            {activeCategory === "mg" && <MGGame />}
+            {activeCategory === "evo_ele" && <EVOGame />}
+            {activeCategory === "g9" && <G9Game />}
+            {activeCategory === "pg" && <PGGame />}
+            {activeCategory === "mg_fish" && <MGfishGame />}
+          </div>
+        </div> */}
+        {tabs === "all" && (
+          <div id="popular" className="mt-2">
+            <div className="flex justify-between items-center"></div>
+            <RecommendSlider />
+            <Popular />
+            <CasinoLiveGame />
+            <Slots />
+            <OriginalGame />
+            <SportsComponent />
+          </div>
+        )}
+        {tabs === "popular" && (
+          <div id="popular" className="mt-2">
+            <div className="flex justify-between items-center"></div>
+            {/* <CasinoSection /> */}
+            <RecommendSlider />
+            <Popular />
+          </div>
+        )}
+
+        {tabs === "casino" && (
+          <div id="casino" className="mt-2">
+            <div className="flex justify-between items-center"></div>
+            <CasinoLiveGame />
+            {/* <CasinoSection /> */}
+          </div>
+        )}
+
+        {/* {tabs === "rummy" && (
+          <div id="rummy" className="mt-2">
+            <div className="flex justify-between items-center"></div>
+            <Rummy />
+          </div>
+        )} */}
+
+        {tabs === "orignal" && (
+          <div id="orignal" className="lottery-game-section">
+            <OriginalGame />
+          </div>
+        )}
+        {tabs === "fishing" && (
+          <div id="fishing" className="lottery-game-section">
+            <FishingGame />
+            {/* <ChikenRoad /> */}
+          </div>
+        )}
+        {tabs === "sports" && (
+          <div>
+            <SportsComponent />
+          </div>
+        )}
+        {tabs === "rummy" && (
+          <div id="rummy" className="mt-2">
+            <PVCSection />
+            {/* <Rummy /> */}
+          </div>
+        )}
+
+        {/* orignal */}
+
+        {/* <div id="orignal" className="mt-4">
+          <div className="flex justify-between items-center"></div>
+          <OriginalGame />
+        </div> */}
+        {/* fishing */}
+
+        {/* <div id="fishing" className="mt-2">
+          <div className="flex justify-between items-center"></div>
+          <FishingGame />
+        </div> */}
+        {/* casino */}
+
+        {/* sports & pvc */}
+
+        {/* <div id="sports" className="mt-2">
+          <div className="flex justify-between items-center"></div>
+          <SportsComponent />
+        </div>
+        <div id="pvc" className="mt-2">
+          <div className="flex justify-between items-center"></div>
+          <PVCSection />
+        </div> */}
+        {/* jackpot */}
+        {/* <div id="jackpot" className="mt-2">
+          <div className="flex justify-between items-center"></div>
+          <SuperJackportGame />
+        </div> */}
+      </div>
+      <div
+        className={repopup ? "overlay-section block z-[50]" : "hidden"}
+      ></div>
+      {repopup && (
+        <div className="fixed top-0 z-[60] bottom-0 pb-2 h-32 m-auto flex flex-col justify-center items-center left-0 right-0 w-[20rem] bg-light rounded-lg">
+          <h3 className="heading-h3 gray-50 mt-5">Tips</h3>
+          <p className="text-sm text-whites mt-2">
+            First need to recharge <span className="text-green-400">₹200</span>{" "}
+            for this game
+          </p>
+
+          <div className="w-full mt-5">
+            <button
+              className=" text-gray-400 p-2 w-[50%]  rounded-bl-lg "
+              onClick={() => setRepopup(false)}
+            >
+              Cancel
+            </button>
+            <button
+              className="p-2 text-blue rounded-br-lg  w-[50%]"
+              onClick={handleCloseRecharge}
+            >
+              Confirm
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default SlotComponents;
+const gameData = [
+  {
+    id: 1,
+    name: "Win Go",
+    image: "https://i.ibb.co/ZR200z95/lotterycategory-202604251545137rmo.png",
+    description1: "Guess Number",
+    description2: "Green/Red/Violet to win",
+    link: "/wingo",
+  },
+  {
+    id: 2,
+    name: "K3",
+    image: "https://i.ibb.co/5hX9fksd/k3.png",
+    description1: "Guess Number",
+    description2: "Big/Small/Odd/Even",
+    link: "/k3",
+  },
+  {
+    id: 3,
+    name: "5D",
+    image: "https://i.ibb.co/MDgwTYXT/5d.png",
+    description1: "Guess Number",
+    description2: "Big/Small/Odd/Even",
+    link: "/5d",
+  },
+  {
+    id: 4,
+    name: "Trx Win Go",
+    image: "https://i.ibb.co/Z6sc3v9b/trx.png",
+    description1: "Guess Number",
+    description2: "Green/Red/Violet to win",
+    link: "/trx",
+  },
+];
