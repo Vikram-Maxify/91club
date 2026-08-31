@@ -154,7 +154,7 @@ input {
   color: var(--white);
 }
 .text-blue {
-  color: var(--main-color);
+  color: #808A9F;
 }
 .sheet_nav_bg {
   background: var(--sheet_nva_color);
@@ -436,7 +436,7 @@ input {
 }
 
 .nav-bg {
-  background: #00e688;
+  background: linear-gradient(90deg, #F96160 0%, #FB746F 50%, #FE9187 100%);
   /* background-color: linear-gradient(90deg, #3BAF4C 0%, #00D08A 100%); */
 }
 .bg-color-l {
@@ -486,7 +486,7 @@ input {
   background: linear-gradient(0deg, #59adff 0%, #f5cc2c 50%, #598fff 100%);
 }
 .blue-linear {
-  background: #03da82;
+  background: #808A9F;
 }
 .text-linear {
   color: linear-gradient(90deg, #f95959 0%, #bed921 100%);

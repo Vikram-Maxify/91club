@@ -96,15 +96,11 @@ const SlotComponents = () => {
     dispatch(notification());
   }, []);
 
+  // TEMPORARY: removed recharge check – navigate directly to game
   const handleWingo = (path) => {
-    dispatch(rechargeList2()).then((res) => {
-      if (res.payload.data2?.length === 0) {
-        setRepopup(true);
-      } else {
-        navigate(path);
-      }
-    });
+    navigate(path);
   };
+
   useEffect(() => {
     const section = document.getElementById(tabs);
     if (section) {
@@ -158,16 +154,15 @@ const SlotComponents = () => {
             >
               {/* Icon Box */}
               <div
-                className={`min-w-[0px] rounded-xl flex flex-col items-center justify-center px-2.5 transition
-                              ${tabs === cat.id ? "bg-[#BCFFE5]" : ""}`}
+                className={`min-w-[0px] rounded-xl flex flex-col items-center justify-center px-3 py-1 transition
+                              ${tabs === cat.id ? "bg-white shadow-lg" : ""}`}
               >
                 {/* <img src={cat.icon} alt={cat.name} className="w-6 h-6 mb-1" /> */}
                 <p
-                  className={` ${
-                    tabs === cat.id
-                      ? "text-black font-bold text-lg"
-                      : "text-gray-500"
-                  }`}
+                  className={` ${tabs === cat.id
+                    ? "text-black font-semibold text-lg"
+                    : "text-gray-500"
+                    }`}
                 >
                   {cat.name}
                 </p>
@@ -188,9 +183,9 @@ const SlotComponents = () => {
               <div className="flex justify-between pb-3">
                 <div className="flex">
                   <img
-                    src="https://i.ibb.co/fVdPhJrX/loteria-0ccd41c5.webp"
+                    src="https://i.ibb.co/CKq5YKWn/logo8.jpg"
                     alt=""
-                    className="w-5 h-5"
+                    className="w-7 h-7 rounded-full"
                   />
                   <h4 className="border-after text-black font-bold pl-2">
                     Lottery
@@ -203,20 +198,20 @@ const SlotComponents = () => {
                 </Link>
               </div>
               {/* Row 1 → 3 images */}
-              <div className="grid grid-cols-3 gap-3">
-                {gameData.slice(0, 3).map((game) => (
+              <div className="grid grid-cols-2 gap-2">
+                {gameData.slice(0, 6).map((game) => (
                   <img
                     key={game.id}
                     src={game.image}
                     alt={game.name}
                     onClick={() => handleWingo(game.link)}
-                    className="w-full h-40 object-cover rounded-xl cursor-pointer hover:opacity-90 transition"
+                    className="w-48 h-full object-cover rounded-xl cursor-pointer hover:opacity-90 transition"
                   />
                 ))}
               </div>
 
               {/* Row 2 → 1 image */}
-              <div className="grid grid-cols-3 mt-3">
+              {/* <div className="grid grid-cols-3 mt-3">
                 {gameData.slice(3, 4).map((game) => (
                   <img
                     key={game.id}
@@ -226,7 +221,7 @@ const SlotComponents = () => {
                     className="w-full h-40 object-cover rounded-xl cursor-pointer hover:opacity-90 transition"
                   />
                 ))}
-              </div>
+              </div> */}
             </div>
 
             {/* Popular Section */}
@@ -276,9 +271,9 @@ const SlotComponents = () => {
             <div className="flex justify-between pb-3">
               <div className="flex">
                 <img
-                  src="https://i.ibb.co/fVdPhJrX/loteria-0ccd41c5.webp"
+                  src="https://i.ibb.co/CKq5YKWn/logo8.jpg"
                   alt=""
-                  className="w-5 h-5"
+                  className="w-7 h-7 rounded-full"
                 />
                 <h4 className="border-after text-black font-bold pl-2">
                   Lottery
@@ -291,30 +286,30 @@ const SlotComponents = () => {
               </Link>
             </div>
             {/* Row 1 → 3 images */}
-            <div className="grid grid-cols-3 gap-3">
-              {gameData.slice(0, 3).map((game) => (
+            <div className="grid grid-cols-2 gap-3">
+              {gameData.slice(0, 5).map((game) => (
                 <img
                   key={game.id}
                   src={game.image}
                   alt={game.name}
                   onClick={() => handleWingo(game.link)}
-                  className="w-full h-40 object-cover rounded-xl cursor-pointer hover:opacity-90 transition"
+                  className=" object-contain rounded-xl cursor-pointer hover:opacity-90 transition"
                 />
               ))}
             </div>
 
             {/* Row 2 → 1 image */}
-            <div className="grid grid-cols-3 mt-3">
+            {/* <div className="grid grid-cols-2 gap-3 mt-3">
               {gameData.slice(3, 4).map((game) => (
                 <img
                   key={game.id}
                   src={game.image}
                   alt={game.name}
                   onClick={() => handleWingo(game.link)}
-                  className="w-full h-40 object-cover rounded-xl cursor-pointer hover:opacity-90 transition"
+                  className="object-contain rounded-xl cursor-pointer hover:opacity-90 transition"
                 />
               ))}
-            </div>
+            </div> */}
           </div>
         )}
         {/*  */}
@@ -465,7 +460,7 @@ const gameData = [
   {
     id: 1,
     name: "Win Go",
-    image: "https://i.ibb.co/ZR200z95/lotterycategory-202604251545137rmo.png",
+    image: "https://i.ibb.co/tMqMBM5D/lottery4.png",
     description1: "Guess Number",
     description2: "Green/Red/Violet to win",
     link: "/wingo",
@@ -473,7 +468,7 @@ const gameData = [
   {
     id: 2,
     name: "K3",
-    image: "https://i.ibb.co/5hX9fksd/k3.png",
+    image: "https://i.ibb.co/zT2cWbyv/lottery2.png",
     description1: "Guess Number",
     description2: "Big/Small/Odd/Even",
     link: "/k3",
@@ -481,7 +476,7 @@ const gameData = [
   {
     id: 3,
     name: "5D",
-    image: "https://i.ibb.co/MDgwTYXT/5d.png",
+    image: "https://i.ibb.co/rKnvxzf7/lottery1.png",
     description1: "Guess Number",
     description2: "Big/Small/Odd/Even",
     link: "/5d",
@@ -489,7 +484,15 @@ const gameData = [
   {
     id: 4,
     name: "Trx Win Go",
-    image: "https://i.ibb.co/Z6sc3v9b/trx.png",
+    image: "https://i.ibb.co/F4Sk42Tb/lottery3.png",
+    description1: "Guess Number",
+    description2: "Green/Red/Violet to win",
+    link: "/trx",
+  },
+  {
+    id: 5,
+    name: "Moto Racing",
+    image: "https://i.ibb.co/VWvxmjQ7/lottery5.png",
     description1: "Guess Number",
     description2: "Green/Red/Violet to win",
     link: "/trx",

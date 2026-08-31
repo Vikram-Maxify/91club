@@ -58,7 +58,7 @@
   .svg-icon {
     width: 1.5rem;
     height: 1.5rem;
-    color: var(--bg-color-l);
+    color: #FDBDBD;
     vertical-align: middle;
     fill: currentColor;
 }

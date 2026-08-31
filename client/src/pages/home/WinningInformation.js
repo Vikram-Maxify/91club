@@ -7,7 +7,8 @@ import Avatar3 from "../../assets/avatar3.png";
 import Avatar4 from "../../assets/avatar4.png";
 import Avatar5 from "../../assets/avatar5.png";
 
-import EarningImg from "../../assets/yarwin/earningchart.png";
+// import EarningImg from "../../assets/yarwin/earningchart.png";
+import NewEarningImg from "../../assets/Images/NewEarningImage.svg";
 
 import WinImg5 from "../../assets/trx.png";
 import WinImg2 from "../../assets/wingimg2.png";
@@ -292,12 +293,12 @@ const WinningInformation = () => {
         </div>
 
         <div
-          style={{ backgroundImage: `url(${EarningImg})` }}
-          className="w-full mt-7 h-[13rem] bg-cover "
+          style={{ backgroundImage: `url(${NewEarningImg})` }}
+          className="w-full mt-12 h-[10rem] bg-cover "
         >
           <div className="flex items-center justify-around w-full">
             <div>
-              <div className="relative top-[60px]">
+              <div className="relative -top-[10px]">
                 {/* <img
                   src={Crown2}
                   alt=""
@@ -311,7 +312,7 @@ const WinningInformation = () => {
                 />
                 <img src={Place2} alt="" className="absolute bottom-[-10px]" />
               </div>
-              <div className="left-4 absolute mt-[5rem]">
+              <div className="left-4 absolute mt-[3.3rem]">
                 <p className="text-xs left-6 relative text-black">Mem**SLH</p>
                 <button className="text-xs mt-1 text-whites p-1 px-2 bg-[#FFFFFF4D]">
                   ₹220,499,518.82
@@ -319,7 +320,7 @@ const WinningInformation = () => {
               </div>
             </div>
             <div className="relative">
-              <div className="relative  top-[8px]">
+              <div className="relative  -top-[42px]">
                 {/* <img
                   src={Crown1}
                   alt=""
@@ -333,7 +334,7 @@ const WinningInformation = () => {
                 />
                 <img src={Place1} alt="" className="absolute bottom-[-10px]" />
               </div>
-              <div className="left-[-25px] mt-[37px] absolute">
+              <div className="left-[-25px] mt-[37px] absolute top-[63px]">
                 <p className="text-xs left-6 text-black relative">Mem**FXI</p>
                 <button className="text-xs mt-1 text-whites p-1 px-2 bg-[#FFFFFF4D]">
                   ₹1,272,332,040.00
@@ -341,7 +342,7 @@ const WinningInformation = () => {
               </div>
             </div>
             <div className="relative">
-              <div className="relative top-[92px]">
+              <div className="relative -top-[10px] left-2">
                 {/* <img
                   src={Crown3}
                   alt=""
@@ -355,7 +356,7 @@ const WinningInformation = () => {
                 />
                 <img src={Place3} alt="" className="absolute bottom-[-10px]" />
               </div>
-              <div className="left-[-15px] absolute mt-[5.5rem]">
+              <div className="left-[-15px] absolute mt-[3.5rem]">
                 <p className="text-xs left-6 text-black relative">Mem**IAP</p>
                 <button className="text-xs mt-1 text-whites p-1 px-2 bg-[#FFFFFF4D]">
                   ₹97,990,200.00

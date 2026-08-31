@@ -153,7 +153,7 @@ const Main = () => {
 
               {/* Right side = button */}
               <button
-                className="text-white me-2 -mt-5 rounded-full bg-[#00e688] px-4 py-2 text-sm"
+                className="text-white me-2 -mt-5 rounded-full bg-[#F95959] px-4 py-1.5 text-sm"
                 onClick={() => navigate("/wallet")}
               >
                 Enter Wallet
