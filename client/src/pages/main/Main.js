@@ -464,7 +464,7 @@ const Main = () => {
         </div>
 
         <button
-          className="border flex  color-l justify-center items-center border-[var(--bg-color-l)] w-[100%] rounded-full p-1 mt-6 text-base"
+          className="border flex  color-l justify-center items-center border-[var(--bg-color-l)] w-[100%] rounded-full p-1 mt-3 text-base"
           onClick={() => setShowPopup(true)}
         >
           {" "}

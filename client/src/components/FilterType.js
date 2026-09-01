@@ -29,7 +29,7 @@ const Item = styled.div`
   cursor: pointer;
   margin: 10px 5px;
   background: ${(props) =>
-    props.active ? "linear-gradient(90deg, #09D982 0%, #04E98A 100%)" : "#fff"};
+    props.active ? "linear-gradient(90deg, #F95B5B 0%, #FFB7AF 100%)" : "#fff"};
   padding: 10px 30px;
   border-radius: 8px;
   flex-shrink: 0;

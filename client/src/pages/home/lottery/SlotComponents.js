@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 
-import AllIcon from "../../../assets/tiranga/allIcon.png";
-import CasinoIcon from "../../../assets/tiranga/casino.png";
-import FishingIcon from "../../../assets/tiranga/fishing.png";
-import LotteryIcon from "../../../assets/tiranga/lotteryIcon.png";
-import OriginalIcon from "../../../assets/tiranga/originalIcon.png";
-import RummyIcon from "../../../assets/tiranga/rummy.png";
-import SlotsIcon from "../../../assets/tiranga/slot.png";
-import SportIcon from "../../../assets/tiranga/sport.png";
+import AllIcon from "../../../assets/tiranga/AllIcon.png";
+import CasinoIcon from "../../../assets/tiranga/casino.svg";
+import FishingIcon from "../../../assets/tiranga/fishing.svg";
+import LotteryIcon from "../../../assets/tiranga/lobby.svg";
+import originalIcon from "../../../assets/tiranga/originalIcon.png";
+// import RummyIcon from "../../../assets/tiranga/rummy.png";
+import SlotsIcon from "../../../assets/tiranga/slot.svg";
+import SportIcon from "../../../assets/tiranga/sport.svg";
 
 import { rechargeList2 } from "../../../store/reducer/userReducer";
 import SportsComponent from "./SportsComponent";
@@ -37,7 +37,7 @@ const allCategories = [
   },
   {
     name: "Original",
-    icon: OriginalIcon,
+    icon: originalIcon,
     id: "orignal",
   },
   {
@@ -55,11 +55,11 @@ const allCategories = [
     icon: CasinoIcon,
     id: "casino",
   },
-  {
-    name: "PVC",
-    icon: RummyIcon,
-    id: "rummy",
-  },
+  // {
+  //   name: "PVC",
+  //   icon: RummyIcon,
+  //   id: "rummy",
+  // },
   {
     name: "Fishing",
     icon: FishingIcon,
@@ -154,12 +154,20 @@ const SlotComponents = () => {
             >
               {/* Icon Box */}
               <div
-                className={`min-w-[0px] rounded-xl flex flex-col items-center justify-center px-3 py-1 transition
-                              ${tabs === cat.id ? "bg-white shadow-lg" : ""}`}
+                className={`min-w-[0px] rounded-xl flex flex-row items-center justify-center px-3 py-1 transition
+                 ${tabs === cat.id ? "bg-white shadow-lg" : ""}`}
               >
-                {/* <img src={cat.icon} alt={cat.name} className="w-6 h-6 mb-1" /> */}
+                <img
+                  src={cat.icon}
+                  alt={cat.name}
+                  className={`w-5 h-5 mr-2 ${tabs === cat.id
+                      ? "[filter:brightness(0)_saturate(100%)_invert(44%)_sepia(91%)_saturate(1829%)_hue-rotate(329deg)_brightness(101%)_contrast(98%)]"
+                      : "grayscale opacity-60"
+                    }`}
+                />
+
                 <p
-                  className={` ${tabs === cat.id
+                  className={`${tabs === cat.id
                     ? "text-black font-semibold text-lg"
                     : "text-gray-500"
                     }`}
@@ -167,7 +175,6 @@ const SlotComponents = () => {
                   {cat.name}
                 </p>
               </div>
-
               {/* Category Name */}
             </div>
           ))}
@@ -280,7 +287,7 @@ const SlotComponents = () => {
                 </h4>
               </div>
               <Link to={"/home/AllOnlineGames?game=Lottery"}>
-                <button className="ml-3 bg-green-300/20 text-green-400 px-3 py-0 rounded-xl border border-green-300 gray-100">
+                <button className="ml-3 bg-white text-red-400 px-3 py-0 rounded-xl border border-red-300 gray-100">
                   All 4
                 </button>
               </Link>

@@ -43,7 +43,7 @@ const WithdrawHistoryLite = () => {
   return (
     <>
       <div className="flex items-start justify-start mt-5 gap-2 ml-5 text-whites">
-        <RiFileCopy2Fill className="text-[#F5CC2C]" /> Withdraw History
+        <RiFileCopy2Fill className="text-[#FB5959] size-6" /> Withdraw History
       </div>
       <div className="container-section mt-2 ">
         {limitedWithdrawData?.length > 0 ? (

@@ -15,7 +15,7 @@ const Apkdownload = () => {
     <>
       {isOpen && (
         <div className="z-50 fixed bottom-20 left-1/2 transform -translate-x-1/2">
-          <div className=" px-[10px] flex blue-linear2 justify-around w-[200px] py-1 rounded-3xl shadow-lg cursor-pointer h-full items-center text-center">
+          <div className="px-[10px] flex blue-linear2 justify-around w-[200px] py-1 rounded-3xl shadow-lg cursor-pointer h-full items-center text-center">
             <div className="mt-1">
               <img
                 className="w-8 h-6"
@@ -25,7 +25,7 @@ const Apkdownload = () => {
             </div>
             <a href="/expressclub-apk.apk" download>
               <p className="text-sm text-white font-medium">
-                Top up 100 get ₹2
+                Get ₹28
               </p>
               <p
                 className="text-sm font-bold text-white"
@@ -36,7 +36,7 @@ const Apkdownload = () => {
             </a>
 
             <div
-              className="cursor-pointer border-l border-[var(--oranges)] text-right text-2xl font-bold mt-[2px]"
+              className="cursor-pointer border-[var(--oranges)] text-right text-2xl font-bold mt-[2px]"
               onClick={handleClose}
             >
               <IoCloseCircleOutline />

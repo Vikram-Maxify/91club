@@ -31,10 +31,10 @@ h3 {
   --grey-50: #181818;
   --grey-100: #80849c;
   --bg-light: #fff;
-  --main-color: #08d781;
+  --main-color: #f95959;
   --bg_color_L3: #f6f6f6;
   --light-gray: #ced6e1;
-  --sheet_nva_color: #d7ebe4;
+  --sheet_nva_color: #F95959;
   --bgdark: rgb(34 197 94);
   --bgblue: #f6f6f6;
   --darkBlue: #08d781;
@@ -46,8 +46,8 @@ h3 {
   --red-color-200: #d23838;
   --red-color-100: #f7602b;
   --yellow-200: #feaa57;
-  --bg-color-l: #00e688;
-  --bg-color-l1: #f6f6f6;
+  --bg-color-l: #F95959;
+  --bg-color-l1: #F95959;
   --bg-blue-500: #3c9cf6;
   --bg-blue-300: #5088d3;
   --red-bg-500: #e52c2f;
@@ -154,13 +154,13 @@ input {
   color: var(--white);
 }
 .text-blue {
-  color: #808A9F;
+  color: #FB5959;
 }
 .sheet_nav_bg {
   background: var(--sheet_nva_color);
 }
 .bg-darks {
-  background-color: var(--darkBlue);
+  background-color: #f95959;
 }
 .bg-gray-400 {
   background-color: var(--gray-400);
@@ -486,7 +486,7 @@ input {
   background: linear-gradient(0deg, #59adff 0%, #f5cc2c 50%, #598fff 100%);
 }
 .blue-linear {
-  background: #808A9F;
+  background: linear-gradient(90deg, #F95B5B 0%, #FFB7AF 100%);
 }
 .text-linear {
   color: linear-gradient(90deg, #f95959 0%, #bed921 100%);
@@ -497,7 +497,7 @@ input {
 }
 
 .blue-linear2 {
-  background: #00e688;
+  background: #FC7E77;
 }
 .text-font {
   /* line-height: .34667rem; */

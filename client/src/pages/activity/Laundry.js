@@ -104,9 +104,9 @@ const Laundry = () => {
         <div className="bg-body rounded-xl p-2 pb-0 text-whites">
           <h3 className="text-sm">All-Total betting rebate</h3>
 
-          <button className="border px-2 mt-3 flex items-center rounded-md text-base  border-[var(--main-color)]  blue-color-300">
+          <button className="border px-2 py-1 mt-3 flex items-center rounded-md text-base  border-[var(--main-color)]  blue-color-300">
             <MdVerifiedUser className="blue-color-300" />
-            <span className="fs-sm ms-1">Real-time count</span>
+            <span className="fs-sm ms-2 mt-1">Real-time count</span>
           </button>
           <div className="flex items-center mt-2">
             <TbTransactionRupee className="blue-color-300 text-2xl" />{" "}
@@ -141,7 +141,7 @@ const Laundry = () => {
               className={` py-2 rounded-3xl text-base w-full  heading-h3 ${
                 userInfo?.rebate > 0
                   ? "blue-linear color-orange"
-                  : "bg-gray-400 text-black"
+                  : "bg-gray-300 text-black"
               }`}
               disabled={userInfo?.rebate > 0 ? false : true}
               onClick={handleSubmit}

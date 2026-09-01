@@ -9,6 +9,7 @@ import Avatar5 from "../../assets/avatar5.png";
 
 // import EarningImg from "../../assets/yarwin/earningchart.png";
 import NewEarningImg from "../../assets/Images/NewEarningImage.svg";
+import { FaRegGrinWink } from "react-icons/fa";
 
 import WinImg5 from "../../assets/trx.png";
 import WinImg2 from "../../assets/wingimg2.png";
@@ -80,33 +81,57 @@ const getRandomINumber = () => {
 };
 const data = [
   {
+    name: "JILI",
     text: generateRandomText(),
-    image: Avatar1,
-    img: WinImg1,
+    img: FaRegGrinWink,
     number: getRandomINumber(),
   },
   {
+    name: "JILI",
     text: generateRandomText(),
-    image: Avatar2,
-    img: WinImg2,
+    img: FaRegGrinWink,
     number: getRandomINumber(),
   },
   {
+    name: "JILI",
     text: generateRandomText(),
-    image: Avatar3,
-    img: WinImg3,
+    img: FaRegGrinWink,
     number: getRandomINumber(),
   },
   {
+    name: "Moto Racing",
     text: generateRandomText(),
-    image: Avatar4,
-    img: WinImg4,
+    img: FaRegGrinWink,
     number: getRandomINumber(),
   },
   {
+    name: "PG",
     text: generateRandomText(),
-    image: Avatar5,
-    img: WinImg5,
+    img: FaRegGrinWink,
+    number: getRandomINumber(),
+  },
+  {
+    name: "PG",
+    text: generateRandomText(),
+    img: FaRegGrinWink,
+    number: getRandomINumber(),
+  },
+  {
+    name: "SABA",
+    text: generateRandomText(),
+    img: FaRegGrinWink,
+    number: getRandomINumber(),
+  },
+  {
+    name: "ARBET",
+    text: generateRandomText(),
+    img: FaRegGrinWink,
+    number: getRandomINumber(),
+  },
+  {
+    name: "TB Chess",
+    text: generateRandomText(),
+    img: FaRegGrinWink,
     number: getRandomINumber(),
   },
 ];
@@ -142,7 +167,7 @@ const WinningInformation = () => {
       // Add new slide and keep the last 5 slides
       setSlides((prevSlides) => {
         const updatedSlides = [newSlide, ...prevSlides];
-        return updatedSlides.slice(0, 5); // Keep only the last 5 slides
+        return updatedSlides.slice(0, 10); // Keep only the last 5 slides
       });
     }, 2000);
 
@@ -173,49 +198,54 @@ const WinningInformation = () => {
   // }, []);
   return (
     <>
+      import {FaRegGrinWink} from "react-icons/fa";
+
       <h3 className="border-after flex mt-2 text-whites font-semibold pb-3">
-        <img
-          src="https://i.ibb.co/YF3fLfXb/win-d581733a.webp"
-          alt=""
-          className="w-6 h-5 mr-2"
-        />
+        <FaRegGrinWink className="w-6 h-5 mr-2 text-[#F95959]" />
         Winning Information
       </h3>
 
       <div className="winning-item w-full overflow-hidden">
         <div className="slider-container">
-          <div className="slider flex flex-col gap-2">
+          <div className="slider flex flex-col">
             {slides.map((slide) => (
               <div
                 key={slide.id}
-                className="slide flex justify-between bg-green-100/50 border border-green-300 items-center rounded-lg p-2 w-full bg-cover bg-center bg-no-repeat"
-                // style={{
-                //   backgroundImage:
-                //     "url('https://i.ibb.co/ycjJdHXC/winning-bg-2e4b55b4.webp')",
-                // }}
+                className="slide flex justify-between bg-white border-b border-gray-150 items-center rounded-md p-2 w-full bg-cover bg-center bg-no-repeat"
+              // style={{
+              //   backgroundImage:
+              //     "url('https://i.ibb.co/ycjJdHXC/winning-bg-2e4b55b4.webp')",
+              // }}
               >
-                <div>
-                  <img
-                    src={slide.img}
-                    alt={slide.text}
-                    className="rounded-md w-12 h-12 object-cover"
-                  />
+                <div className="flex items-center">
+                  <div>
+                    {(() => {
+                      const Icon = slide.img;
+                      return <Icon className="rounded-md w-6 h-6 object-cover text-[#F95959]" />;
+                    })()}
+                  </div>
+
+                  <div className="flex items-start">
+                    <p className="uppercase text-[12px] text-gray-400 pl-2">
+                      {slide.name}
+                    </p>
+                  </div>
                 </div>
 
                 <div className="flex items-center">
-                  <img
+                  {/* <img
                     src={slide.image}
                     alt={slide.text}
                     className="rounded-full w-10 h-10 object-cover mr-2"
-                  />
-                  <p className="uppercase text-[12px] text-black pl-2">
+                  /> */}
+                  <p className="uppercase text-[12px] text-gray-400 pl-2">
                     {slide.text}
                   </p>
                 </div>
 
                 <div className="flex items-center">
                   <div className="ml-2">
-                    <h4 className="text-green-600 text-lg text-right">
+                    <h4 className="text-red-500 text-base text-right">
                       ₹{slide.number}
                     </h4>
                     {/* <p className="text-green-600 text-xs font-semibold">
@@ -366,7 +396,7 @@ const WinningInformation = () => {
           </div>
         </div>
 
-        <div className="bg-[#EDFFF7] p-2 rounded-2xl border border-green-300">
+        <div className="bg-white p-2 rounded-2xl">
           {/* <div className="flex py-1 items-center justify-between my-2 rounded-md bg-light">
             <div className="flex items-center ps-1">
               <img
@@ -442,134 +472,155 @@ const WinningInformation = () => {
               </button>
             </div>
           </div> */}
-          <div className="py-1 flex items-center justify-between my-2 rounded-md bg-[#EDFFF7]">
+          <div className="py-1 flex items-center justify-between my-2 rounded-md bg-white">
             <div className="flex items-center ps-1">
+              <span className="text-black text-sm mr-2">4</span>
+
               <img
                 src={AvatarData[5]}
                 alt=""
                 className="rounded-full w-[40px] h-[40px] mr-4"
               />
+
               <div>
                 <p className="fs-sm text-whites">Mem***RGP</p>
-                <span className="text-[#ffcb7d]  text-sm">NO4</span>
               </div>
             </div>
+
             <div className="relative flex items-center">
-              <button className="text-base mt-1 text-whites py-0.5 px-3  mr-2">
+              <button className="text-sm mt-1 text-red-400 py-0.5 px-3 mr-2">
                 ₹48,632,770.00
               </button>
             </div>
           </div>
           <div className=" bg-[#D8EBE4] w-full h-[.02667rem]" />
-          <div className="py-1 flex items-center justify-between my-2 rounded-md bg-[#EDFFF7]">
+          <div className="py-1 flex items-center justify-between my-2 rounded-md bg-white">
             <div className="flex items-center ps-1">
+              <span className="text-black text-sm mr-2">5</span>
+
               <img
                 src={AvatarData[1]}
                 alt=""
                 className="rounded-full w-[40px] h-[40px] mr-4"
               />
+
               <div>
                 <p className="fs-sm text-whites">Mem***EHF</p>
-                <span className="text-[#ffcb7d]  text-sm">NO5</span>
               </div>
             </div>
+
             <div className="relative flex items-center">
-              <button className="text-base mt-1 text-whites py-0.5 px-3 mr-2">
+              <button className="text-sm mt-1 text-red-400 py-0.5 px-3 mr-2">
                 ₹43,692,960.00
               </button>
             </div>
           </div>
           <div className=" bg-[#D8EBE4] w-full h-[.02667rem]" />
-          <div className="py-1 flex items-center justify-between my-2 rounded-md bg-[#EDFFF7]">
+          <div className="py-1 flex items-center justify-between my-2 rounded-md bg-white">
             <div className="flex items-center ps-1">
+              <span className="text-black text-sm mr-2">6</span>
+
               <img
                 src={AvatarData[1]}
                 alt=""
                 className="rounded-full w-[40px] h-[40px] mr-4"
               />
+
               <div>
                 <p className="fs-sm text-whites">Mem***AXT</p>
-                <span className="text-[#ffcb7d]  text-sm">NO6</span>
               </div>
             </div>
+
             <div className="relative flex items-center">
-              <button className="text-base mt-1 text-whites py-0.5 px-3 mr-2">
+              <button className="text-sm mt-1 text-red-400 py-0.5 px-3 mr-2">
                 ₹43,692,960.00
               </button>
             </div>
           </div>
           <div className=" bg-[#D8EBE4] w-full h-[.02667rem]" />
-          <div className="py-1 flex items-center justify-between my-2 rounded-md bg-[#EDFFF7]">
+          <div className="py-1 flex items-center justify-between my-2 rounded-md bg-white">
             <div className="flex items-center ps-1">
+              <span className="text-black text-sm mr-2">7</span>
+
               <img
                 src={AvatarData[1]}
                 alt=""
                 className="rounded-full w-[40px] h-[40px] mr-4"
               />
+
               <div>
                 <p className="fs-sm text-whites">Mem***KOW</p>
-                <span className="text-[#ffcb7d]  text-sm">NO7</span>
               </div>
             </div>
+
             <div className="relative flex items-center">
-              <button className="text-base mt-1 text-whites py-0.5 px-3 mr-2">
+              <button className="text-sm mt-1 text-red-400 py-0.5 px-3 mr-2">
                 ₹43,692,960.00
               </button>
             </div>
           </div>
           <div className=" bg-[#D8EBE4] w-full h-[.02667rem]" />
-          <div className="py-1 flex items-center justify-between my-2 rounded-md bg-[#EDFFF7]">
+          <div className="py-1 flex items-center justify-between my-2 rounded-md bg-white">
             <div className="flex items-center ps-1">
+              <span className="text-black text-sm mr-2">8</span>
+
               <img
                 src={AvatarData[1]}
                 alt=""
                 className="rounded-full w-[40px] h-[40px] mr-4"
               />
+
               <div>
                 <p className="fs-sm text-whites">Mem***95C</p>
-                <span className="text-[#ffcb7d]  text-sm">NO8</span>
               </div>
             </div>
+
             <div className="relative flex items-center">
-              <button className="text-base mt-1 text-whites py-0.5 px-3 mr-2">
+              <button className="text-sm mt-1 text-red-400 py-0.5 px-3 mr-2">
                 ₹43,692,960.00
               </button>
             </div>
           </div>
           <div className=" bg-[#D8EBE4] w-full h-[.02667rem]" />
-          <div className="py-1 flex items-center justify-between my-2 rounded-md bg-[#EDFFF7]">
+          <div className="py-1 flex items-center justify-between my-2 rounded-md bg-white">
             <div className="flex items-center ps-1">
+              <span className="text-black text-sm mr-2">9</span>
+
               <img
                 src={AvatarData[1]}
                 alt=""
                 className="rounded-full w-[40px] h-[40px] mr-4"
               />
+
               <div>
                 <p className="fs-sm text-whites">Mem***VG3</p>
-                <span className="text-[#ffcb7d]  text-sm">NO9</span>
               </div>
             </div>
+
             <div className="relative flex items-center">
-              <button className="text-base mt-1 text-whites py-0.5 px-3 mr-2">
+              <button className="text-sm mt-1 text-red-400 py-0.5 px-3 mr-2">
                 ₹43,692,960.00
               </button>
             </div>
           </div>
           <div className=" bg-[#D8EBE4] w-full h-[.02667rem]" />
-          <div className="py-1 flex items-center justify-between rounded-md bg-[#EDFFF7]">
+          <div className="py-1 flex items-center justify-between rounded-md bg-white">
             <div className="flex items-center ps-1">
+              <span className="text-black text-sm mr-2">10</span>
+
               <img
                 src={AvatarData[1]}
                 alt=""
                 className="rounded-full w-[40px] h-[40px] mr-4"
               />
+
               <div>
                 <p className="fs-sm text-whites">Mem***XVT</p>
-                <span className="text-[#ffcb7d]  text-sm">NO10</span>
               </div>
             </div>
+
             <div className="relative flex items-center">
-              <button className="text-base mt-1 text-whites py-0.5 px-3 mr-2">
+              <button className="text-sm mt-1 text-red-400 py-0.5 px-3 mr-2">
                 ₹43,692,960.00
               </button>
             </div>

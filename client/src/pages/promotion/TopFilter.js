@@ -26,7 +26,7 @@ const Item = styled.div`
   align-items: center;
   color: ${(props) => (props.active ? "#fff" : "#80849C")};
   background: ${(props) =>
-    props.active ? "linear-gradient(90deg, #09D982 0%, #04E98A 100%)" : "#fff"};
+    props.active ? "linear-gradient(90deg, #F95B5B 0%, #FFB7AF 100%);" : "#fff"};
   font-weight: 700;
   cursor: pointer;
   padding: 8px;

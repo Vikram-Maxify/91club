@@ -73,7 +73,7 @@ const Promotion = () => {
           <h3 className="heading-h3 text-2xl text-white">
             {totalCommissionData?.yesterdayBalance?.toFixed(2)}
           </h3>
-          <p className="text-sm bg-body text-blue rounded-full px-3  pb-[1px] flex items-center justify-center text-center my-2 p-1">
+          <p className="text-sm bg-body text-red-400 rounded-full px-3  pb-[1px] flex items-center justify-center text-center my-2 p-1">
             Yesterday's total commission
           </p>
           <p className="fs-sm pb-1 text-white">
@@ -83,7 +83,6 @@ const Promotion = () => {
           <div className="promotion-member mt-2 flex items-start bg-body w-[100%] rounded-lg relative z-10">
             <div className="w-[50%]">
               <div className="sheet_nav_bg flex items-center p-1 rounded-tl-lg">
-                <HiUsers className="text-white text-2xl" />
                 <p className="text-sm ms-2 font-normal py-2 text-white">
                   Direct subordinates
                 </p>
@@ -128,7 +127,6 @@ const Promotion = () => {
             </div>
             <div className="w-[50%] h-full border-l border-text-whites">
               <div className="sheet_nav_bg h-full flex items-center p-1 rounded-tr-lg">
-                <FaUsers className="text-white text-2xl" />
                 <p className="text-sm ms-2 font-normal py-2 text-white">
                   Team subordinates
                 </p>
@@ -185,7 +183,7 @@ const Promotion = () => {
           onClick={() => navigate("/invite")}
           className="blue-linear w-full p-1 text-md font-bold my-2 rounded-full text-center  color-orange"
         >
-          <div className="w-full ">INVITAION LINK</div>
+          <div className="w-full py-[3px]">INVITAION LINK</div>
         </div>
 
         <ul className="mt-3">

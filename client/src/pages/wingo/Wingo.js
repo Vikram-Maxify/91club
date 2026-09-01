@@ -708,7 +708,7 @@ const Wingo = () => {
             >
               <svg
                 data-v-3e4c6499=""
-                xmlns="http://www.w3.org/2000/svg"
+                xmlns=""
                 className="svg-white"
                 width="20"
                 height="20"
