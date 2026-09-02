@@ -168,7 +168,7 @@ const Navbar = () => {
         >
           <svg
             data-v-cbfefb2b=""
-            className={`size-7 ${activeItem === "/" || activeItem === "//"
+            className={`size-6 ${activeItem === "/" || activeItem === "//"
               ? "svg-icon"
               : "svg-icons"
               }`}
@@ -176,7 +176,7 @@ const Navbar = () => {
             <use href="#icon-home"></use>
           </svg>
           <span
-            className={`text-[11px] font-medium ${activeItem === "/" || activeItem === "//"
+            className={`text-[10px] font-medium ${activeItem === "/" || activeItem === "//"
               ? "text-[#F95959]"
               : "text-[#BEC6D4]"
               }`}
@@ -192,13 +192,13 @@ const Navbar = () => {
         >
           <svg
             data-v-cbfefb2b=""
-            className={`size-7 ${activeItem === "/activity" ? "svg-icon" : "svg-icons"
+            className={`size-6 ${activeItem === "/activity" ? "svg-icon" : "svg-icons"
               }`}
           >
             <use href="#icon-activity"></use>
           </svg>
           <span
-            className={`text-[11px] font-medium ${activeItem === "/activity"
+            className={`text-[10px] font-medium ${activeItem === "/activity"
               ? "text-[#F95959]"
               : "text-[#BEC6D4]"
               }`}
@@ -230,13 +230,13 @@ const Navbar = () => {
         >
           <svg
             data-v-6ab3f23e
-            className={`size-7 icon-promotion2 ${activeItem === "/promotion" ? "svg-icon" : "svg-icons"
+            className={`size-6 icon-promotion2 ${activeItem === "/promotion" ? "svg-icon" : "svg-icons"
               }`}
           >
             <use xlinkHref="#icon-promotion2" />
           </svg>
           <span
-            className={`text-[11px] font-medium ${activeItem === "/promotion"
+            className={`text-[10px] font-medium ${activeItem === "/promotion"
               ? "text-[#F95959]"
               : "text-[#BEC6D4]"
               }`}
@@ -253,13 +253,13 @@ const Navbar = () => {
         >
           <svg
             data-v-cbfefb2b=""
-            className={`size-7 ${activeItem === "/main" ? "svg-icon" : "svg-icons"
+            className={`size-6 ${activeItem === "/main" ? "svg-icon" : "svg-icons"
               }`}
           >
             <use href="#icon-main"></use>
           </svg>
           <span
-            className={`text-[11px] font-medium ${activeItem === "/main"
+            className={`text-[10px] font-medium ${activeItem === "/main"
                 ? "text-[#F95959]"
                 : "text-[#BEC6D4]"
               }`}
