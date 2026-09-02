@@ -80,7 +80,7 @@ const FishingGame = () => {
                   src={game.icon}
                   alt={game.game_name}
                   loading="lazy"
-                  className="w-full h-[160px] object-fill"
+                  className="w-full h-[18vh] object-fill"
                   onClick={() => handleJilliOpen(game.game_uid)}
                 />
               </div>

@@ -74,7 +74,7 @@ const SportsComponent = () => {
               <img
                 src={sport.image}
                 alt={sport.name}
-                className="w-full h-[160px] object-cover rounded-md"
+                className="w-full h-[18vh] object-cover rounded-md"
               />
             </div>
           ))}
