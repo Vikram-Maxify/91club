@@ -43,13 +43,13 @@ const allCategories = [
   {
     name: "Lottery",
     icon: LotteryIcon,
-    activeIcon:lotteryactive,
+    activeIcon: lotteryactive,
     id: "lottery",
   },
   {
     name: "Original",
     icon: originalIcon,
-    activeIcon:originalActiveIcon,
+    activeIcon: originalActiveIcon,
     id: "orignal",
   },
   {
@@ -79,7 +79,7 @@ const allCategories = [
   {
     name: "All",
     icon: AllIcon,
-    activeIcon : AllActiveIcon,
+    activeIcon: AllActiveIcon,
     id: "all",
   },
 ];
@@ -156,39 +156,41 @@ const SlotComponents = () => {
       </div>
 
       {/* lottery tabs  */}
-      <div className="w-full p-2 rounded-md overflow-x-auto scrollbar-hide">
-        <div className="flex gap-2 items-center w-max">
-          {allCategories.map((cat) => {
-            const isActive = tabs === cat.id;
+      <div className="w-full p-2 rounded-md sticky top-0 z-50 bg-white">
+        <div className="overflow-x-auto scrollbar-hide">
+          <div className="flex gap-2 items-center w-max">
+            {allCategories.map((cat) => {
+              const isActive = tabs === cat.id;
 
-            return (
-              <div
-                key={cat.id}
-                onClick={() => setTabs(cat.id)}
-                className="flex flex-col items-center cursor-pointer"
-              >
+              return (
                 <div
-                  className={`min-w-[0px] rounded-xl flex flex-row items-center justify-center px-3 py-1 transition ${isActive ? "bg-white shadow-lg" : ""
-                    }`}
+                  key={cat.id}
+                  onClick={() => setTabs(cat.id)}
+                  className="flex flex-col items-center cursor-pointer"
                 >
-                  <img
-                    src={isActive && cat.activeIcon ? cat.activeIcon : cat.icon}
-                    alt={cat.name}
-                    className="w-5 h-5 mr-2"
-                  />
-
-                  <p
-                    className={`${isActive
-                        ? "text-black font-semibold text-lg"
-                        : "text-gray-500"
+                  <div
+                    className={`min-w-[0px] rounded-xl flex flex-row items-center justify-center px-3 py-1 transition ${isActive ? "bg-white shadow-lg" : ""
                       }`}
                   >
-                    {cat.name}
-                  </p>
+                    <img
+                      src={isActive && cat.activeIcon ? cat.activeIcon : cat.icon}
+                      alt={cat.name}
+                      className="w-5 h-5 mr-2"
+                    />
+
+                    <p
+                      className={`${isActive
+                        ? "text-black font-semibold text-lg"
+                        : "text-gray-500"
+                        }`}
+                    >
+                      {cat.name}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
 

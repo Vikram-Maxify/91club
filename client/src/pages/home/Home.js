@@ -228,66 +228,62 @@ const Home = () => {
         </div>
       )}
 
-      <div className="sticky top-0 z-50 bg-gradient-to-l pb-5">
-        <div className=" flex items-center justify-between rounded-md px-3">
-          <div className="logo py-2 flex flex-col items-start">
-            {/* Logo */}
+      <div className="z-40 bg-gradient-to-l pb-5">
+  <div className="flex items-center justify-between rounded-md px-3">
+    <div className="logo py-2 flex flex-col items-start">
+      {/* Logo */}
+      <img
+        src={bannergetData?.gameall?.logo}
+        alt="loading img"
+        loading="lazy"
+        className="w-[200px]"
+      />
+    </div>
+
+    {userInfo ? (
+      <div className="flex gap-2 items-center my-0.5">
+        <img
+          src="https://i.ibb.co/qMgWb30K/icon-Download-CAVOF-9-C.png"
+          alt=""
+          loading="lazy"
+          className="w-7"
+        />
+
+        <Link
+          className="flex justify-between items-center"
+          to={`https://h5support.expressclub.site/?token=${Cookies.get(
+            "auth"
+          )}`}
+        >
+          <div>
             <img
-              src={bannergetData?.gameall?.logo}
-              alt="loading img"
+              src="https://i.ibb.co/0VnqD47C/message-Icon-Dzj8-Mws-M.png"
+              alt=""
               loading="lazy"
-              className="w-[200px]"
+              className="w-7"
             />
           </div>
-
-          {userInfo ? (
-            <div className="flex  gap-2 items-center my-0.5">
-              <img
-                src="https://i.ibb.co/qMgWb30K/icon-Download-CAVOF-9-C.png"
-                alt=""
-                loading="lazy"
-                className="w-7"
-              />
-              {/* <svg className="w-7 h-7 svg-icon">
-          <use href="#icon-down" />
-        </svg> */}
-
-              <Link
-                className="flex justify-between items-center  "
-                to={`https://h5support.expressclub.site/?token=${Cookies.get("auth")}`}
-              >
-                <div className="">
-                  {/* <svg className="w-7 h-7 svg-icon">
-              <use href="#icon-serverTicket" />
-            </svg> */}
-                  <img
-                    src="https://i.ibb.co/0VnqD47C/message-Icon-Dzj8-Mws-M.png"
-                    alt=""
-                    loading="lazy"
-                    className=" w-7"
-                  />
-                </div>
-              </Link>
-            </div>
-          ) : (
-            <div className="text-black flex justify-center gap-2">
-              <button
-                onClick={() => navigate("/login")}
-                className="bg-white text-black px-3 py-1.5 rounded-md w-[70px] h-[34px] border border-gray-400 font-bold"
-              >
-                Log in
-              </button>
-
-              <button
-                onClick={() => navigate("/register")}
-                className="bg-[#FB5755] text-white px-3 py-1.5 rounded-md w-[80px] h-[34px]"
-              >
-                Register
-              </button>
-            </div>
-          )}
-        </div>
+        </Link>
       </div>
+    ) : (
+      <div className="text-black flex justify-center gap-2">
+        <button
+          onClick={() => navigate("/login")}
+          className="bg-white text-black px-3 py-1.5 rounded-md w-[70px] h-[34px] border border-gray-400 font-bold"
+        >
+          Log in
+        </button>
+
+        <button
+          onClick={() => navigate("/register")}
+          className="bg-[#FB5755] text-white px-3 py-1.5 rounded-md w-[80px] h-[34px]"
+        >
+          Register
+        </button>
+      </div>
+    )}
+  </div>
+</div>
 
       <Alerts />
 
