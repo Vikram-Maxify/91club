@@ -245,7 +245,7 @@ const Withdraw = () => {
               )}
               <div className="bg-body mt-2 p-3 rounded-md pb-10">
                 <div className="bgs-body flex items-center px-5 py-1 rounded-full">
-                  <span className="text-blue text-lg font-bold">₹</span>
+                  <span className="text-[#FB5959] text-lg font-bold">₹</span>
                   <form autoComplete="off">
                     <input
                       type="number"
@@ -254,7 +254,7 @@ const Withdraw = () => {
                       inputMode="numeric"
                       autoCorrect="off"
                       spellCheck="false"
-                      className="w-full bgs-body p-2 ps-6 flex items-center focus:outline-none color-blue placeholder:text-sm placeholder:text-[#F5CC2C]"
+                      className="w-full bgs-body p-2 ps-6 flex items-center focus:outline-none color-blue placeholder:text-sm placeholder:text-[#FB5959]"
                       placeholder="Please enter the amount"
                       value={amount}
                       onChange={(e) => setAmount(e.target.value)}
@@ -278,7 +278,7 @@ const Withdraw = () => {
                     </span>
                   </p>
                   <button
-                    className="border rounded-md border-[var(--main-color)] text-blue px-5 py-[2px] fs-sm"
+                    className="border rounded-md border-[var(--main-color)] text-blue px-5 py-1 fs-sm pt-1"
                     onClick={() =>
                       setAmount(
                         Math.round(
@@ -380,7 +380,7 @@ const Withdraw = () => {
                     </span>
                   </p>
                   <button
-                    className="border rounded-md border-[var(--main-color)] text-blue px-5 py-[2px] fs-sm"
+                    className="border rounded-md border-[var(--main-color)] text-blue px-4 py-2 fs-sm"
                     onClick={() =>
                       setAmount(
                         Math.round(

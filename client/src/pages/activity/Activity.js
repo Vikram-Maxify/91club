@@ -48,7 +48,7 @@ const Activity = () => {
           </div>
         </div>
 
-        <button className="border font-semibold text-[#08D781] px-6 py-2 rounded-full  transition bg-light">
+        <button className="border font-semibold text-[#F95959] px-6 py-2 rounded-full  transition bg-light">
           Bonus details
         </button>
       </div>

@@ -1,13 +1,22 @@
 import { useEffect, useRef, useState } from "react";
 
-import AllIcon from "../../../assets/tiranga/allIcon.png";
-import CasinoIcon from "../../../assets/tiranga/casino.png";
-import FishingIcon from "../../../assets/tiranga/fishing.png";
-import LotteryIcon from "../../../assets/tiranga/lotteryIcon.png";
-import OriginalIcon from "../../../assets/tiranga/originalIcon.png";
-import RummyIcon from "../../../assets/tiranga/rummy.png";
-import SlotsIcon from "../../../assets/tiranga/slot.png";
-import SportIcon from "../../../assets/tiranga/sport.png";
+import AllIcon from "../../../assets/tiranga/AllIcon.png";
+import AllActiveIcon from "../../../assets/tiranga/allactiveicon.png";
+import CasinoIcon from "../../../assets/tiranga/casino.svg";
+import CasinoActiceIcon from "../../../assets/tiranga/casinoactive.png";
+import FishingIcon from "../../../assets/tiranga/fishing.svg";
+import LobbyIcon from "../../../assets/tiranga/lobby.svg";
+import LobbyActiveIcon from "../../../assets/tiranga/lobbyactive.svg";
+import FishingActiveIcon from "../../../assets/tiranga/fishingactive.png";
+import originalIcon from "../../../assets/tiranga/originalIcon.png";
+import originalActiveIcon from "../../../assets/tiranga/originalactive.png";
+import lotteryactive from "../../../assets/tiranga/wingoactive.png";
+import LotteryIcon from "../../../assets/tiranga/lottery.png";
+// import RummyIcon from "../../../assets/tiranga/rummy.png";
+import SlotsIcon from "../../../assets/tiranga/slot.svg";
+import SlotsActiveIcon from "../../../assets/tiranga/slotactive.svg";
+import SportIcon from "../../../assets/tiranga/sport.svg";
+import SportActiveIcon from "../../../assets/tiranga/sportactive.svg";
 
 import { rechargeList2 } from "../../../store/reducer/userReducer";
 import SportsComponent from "./SportsComponent";
@@ -27,47 +36,50 @@ import PVCSection from "./PVCSection";
 const allCategories = [
   {
     name: "Lobby",
-    Icon: LotteryIcon,
+    icon: LobbyIcon,
+    activeIcon: LobbyActiveIcon,
     id: "lobby",
   },
   {
     name: "Lottery",
     icon: LotteryIcon,
+    activeIcon:lotteryactive,
     id: "lottery",
   },
   {
     name: "Original",
-    icon: OriginalIcon,
+    icon: originalIcon,
+    activeIcon:originalActiveIcon,
     id: "orignal",
   },
   {
     name: "Slots",
     icon: SlotsIcon,
+    activeIcon: SlotsActiveIcon,
     id: "slots",
   },
   {
     name: "Sports",
     icon: SportIcon,
+    activeIcon: SportActiveIcon,
     id: "sports",
   },
   {
     name: "Casino",
     icon: CasinoIcon,
+    activeIcon: CasinoActiceIcon,
     id: "casino",
-  },
-  {
-    name: "PVC",
-    icon: RummyIcon,
-    id: "rummy",
   },
   {
     name: "Fishing",
     icon: FishingIcon,
+    activeIcon: FishingActiveIcon,
     id: "fishing",
   },
   {
     name: "All",
-    icon: AllIcon, // All ke liye koi bhi icon
+    icon: AllIcon,
+    activeIcon : AllActiveIcon,
     id: "all",
   },
 ];
@@ -96,15 +108,11 @@ const SlotComponents = () => {
     dispatch(notification());
   }, []);
 
+  // TEMPORARY: removed recharge check – navigate directly to game
   const handleWingo = (path) => {
-    dispatch(rechargeList2()).then((res) => {
-      if (res.payload.data2?.length === 0) {
-        setRepopup(true);
-      } else {
-        navigate(path);
-      }
-    });
+    navigate(path);
   };
+
   useEffect(() => {
     const section = document.getElementById(tabs);
     if (section) {
@@ -150,32 +158,37 @@ const SlotComponents = () => {
       {/* lottery tabs  */}
       <div className="w-full p-2 rounded-md overflow-x-auto scrollbar-hide">
         <div className="flex gap-2 items-center w-max">
-          {allCategories.map((cat) => (
-            <div
-              key={cat.id}
-              onClick={() => setTabs(cat.id)}
-              className="flex flex-col items-center cursor-pointer"
-            >
-              {/* Icon Box */}
-              <div
-                className={`min-w-[0px] rounded-xl flex flex-col items-center justify-center px-2.5 transition
-                              ${tabs === cat.id ? "bg-[#BCFFE5]" : ""}`}
-              >
-                {/* <img src={cat.icon} alt={cat.name} className="w-6 h-6 mb-1" /> */}
-                <p
-                  className={` ${
-                    tabs === cat.id
-                      ? "text-black font-bold text-lg"
-                      : "text-gray-500"
-                  }`}
-                >
-                  {cat.name}
-                </p>
-              </div>
+          {allCategories.map((cat) => {
+            const isActive = tabs === cat.id;
 
-              {/* Category Name */}
-            </div>
-          ))}
+            return (
+              <div
+                key={cat.id}
+                onClick={() => setTabs(cat.id)}
+                className="flex flex-col items-center cursor-pointer"
+              >
+                <div
+                  className={`min-w-[0px] rounded-xl flex flex-row items-center justify-center px-3 py-1 transition ${isActive ? "bg-white shadow-lg" : ""
+                    }`}
+                >
+                  <img
+                    src={isActive && cat.activeIcon ? cat.activeIcon : cat.icon}
+                    alt={cat.name}
+                    className="w-5 h-5 mr-2"
+                  />
+
+                  <p
+                    className={`${isActive
+                        ? "text-black font-semibold text-lg"
+                        : "text-gray-500"
+                      }`}
+                  >
+                    {cat.name}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
 
@@ -188,9 +201,9 @@ const SlotComponents = () => {
               <div className="flex justify-between pb-3">
                 <div className="flex">
                   <img
-                    src="https://i.ibb.co/fVdPhJrX/loteria-0ccd41c5.webp"
+                    src="https://i.ibb.co/CKq5YKWn/logo8.jpg"
                     alt=""
-                    className="w-5 h-5"
+                    className="w-7 h-7 rounded-full"
                   />
                   <h4 className="border-after text-black font-bold pl-2">
                     Lottery
@@ -203,20 +216,20 @@ const SlotComponents = () => {
                 </Link>
               </div>
               {/* Row 1 → 3 images */}
-              <div className="grid grid-cols-3 gap-3">
-                {gameData.slice(0, 3).map((game) => (
+              <div className="grid grid-cols-2 gap-2">
+                {gameData.slice(0, 6).map((game) => (
                   <img
                     key={game.id}
                     src={game.image}
                     alt={game.name}
                     onClick={() => handleWingo(game.link)}
-                    className="w-full h-40 object-cover rounded-xl cursor-pointer hover:opacity-90 transition"
+                    className="w-48 h-full object-cover rounded-xl cursor-pointer hover:opacity-90 transition"
                   />
                 ))}
               </div>
 
               {/* Row 2 → 1 image */}
-              <div className="grid grid-cols-3 mt-3">
+              {/* <div className="grid grid-cols-3 mt-3">
                 {gameData.slice(3, 4).map((game) => (
                   <img
                     key={game.id}
@@ -226,7 +239,7 @@ const SlotComponents = () => {
                     className="w-full h-40 object-cover rounded-xl cursor-pointer hover:opacity-90 transition"
                   />
                 ))}
-              </div>
+              </div> */}
             </div>
 
             {/* Popular Section */}
@@ -276,45 +289,45 @@ const SlotComponents = () => {
             <div className="flex justify-between pb-3">
               <div className="flex">
                 <img
-                  src="https://i.ibb.co/fVdPhJrX/loteria-0ccd41c5.webp"
+                  src="https://i.ibb.co/CKq5YKWn/logo8.jpg"
                   alt=""
-                  className="w-5 h-5"
+                  className="w-7 h-7 rounded-full"
                 />
                 <h4 className="border-after text-black font-bold pl-2">
                   Lottery
                 </h4>
               </div>
               <Link to={"/home/AllOnlineGames?game=Lottery"}>
-                <button className="ml-3 bg-green-300/20 text-green-400 px-3 py-0 rounded-xl border border-green-300 gray-100">
+                <button className="ml-3 bg-white text-red-400 px-3 py-0 rounded-xl border border-red-300 gray-100">
                   All 4
                 </button>
               </Link>
             </div>
             {/* Row 1 → 3 images */}
-            <div className="grid grid-cols-3 gap-3">
-              {gameData.slice(0, 3).map((game) => (
+            <div className="grid grid-cols-2 gap-3">
+              {gameData.slice(0, 5).map((game) => (
                 <img
                   key={game.id}
                   src={game.image}
                   alt={game.name}
                   onClick={() => handleWingo(game.link)}
-                  className="w-full h-40 object-cover rounded-xl cursor-pointer hover:opacity-90 transition"
+                  className=" object-contain rounded-xl cursor-pointer hover:opacity-90 transition"
                 />
               ))}
             </div>
 
             {/* Row 2 → 1 image */}
-            <div className="grid grid-cols-3 mt-3">
+            {/* <div className="grid grid-cols-2 gap-3 mt-3">
               {gameData.slice(3, 4).map((game) => (
                 <img
                   key={game.id}
                   src={game.image}
                   alt={game.name}
                   onClick={() => handleWingo(game.link)}
-                  className="w-full h-40 object-cover rounded-xl cursor-pointer hover:opacity-90 transition"
+                  className="object-contain rounded-xl cursor-pointer hover:opacity-90 transition"
                 />
               ))}
-            </div>
+            </div> */}
           </div>
         )}
         {/*  */}
@@ -465,7 +478,7 @@ const gameData = [
   {
     id: 1,
     name: "Win Go",
-    image: "https://i.ibb.co/ZR200z95/lotterycategory-202604251545137rmo.png",
+    image: "https://i.ibb.co/tMqMBM5D/lottery4.png",
     description1: "Guess Number",
     description2: "Green/Red/Violet to win",
     link: "/wingo",
@@ -473,7 +486,7 @@ const gameData = [
   {
     id: 2,
     name: "K3",
-    image: "https://i.ibb.co/5hX9fksd/k3.png",
+    image: "https://i.ibb.co/zT2cWbyv/lottery2.png",
     description1: "Guess Number",
     description2: "Big/Small/Odd/Even",
     link: "/k3",
@@ -481,7 +494,7 @@ const gameData = [
   {
     id: 3,
     name: "5D",
-    image: "https://i.ibb.co/MDgwTYXT/5d.png",
+    image: "https://i.ibb.co/rKnvxzf7/lottery1.png",
     description1: "Guess Number",
     description2: "Big/Small/Odd/Even",
     link: "/5d",
@@ -489,7 +502,15 @@ const gameData = [
   {
     id: 4,
     name: "Trx Win Go",
-    image: "https://i.ibb.co/Z6sc3v9b/trx.png",
+    image: "https://i.ibb.co/F4Sk42Tb/lottery3.png",
+    description1: "Guess Number",
+    description2: "Green/Red/Violet to win",
+    link: "/trx",
+  },
+  {
+    id: 5,
+    name: "Moto Racing",
+    image: "https://i.ibb.co/VWvxmjQ7/lottery5.png",
     description1: "Guess Number",
     description2: "Green/Red/Violet to win",
     link: "/trx",

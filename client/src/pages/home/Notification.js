@@ -72,7 +72,7 @@ const Notification = () => {
                   className="absolute  right-3  top-3 cursor-pointer"
                   onClick={() => handleDelete(item.id)}
                 >
-                  <FaRegTrashAlt className="color-blue-500 text-lg text-[#00e688]" />
+                  <FaRegTrashAlt className="color-blue-500 text-lg text-[#f95959]" />
                 </span>
               </li>
             ))

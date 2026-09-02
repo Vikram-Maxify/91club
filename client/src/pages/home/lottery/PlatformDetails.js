@@ -22,21 +22,21 @@ const PlatformDetails = () => {
   return (
     <div className="p-2 flex flex-col items-center rounded ">
       {/* Header */}
-      <div className="flex justify-between gap-1 items-center w-full h-auto mb-2 ">
-        <div className="w-1/2 flex justify-center items-center">
-          <span className="w-10 h-10 rounded-full bg-[#08D781] inline-flex justify-center items-center font-semibold">
+      <div className="flex justify-center gap-1 items-center w-full h-auto mb-2 mt-5">
+        <div className="flex justify-center items-center">
+          <span className="w-10 h-10 rounded-full bg-red-500 inline-flex justify-center items-center font-semibold">
             +18
           </span>
         </div>
 
-        <span className="w-1/2 flex justify-center items-center">
+        {/* <span className="w-1/2 flex justify-center items-center">
           <img
             src="https://i.ibb.co/TJKjssH/telegram.png"
             alt=""
             loading="lazy"
             className="h-12"
           />
-        </span>
+        </span> */}
         {/* <img
           src="https://i.ibb.co/QjTbrcCg/u18-7146ab6f.webp"
           alt=""
@@ -51,8 +51,8 @@ const PlatformDetails = () => {
       <div className="w-full px-2 border-t border-[#D8EBE4]">
         <ul className="space-y-1">
           <li className="flex items-start gap-3">
-            <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#3ddc84] flex-shrink-0"></span>
-            <p className="text-[#2b2b2b] text-[15px] leading-relaxed">
+            <span className="mt-2 w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0"></span>
+            <p className="text-gray-500 text-[14px] leading-relaxed">
               The platform advocates fairness, justice, and openness. We mainly
               operate fair lottery, blockchain games, live casinos, and slot
               machine games.
@@ -60,16 +60,16 @@ const PlatformDetails = () => {
           </li>
 
           <li className="flex items-start gap-3">
-            <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#3ddc84] flex-shrink-0"></span>
-            <p className="text-[#2b2b2b] text-[15px] leading-relaxed">
+            <span className="mt-2 w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0"></span>
+            <p className="text-gray-500 text-[14px] leading-relaxed">
               ExpressClub works with more than 10,000 online live game dealers
               and slot games, all of which are verified fair games.
             </p>
           </li>
 
           <li className="flex items-start gap-3">
-            <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#3ddc84] flex-shrink-0"></span>
-            <p className="text-[#2b2b2b] text-[15px] leading-relaxed">
+            <span className="mt-2 w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0"></span>
+            <p className="text-gray-500 text-[14px] leading-relaxed">
               ExpressClub supports fast deposit and withdrawal, and looks
               forward to your visit.
             </p>
@@ -77,10 +77,10 @@ const PlatformDetails = () => {
         </ul>
 
         <div className="mt-5 pl-5 space-y-1">
-          <p className="text-[#5fd68a] text-[14px]">
+          <p className="text-red-400 text-[14px]">
             Gambling can be addictive, please play rationally.
           </p>
-          <p className="text-[#5fd68a] text-[14px]">
+          <p className="text-red-400 text-[14px]">
             ExpressClub only accepts customers above the age of 18.
           </p>
         </div>

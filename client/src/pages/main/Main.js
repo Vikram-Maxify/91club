@@ -153,7 +153,7 @@ const Main = () => {
 
               {/* Right side = button */}
               <button
-                className="text-white me-2 -mt-5 rounded-full bg-[#00e688] px-4 py-2 text-sm"
+                className="text-white me-2 -mt-5 rounded-full bg-[#F95959] px-4 py-1.5 text-sm"
                 onClick={() => navigate("/wallet")}
               >
                 Enter Wallet
@@ -374,7 +374,7 @@ const Main = () => {
       </div>
 
       <div className="container-section mt-6">
-        <div className="bg-body p-3 rounded-lg pb-5 bg-body">
+        <div className="bg-body p-3 rounded-lg pb-3 bg-body">
           <h3 className="heading-h3 text-whites font-medium mb-2 pt-2">
             Service center
           </h3>
@@ -464,7 +464,7 @@ const Main = () => {
         </div>
 
         <button
-          className="border flex  color-l justify-center items-center border-[var(--bg-color-l)] w-[100%] rounded-full p-1 mt-6 text-base"
+          className="border flex  color-l justify-center items-center border-[var(--bg-color-l)] w-[100%] rounded-full p-1 mt-3 text-base mb-3"
           onClick={() => setShowPopup(true)}
         >
           {" "}

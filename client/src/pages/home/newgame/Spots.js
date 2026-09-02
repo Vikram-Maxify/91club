@@ -79,7 +79,7 @@ const Slots = () => {
               src={slot.img}
               alt={`Slot ${i + 1}`}
               loading="lazy"
-              className="w-full rounded-lg p-[1px] h-[26vh]"
+              className="w-full rounded-lg p-[1px] h-[18vh]"
               onClick={() => handleJilliOpen(slot.id)} // ✅using static id
             />
           </div>

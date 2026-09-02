@@ -498,7 +498,7 @@ export default function Recharge() {
               activeTab !== "ARPay" && (
                 <div className="bg-light p-2 py-3 pb-5 mt-4 rounded-lg">
                   <h2 className="text-lg mb-2 flex items-center text-whites">
-                    <IoMdWallet className="text-blue text-lg mr-2" /> Deposit
+                    <IoMdWallet className="text-[#FB5959] size-6 text-lg mr-2" /> Deposit
                     amount
                   </h2>
                   <div className="grid grid-cols-12 gap-2">
@@ -553,7 +553,7 @@ export default function Recharge() {
                     className={`  w-full rounded-full p-2 mt-4  ${
                       amount > 99
                         ? "blue-linear text-white"
-                        : "bg-[#08d781] color-orange"
+                        : "bg-[#FB5959] color-orange"
                     }`}
                     disabled={loader ? true : false}
                     onClick={handleSubmit}

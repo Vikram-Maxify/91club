@@ -15,7 +15,7 @@ const CustomeNavbar = ({ name, details, link, logo, bgClass = "bg-body" }) => {
       <div className="container-section flex items-center relative">
         <button className="absolute">
           <Link onClick={handle}>
-            <IoIosArrowBack className="text-xl text-whites" />
+            <IoIosArrowBack className="text-xl text-white" />
           </Link>
         </button>
 

@@ -228,7 +228,7 @@ const Home = () => {
         </div>
       )}
 
-      <div className="sticky top-0 z-20 bg-gradient-to-l from-white via-[#B3FBF9] to-[#CFD6FF] pb-5">
+      <div className="sticky top-0 z-50 bg-gradient-to-l pb-5">
         <div className=" flex items-center justify-between rounded-md px-3">
           <div className="logo py-2 flex flex-col items-start">
             {/* Logo */}
@@ -239,50 +239,54 @@ const Home = () => {
               className="w-[200px]"
             />
           </div>
-          <div className="flex  gap-2 items-center my-0.5">
-            <img
-              src="https://i.ibb.co/qMgWb30K/icon-Download-CAVOF-9-C.png"
-              alt=""
-              loading="lazy"
-              className="w-7"
-            />
-            {/* <svg className="w-7 h-7 svg-icon">
-              <use href="#icon-down" />
+
+          {userInfo ? (
+            <div className="flex  gap-2 items-center my-0.5">
+              <img
+                src="https://i.ibb.co/qMgWb30K/icon-Download-CAVOF-9-C.png"
+                alt=""
+                loading="lazy"
+                className="w-7"
+              />
+              {/* <svg className="w-7 h-7 svg-icon">
+          <use href="#icon-down" />
+        </svg> */}
+
+              <Link
+                className="flex justify-between items-center  "
+                to={`https://h5support.expressclub.site/?token=${Cookies.get("auth")}`}
+              >
+                <div className="">
+                  {/* <svg className="w-7 h-7 svg-icon">
+              <use href="#icon-serverTicket" />
             </svg> */}
-            <Link
-              className="flex justify-between items-center  "
-              to={`https://h5support.expressclub.site/?token=${Cookies.get("auth")}`}
-            >
-              <div className="">
-                {/* <svg className="w-7 h-7 svg-icon">
-                  <use href="#icon-serverTicket" />
-                </svg> */}
-                <img
-                  src="https://i.ibb.co/0VnqD47C/message-Icon-Dzj8-Mws-M.png"
-                  alt=""
-                  loading="lazy"
-                  className=" w-7"
-                />
-              </div>
-            </Link>
-          </div>
+                  <img
+                    src="https://i.ibb.co/0VnqD47C/message-Icon-Dzj8-Mws-M.png"
+                    alt=""
+                    loading="lazy"
+                    className=" w-7"
+                  />
+                </div>
+              </Link>
+            </div>
+          ) : (
+            <div className="text-black flex justify-center gap-2">
+              <button
+                onClick={() => navigate("/login")}
+                className="bg-white text-black px-3 py-1.5 rounded-md w-[70px] h-[34px] border border-gray-400 font-bold"
+              >
+                Log in
+              </button>
+
+              <button
+                onClick={() => navigate("/register")}
+                className="bg-[#FB5755] text-white px-3 py-1.5 rounded-md w-[80px] h-[34px]"
+              >
+                Register
+              </button>
+            </div>
+          )}
         </div>
-        {!userInfo && (
-          <div className="text-black flex justify-center gap-3">
-            <button
-              onClick={() => navigate("/login")}
-              className="bg-gradient-to-b from-[#78BAFF] to-[#BBC6FF] text-white px-10 py-2 rounded-2xl w-[178px] h-[42px]"
-            >
-              Login
-            </button>
-            <button
-              onClick={() => navigate("/register")}
-              className="bg-green-500 text-white px-10 py-2 rounded-2xl w-[178px] h-[42px]"
-            >
-              Register
-            </button>
-          </div>
-        )}
       </div>
 
       <Alerts />
@@ -307,7 +311,7 @@ const Home = () => {
               </h3>
             </div>
             <div>
-              <h3 className="text-[12px] leading-[1rem] text-black">
+              <h3 className="text-[12px] leading-[1rem] text-[#808A9F]">
                 Please be sure to always use our official website for playing
                 the games with the following link, phishing links
               </h3>
@@ -318,7 +322,7 @@ const Home = () => {
         <span className="float-end text-xl  relative mr-2">
           <Link
             to={"/main/Notification"}
-            className="flex items-center blue-linear p-2 rounded-2xl px-4"
+            className="flex items-center blue-linear p-2 rounded-2xl px-3"
           >
             <BsFire className="text-white mr-1 fs-sm" />{" "}
             <span className="text-white font-semibold fs-sm">Detail</span>
@@ -696,9 +700,8 @@ const Home = () => {
                 />
                 <div className="w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center peer-checked:border-[var(--bg-color-l)] peer-checked:bg-[var(--bg-color-l)]">
                   <svg
-                    className={`w-4 h-4 text-black ${
-                      isChecked ? "block" : "hidden"
-                    }`}
+                    className={`w-4 h-4 text-black ${isChecked ? "block" : "hidden"
+                      }`}
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >

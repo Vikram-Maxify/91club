@@ -108,7 +108,7 @@ const PVCSection = () => {
                           src={item.img}
                           alt={`${item.id} Game`}
                           loading="lazy"
-                          className="w-full h-[160px] object-cover rounded-md"
+                          className="w-full h-[18vh] object-cover rounded-md"
                           onClick={() => {
                             index === 0 && handleJilliOpen(229);
                             index === 1 && handleJilliOpen(51);
