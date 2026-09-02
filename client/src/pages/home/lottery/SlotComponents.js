@@ -1,13 +1,22 @@
 import { useEffect, useRef, useState } from "react";
 
 import AllIcon from "../../../assets/tiranga/AllIcon.png";
+import AllActiveIcon from "../../../assets/tiranga/allactiveicon.png";
 import CasinoIcon from "../../../assets/tiranga/casino.svg";
+import CasinoActiceIcon from "../../../assets/tiranga/casinoactive.png";
 import FishingIcon from "../../../assets/tiranga/fishing.svg";
-import LotteryIcon from "../../../assets/tiranga/lobby.svg";
+import LobbyIcon from "../../../assets/tiranga/lobby.svg";
+import LobbyActiveIcon from "../../../assets/tiranga/lobbyactive.svg";
+import FishingActiveIcon from "../../../assets/tiranga/fishingactive.png";
 import originalIcon from "../../../assets/tiranga/originalIcon.png";
+import originalActiveIcon from "../../../assets/tiranga/originalactive.png";
+import lotteryactive from "../../../assets/tiranga/wingoactive.png";
+import LotteryIcon from "../../../assets/tiranga/lottery.png";
 // import RummyIcon from "../../../assets/tiranga/rummy.png";
 import SlotsIcon from "../../../assets/tiranga/slot.svg";
+import SlotsActiveIcon from "../../../assets/tiranga/slotactive.svg";
 import SportIcon from "../../../assets/tiranga/sport.svg";
+import SportActiveIcon from "../../../assets/tiranga/sportactive.svg";
 
 import { rechargeList2 } from "../../../store/reducer/userReducer";
 import SportsComponent from "./SportsComponent";
@@ -27,47 +36,50 @@ import PVCSection from "./PVCSection";
 const allCategories = [
   {
     name: "Lobby",
-    Icon: LotteryIcon,
+    icon: LobbyIcon,
+    activeIcon: LobbyActiveIcon,
     id: "lobby",
   },
   {
     name: "Lottery",
     icon: LotteryIcon,
+    activeIcon:lotteryactive,
     id: "lottery",
   },
   {
     name: "Original",
     icon: originalIcon,
+    activeIcon:originalActiveIcon,
     id: "orignal",
   },
   {
     name: "Slots",
     icon: SlotsIcon,
+    activeIcon: SlotsActiveIcon,
     id: "slots",
   },
   {
     name: "Sports",
     icon: SportIcon,
+    activeIcon: SportActiveIcon,
     id: "sports",
   },
   {
     name: "Casino",
     icon: CasinoIcon,
+    activeIcon: CasinoActiceIcon,
     id: "casino",
   },
-  // {
-  //   name: "PVC",
-  //   icon: RummyIcon,
-  //   id: "rummy",
-  // },
   {
     name: "Fishing",
     icon: FishingIcon,
+    activeIcon: FishingActiveIcon,
     id: "fishing",
   },
   {
     name: "All",
-    icon: AllIcon, // All ke liye koi bhi icon
+    icon: AllIcon,
+    activeIcon : AllActiveIcon,
     id: "all",
   },
 ];
@@ -146,38 +158,37 @@ const SlotComponents = () => {
       {/* lottery tabs  */}
       <div className="w-full p-2 rounded-md overflow-x-auto scrollbar-hide">
         <div className="flex gap-2 items-center w-max">
-          {allCategories.map((cat) => (
-            <div
-              key={cat.id}
-              onClick={() => setTabs(cat.id)}
-              className="flex flex-col items-center cursor-pointer"
-            >
-              {/* Icon Box */}
-              <div
-                className={`min-w-[0px] rounded-xl flex flex-row items-center justify-center px-3 py-1 transition
-                 ${tabs === cat.id ? "bg-white shadow-lg" : ""}`}
-              >
-                <img
-                  src={cat.icon}
-                  alt={cat.name}
-                  className={`w-5 h-5 mr-2 ${tabs === cat.id
-                      ? "[filter:brightness(0)_saturate(100%)_invert(44%)_sepia(91%)_saturate(1829%)_hue-rotate(329deg)_brightness(101%)_contrast(98%)]"
-                      : "grayscale opacity-60"
-                    }`}
-                />
+          {allCategories.map((cat) => {
+            const isActive = tabs === cat.id;
 
-                <p
-                  className={`${tabs === cat.id
-                    ? "text-black font-semibold text-lg"
-                    : "text-gray-500"
+            return (
+              <div
+                key={cat.id}
+                onClick={() => setTabs(cat.id)}
+                className="flex flex-col items-center cursor-pointer"
+              >
+                <div
+                  className={`min-w-[0px] rounded-xl flex flex-row items-center justify-center px-3 py-1 transition ${isActive ? "bg-white shadow-lg" : ""
                     }`}
                 >
-                  {cat.name}
-                </p>
+                  <img
+                    src={isActive && cat.activeIcon ? cat.activeIcon : cat.icon}
+                    alt={cat.name}
+                    className="w-5 h-5 mr-2"
+                  />
+
+                  <p
+                    className={`${isActive
+                        ? "text-black font-semibold text-lg"
+                        : "text-gray-500"
+                      }`}
+                  >
+                    {cat.name}
+                  </p>
+                </div>
               </div>
-              {/* Category Name */}
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 

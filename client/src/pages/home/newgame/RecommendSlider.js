@@ -69,7 +69,7 @@ const RecommendSlider = () => {
                 src={game.icon}
                 alt={game.game_name}
                 loading="lazy"
-                className="w-full h-[26vh]"
+                className="w-full h-[19vh]"
               />
             </div>
             {/* <p className="text-center text-black mt-1 font-semibold truncate">

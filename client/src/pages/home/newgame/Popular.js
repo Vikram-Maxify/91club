@@ -77,7 +77,7 @@ const Popular = () => {
                   src={items.icon}
                   alt=""
                   loading="lazy"
-                  className="w-full h-[26vh]"
+                  className="w-full h-[19vh]"
                   onClick={() => handleJilliOpen(items.game_uid)}
                 />
               </div>
