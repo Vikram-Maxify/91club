@@ -275,14 +275,14 @@ const Home = () => {
             <div className="text-black flex justify-center gap-2">
               <button
                 onClick={() => navigate("/login")}
-                className="bg-white text-black px-3 py-1.5 rounded-md w-[70px] h-[34px] border border-gray-400 font-bold"
+                className="bg-white text-black px-3 py-1 -mt-1.5 rounded-[4px] w-[70px] h-[29px] border border-gray-400 font-bold"
               >
                 Log in
               </button>
 
               <button
                 onClick={() => navigate("/register")}
-                className="bg-[#FB5755] text-white px-3 py-1.5 rounded-md w-[80px] h-[34px]"
+                className="bg-[#FB5755] text-white px-3 -mt-1.5 py-1 rounded-[4px] w-[80px] h-[29px]"
               >
                 Register
               </button>

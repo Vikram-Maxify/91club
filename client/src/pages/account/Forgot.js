@@ -106,7 +106,7 @@ const Forgot = () => {
               </svg>
             </span>
           </span>
-          <h3 className="heading-h3 text-base  font-semibold mt-1 leading-10 color-l border-b-2 w-full text-center border-[var(--bg-color-l)]">
+          <h3 className="heading-h3 text-base  font-semibold mt-1 leading-10 text-[#F95959] border-b-2 w-full text-center border-[#F95959]">
             phone reset
           </h3>
         </div>
@@ -202,7 +202,7 @@ const Forgot = () => {
           <div className="mt-6">
             <div className="flex items-center ">
               <span>
-                <MdVerifiedUser className="color-l text-2xl" />
+                <MdVerifiedUser className="text-[#F95959] text-2xl" />
               </span>
               <label htmlFor="" className="font-medium ms-1 gray-100">
                 Verification Code
@@ -234,11 +234,9 @@ const Forgot = () => {
                 checked={isChecked}
                 onChange={handleCheckboxChange}
               />
-              <div className="w-6 h-6 rounded-full border-2 border-[#F5CC2C] flex items-center justify-center peer-checked:border-[var(--bg-color-l)] peer-checked:bg-[var(--bg-color-l)]">
+              <div className="w-5 h-5 rounded-full border-2 border-[#F95959] flex items-center justify-center peer-checked:border-[#F95959] peer-checked:bg-[#F95959]">
                 <svg
-                  className={`w-4 h-4 text-white ${
-                    isChecked ? "block" : "hidden"
-                  }`}
+                  className={`w-4 h-4 text-white ${isChecked ? "block" : "hidden"}`}
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >

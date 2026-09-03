@@ -374,7 +374,7 @@ const Login = () => {
                       checked={isChecked}
                       onChange={handleCheckboxChange}
                     />
-                    <div className="w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center peer-checked:border-[#F95959] peer-checked:bg-[#F95959]">
+                    <div className="w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center peer-checked:border-[#F95959] peer-checked:bg-[#F95959]">
                       <svg
                         className={`w-4 h-4 text-white ${isChecked ? "block" : "hidden"
                           }`}
@@ -483,7 +483,7 @@ const Login = () => {
                       checked={isChecked}
                       onChange={handleCheckboxChange}
                     />
-                    <div className="w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center peer-checked:border-[var(--bg-color-l)] peer-checked:bg-[var(--bg-color-l)]">
+                    <div className="w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center peer-checked:border-[#F95959] peer-checked:bg-[#F95959]">
                       <svg
                         className={`w-4 h-4 text-white ${isChecked ? "block" : "hidden"
                           }`}
