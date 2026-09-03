@@ -396,11 +396,10 @@ const Login = () => {
                 {/* disabled={loader?true:false} */}
               </form>
               <button
-                className={`${username && pwd
-                  ? "blue-linear2 text-[#fff]"
-                  : "bg-[#cdcfdd] text-[#80849C]"
-                  } flex justify-center text-xl w-72 m-auto font-bold text-center rounded-full p-2 mt-7 tracking-[3px]`}
-                onClick={handleSubmit}
+                className="flex justify-center text-lg w-72 m-auto font-bold text-center
+    rounded-full p-2 mt-5 tracking-[3px]
+    bg-gradient-to-r from-[#FF5757] to-[#FF9992] text-white"
+                onClick={handleSubmitEmail}
               >
                 Log in
               </button>
@@ -505,21 +504,20 @@ const Login = () => {
                 </div>
               </form>
               <button
-                className={`${username && pwd
-                  ? "blue-linear2 text-[#fff]"
-                  : "bg-[#cdcfdd] text-[#80849C]"
-                  } flex justify-center gray-100 text-lg w-72 m-auto font-bold text-center rounded-full p-2 mt-5 tracking-[3px]`}
+                className="flex justify-center text-lg w-72 m-auto font-bold text-center
+    rounded-full p-2 mt-5 tracking-[3px]
+    bg-gradient-to-r from-[#FF5757] to-[#FF9992] text-white"
                 onClick={handleSubmitEmail}
               >
                 Log in
               </button>
 
               <button
-                className="border  w-72 flex color-l font-semibold  justify-center items-center border-[var(--bg-color-l)] m-auto rounded-full p-2 mt-6 "
+                className="border  w-72 flex color-l font-semibold  justify-center items-center border-[#F95959] m-auto rounded-full p-2 mt-6 "
                 onClick={() => navigate("/register")}
               >
                 {" "}
-                <span className="tracking-[3px] font-bold text-lg">
+                <span className="tracking-[3px] font-bold text-[#F95959] text-lg">
                   Register
                 </span>
               </button>
