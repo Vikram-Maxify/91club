@@ -156,7 +156,7 @@ const SlotComponents = () => {
       </div>
 
       {/* lottery tabs  */}
-      <div className="w-full p-2 rounded-md sticky top-0 z-50 bg-white">
+      <div className="w-full p-2 rounded-md top-0 z-50 bg-white">
         <div className="overflow-x-auto scrollbar-hide">
           <div className="flex gap-2 items-center w-max">
             {allCategories.map((cat) => {

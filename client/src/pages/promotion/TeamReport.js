@@ -197,7 +197,7 @@ const TeamReport = () => {
           </div>
         </div>
 
-        <div className="mt-2 bg-color-l p-2 rounded-lg">
+        <div className="mt-2 bg-[#f95959] p-2 rounded-lg">
           <div className="flex justify-between mt-2 py-2">
             <div className="text-center w-[50%]">
               {searchLevels === "All" ? (

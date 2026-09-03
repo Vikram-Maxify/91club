@@ -205,39 +205,87 @@ const WinningInformation = () => {
         Winning Information
       </h3>
 
-      <div className="winning-item w-full rounded-md shadow-xl p-4 bg-white overflow-visible">
-
+      <div
+        className="
+    winning-item
+    w-full
+    p-4
+    bg-white
+    overflow-visible
+    rounded-[14px]
+    border border-[#EEEEEE]
+    shadow-[0_4px_16px_rgba(0,0,0,0.08)]
+  "
+      >
         {/* Table Header */}
-        <div className="flex justify-between items-center w-full px-3 py-3 border-b border-gray-200 bg-white rounded-t-md">
+        <div
+          className="
+      flex
+      justify-between
+      items-center
+      w-full
+      px-3
+      py-3
+      bg-white
+      border-b
+      border-[#EEEEEE]
+      rounded-t-[10px]
+    "
+        >
           <div className="w-1/3">
-            <p className="text-sm text-[#111827]">Game</p>
+            <p className="text-sm text-[#111827]">
+              Game
+            </p>
           </div>
 
           <div className="w-1/3 text-center">
-            <p className="text-sm text-[#111827]">User</p>
+            <p className="text-sm text-[#111827]">
+              User
+            </p>
           </div>
 
           <div className="w-1/3 text-right">
-            <p className="text-sm text-[#111827]">Winning amount</p>
+            <p className="text-sm text-[#111827]">
+              Winning amount
+            </p>
           </div>
         </div>
 
         {/* Slider */}
-        <div className="slider-container overflow-hidden rounded-b-md">
+        <div className="slider-container overflow-hidden rounded-b-[10px]">
           <div className="slider flex flex-col">
 
             {slides.map((slide) => (
               <div
                 key={slide.id}
-                className="slide flex justify-between bg-white border-b border-gray-150 items-center rounded-md p-2 w-full bg-cover bg-center bg-no-repeat"
+                className="
+            slide
+            flex
+            justify-between
+            items-center
+            w-full
+            p-2
+            bg-white
+            border-b
+            border-[#EEEEEE]
+          "
               >
                 {/* Game */}
                 <div className="flex items-center w-1/3">
                   <div>
                     {(() => {
                       const Icon = slide.img;
+
                       return (
-                        <Icon className="rounded-md w-6 h-6 object-cover text-[#F95959]" />
+                        <Icon
+                          className="
+                      rounded-md
+                      w-6
+                      h-6
+                      object-cover
+                      text-[#F95959]
+                    "
+                        />
                       );
                     })()}
                   </div>
@@ -333,7 +381,7 @@ const WinningInformation = () => {
           </h1>
         </div>
 
-        <div className="shadow-xl rounded-md">
+        <div className="rounded-[14px] px-3 shadow-[0_4px_16px_rgba(0,0,0,0.08)] border border-[#EEEEEE] overflow-hidden mt-5">
           <div
             style={{ backgroundImage: `url(${NewEarningImg})` }}
             className="w-full mt-12 h-[10rem] bg-cover rounded-md"
@@ -342,10 +390,10 @@ const WinningInformation = () => {
               <div>
                 <div className="relative -top-[1px]">
                   {/* <img
-              src={Crown2}
-              alt=""
-              className="absolute w-12 left-[-20px] top-[-20px]"
-            /> */}
+        src={Crown2}
+        alt=""
+        className="absolute w-12 left-[-20px] top-[-20px]"
+      /> */}
                   <img
                     src={AvatarData[1]}
                     alt=""
@@ -367,10 +415,10 @@ const WinningInformation = () => {
               <div className="relative">
                 <div className="relative -top-[33px]">
                   {/* <img
-              src={Crown1}
-              alt=""
-              className="absolute w-12 left-[-20px] top-[-20px]"
-            /> */}
+        src={Crown1}
+        alt=""
+        className="absolute w-12 left-[-20px] top-[-20px]"
+      /> */}
                   <img
                     src={AvatarData[4]}
                     alt=""
@@ -392,10 +440,10 @@ const WinningInformation = () => {
               <div className="relative">
                 <div className="relative -top-[1px] left-2">
                   {/* <img
-              src={Crown3}
-              alt=""
-              className="absolute w-12 left-[-20px] top-[-20px]"
-            /> */}
+        src={Crown3}
+        alt=""
+        className="absolute w-12 left-[-20px] top-[-20px]"
+      /> */}
                   <img
                     src={AvatarData[5]}
                     alt=""
@@ -418,84 +466,84 @@ const WinningInformation = () => {
 
           <div className="bg-white p-2 rounded-2xl">
             {/* <div className="flex py-1 items-center justify-between my-2 rounded-md bg-light">
-        <div className="flex items-center ps-1">
-          <img
-            src={AvatarData[6]}
-            alt=""
-            className="rounded-full w-[40px] h-[40px] mr-4"
-          />
-          <div>
-            <p className="fs-sm text-whites">Mem***WJA</p>
-            <div className="flex">
-              <img
-                src="https://i.ibb.co/9mX1g3GT/no1-5c6f8e80.webp"
-                alt=""
-                className="w-4 h-5"
-              />
-              <span className="text-[#ffcb7d] text-sm">NO1</span>
-            </div>
-          </div>
-        </div>
-        <div className="relative flex items-center">
-          <button className="text-base mt-1 px-3 py-0.5 text-whites mr-2">
-            ₹78,976,308.99
-          </button>
-        </div>
+  <div className="flex items-center ps-1">
+    <img
+      src={AvatarData[6]}
+      alt=""
+      className="rounded-full w-[40px] h-[40px] mr-4"
+    />
+    <div>
+      <p className="fs-sm text-whites">Mem***WJA</p>
+      <div className="flex">
+        <img
+          src="https://i.ibb.co/9mX1g3GT/no1-5c6f8e80.webp"
+          alt=""
+          className="w-4 h-5"
+        />
+        <span className="text-[#ffcb7d] text-sm">NO1</span>
       </div>
+    </div>
+  </div>
+  <div className="relative flex items-center">
+    <button className="text-base mt-1 px-3 py-0.5 text-whites mr-2">
+      ₹78,976,308.99
+    </button>
+  </div>
+</div>
 
-      <div className="py-1 flex items-center justify-between my-2 rounded-md bg-light">
-        <div className="flex items-center ps-1">
-          <img
-            src={AvatarData[7]}
-            alt=""
-            className="rounded-full w-[40px] h-[40px] mr-4"
-          />
-          <div>
-            <p className="fs-sm text-whites">Mem***BRW</p>
-            <div className="flex">
-              <img
-                src="https://i.ibb.co/q3Nxyx7k/no2-1683c744.webp"
-                alt=""
-                className="w-4 h-5"
-              />
-              <span className="text-gray-400 text-sm">NO2</span>
-            </div>
-          </div>
-        </div>
-        <div className="relative flex items-center">
-          <button className="text-base mt-1 py-0.5 px-3 text-whites mr-2">
-            ₹61,692,960.00
-          </button>
-        </div>
+<div className="py-1 flex items-center justify-between my-2 rounded-md bg-light">
+  <div className="flex items-center ps-1">
+    <img
+      src={AvatarData[7]}
+      alt=""
+      className="rounded-full w-[40px] h-[40px] mr-4"
+    />
+    <div>
+      <p className="fs-sm text-whites">Mem***BRW</p>
+      <div className="flex">
+        <img
+          src="https://i.ibb.co/q3Nxyx7k/no2-1683c744.webp"
+          alt=""
+          className="w-4 h-5"
+        />
+        <span className="text-gray-400 text-sm">NO2</span>
       </div>
+    </div>
+    </div>
+     <div className="relative flex items-center">
+    <button className="text-base mt-1 py-0.5 px-3 text-whites mr-2">
+      ₹61,692,960.00
+    </button>
+    </div>
+    </div>
 
-      <div className="py-1 flex items-center justify-between my-2 rounded-md bg-light">
-        <div className="flex items-center ps-1">
-          <img
-            src={AvatarData[2]}
-            alt=""
-            className="rounded-full w-[40px] h-[40px] mr-4"
-          />
-          <div>
-            <p className="fs-sm text-whites">Mem***TT2</p>
-            <div className="flex">
-              <img
-                src="https://i.ibb.co/9mX1g3GT/no1-5c6f8e80.webp"
-                alt=""
-                className="w-4 h-5"
-              />
-              <span className="text-[#ffcb7d] text-sm">NO3</span>
-            </div>
-          </div>
-        </div>
-        <div className="relative flex items-center">
-          <button className="text-base mt-1 text-whites py-0.5 px-3 mr-2">
-            ₹59,543,123.00
-          </button>
-        </div>
-      </div> */}
+    <div className="py-1 flex items-center justify-between my-2 rounded-md bg-light">
+    <div className="flex items-center ps-1">
+    <img
+      src={AvatarData[2]}
+      alt=""
+      className="rounded-full w-[40px] h-[40px] mr-4"
+    />
+    <div>
+      <p className="fs-sm text-whites">Mem***TT2</p>
+      <div className="flex">
+        <img
+          src="https://i.ibb.co/9mX1g3GT/no1-5c6f8e80.webp"
+          alt=""
+          className="w-4 h-5"
+        />
+        <span className="text-[#ffcb7d] text-sm">NO3</span>
+      </div>
+    </div>
+    </div>
+    <div className="relative flex items-center">
+    <button className="text-base mt-1 text-whites py-0.5 px-3 mr-2">
+      ₹59,543,123.00
+    </button>
+    </div>
+   </div> */}
 
-            <div className="py-1 flex items-center justify-between my-2 rounded-md bg-white">
+            <div className="py-1 flex items-center justify-between my-1 rounded-md bg-white">
               <div className="flex items-center ps-1">
                 <span className="text-black text-sm mr-2">4</span>
 
@@ -519,7 +567,7 @@ const WinningInformation = () => {
 
             {/* <div className="bg-[#D8EBE4] w-full h-[.02667rem]" /> */}
 
-            <div className="py-1 flex items-center justify-between my-2 rounded-md bg-white">
+            <div className="py-1 flex items-center justify-between my-1 rounded-md bg-white">
               <div className="flex items-center ps-1">
                 <span className="text-black text-sm mr-2">5</span>
 
@@ -543,7 +591,7 @@ const WinningInformation = () => {
 
             {/* <div className="bg-[#D8EBE4] w-full h-[.02667rem]" /> */}
 
-            <div className="py-1 flex items-center justify-between my-2 rounded-md bg-white">
+            <div className="py-1 flex items-center justify-between my-1 rounded-md bg-white">
               <div className="flex items-center ps-1">
                 <span className="text-black text-sm mr-2">6</span>
 
@@ -567,7 +615,7 @@ const WinningInformation = () => {
 
             {/* <div className="bg-[#D8EBE4] w-full h-[.02667rem]" /> */}
 
-            <div className="py-1 flex items-center justify-between my-2 rounded-md bg-white">
+            <div className="py-1 flex items-center justify-between my-1 rounded-md bg-white">
               <div className="flex items-center ps-1">
                 <span className="text-black text-sm mr-2">7</span>
 
@@ -591,7 +639,7 @@ const WinningInformation = () => {
 
             {/* <div className="bg-[#D8EBE4] w-full h-[.02667rem]" /> */}
 
-            <div className="py-1 flex items-center justify-between my-2 rounded-md bg-white">
+            <div className="py-1 flex items-center justify-between my-1 rounded-md bg-white">
               <div className="flex items-center ps-1">
                 <span className="text-black text-sm mr-2">8</span>
 
@@ -615,7 +663,7 @@ const WinningInformation = () => {
 
             {/* <div className="bg-[#D8EBE4] w-full h-[.02667rem]" /> */}
 
-            <div className="py-1 flex items-center justify-between my-2 rounded-md bg-white">
+            <div className="py-1 flex items-center justify-between my-1 rounded-md bg-white">
               <div className="flex items-center ps-1">
                 <span className="text-black text-sm mr-2">9</span>
 

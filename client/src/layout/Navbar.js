@@ -2,7 +2,8 @@ import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import ServiceImg from "../assets/icon_sevice.png";
+import SmileImg from "../assets/smile.png";
+
 import "./navbar.css";
 
 const Navbar = () => {
@@ -144,9 +145,9 @@ const Navbar = () => {
             style={{ display: "inline-block" }}
           >
             <img
-              src="https://i.ibb.co/Y4NhJvDc/icon-sevice-DVRmj-Ur-R.png"
+              src="https://i.ibb.co/GfVXnKyb/smile.png"
               alt="Service"
-              className="w-14"
+              className="w-[70px] pe-3"
             />
           </Link>
         ) : (
@@ -154,7 +155,7 @@ const Navbar = () => {
             onClick={() => handleClick("main/CustomerService")}
             style={{ display: "inline-block" }}
           >
-            <img src={ServiceImg} alt="Service" className="w-14" />
+            <img src={SmileImg} alt="Service" className="w-[70px] pe-3" />
           </div>
         )}
       </div>

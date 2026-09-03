@@ -29,7 +29,7 @@ h3 {
   --whites: #fff;
   --grey-200: #70798b;
   --grey-50: #181818;
-  --grey-100: #80849c;
+  --grey-100: black;
   --bg-light: #fff;
   --main-color: #f95959;
   --bg_color_L3: #f6f6f6;
@@ -46,8 +46,7 @@ h3 {
   --red-color-200: #d23838;
   --red-color-100: #f7602b;
   --yellow-200: #feaa57;
-  --bg-color-l: #F95959;
-  --bg-color-l1: #F95959;
+  --bg-color-l: #FDAF62;
   --bg-blue-500: #3c9cf6;
   --bg-blue-300: #5088d3;
   --red-bg-500: #e52c2f;

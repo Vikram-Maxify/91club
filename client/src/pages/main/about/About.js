@@ -23,7 +23,7 @@ const About = () => {
           className="flex justify-between items-center mt-2 bg-body p-3 py-4 rounded-lg"
         >
           <div className="flex items-center">
-            <img src={CAIcon} className="w-6" alt="" />
+            <img src={CAIcon} className="w-6 text-[#F95959]" alt="" />
             <span className="text-base text-whites ms-2 font-sans ">
               Confidentiality Agreement
             </span>
