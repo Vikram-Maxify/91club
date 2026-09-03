@@ -200,7 +200,7 @@ const Register = () => {
                 <use href="#icon-phone" className=""></use>
               </svg>
             </span>
-            <h3 className="heading-h3 text-base pb-2 font-semibold mt-1 leading-7 color-l border-b-2 w-full text-center border-[var(--bg-color-l)]">
+            <h3 className="heading-h3 text-base pb-2 font-semibold mt-1 leading-7 text-[#F95959] border-b-2 w-full text-center border-[#F95959]">
               Register your phone
             </h3>
           </div>
@@ -363,13 +363,12 @@ const Register = () => {
                   checked={isChecked}
                   onChange={handleCheckboxChange}
                 />
-                <div className="w-4 h-4 rounded-full border-2 border-[#F5CC2C] flex items-center justify-center peer-checked:border-[var(--bg-color-l)] peer-checked:bg-[var(--bg-color-l)]">
+                <div className="w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center peer-checked:border-[#F95959] peer-checked:bg-[#F95959]">
                   <svg
-                    className={`w-3 h-3 text-white ${
-                      isChecked ? "block" : "hidden"
-                    }`}
+                    className={`w-3 h-3 text-white ${isChecked ? "block" : "hidden"
+                      }`}
                     viewBox="0 0 20 20"
-                    fill="#F2F2F1"
+                    fill="currentColor"
                   >
                     <path
                       fillRule="evenodd"
@@ -391,10 +390,9 @@ const Register = () => {
             </div>
           </form>
           <button
-            className={` flex justify-center text-lg w-72 m-auto font-semibold text-center  rounded-full p-2 mt-5 tracking-widest ${
-              disable ? "bg-gray-400 " : "blue-linear color-orange"
-            }`}
-            // disabled={loader}
+            className="flex justify-center text-lg w-72 m-auto font-semibold text-center
+    rounded-full p-2 mt-5 tracking-widest
+    bg-gradient-to-r from-[#FF5757] to-[#FF9992] text-white"
             disabled={disable || loader}
             onClick={() => handleSubmit()}
           >
@@ -402,13 +400,13 @@ const Register = () => {
           </button>
 
           <button
-            className="border  w-72 flex color-l font-semibold justify-center items-center border-[var(--bg-color-l)] m-auto rounded-full p-2 mt-6 "
+            className="border  w-72 flex color-l font-semibold justify-center items-center border-[#F95959] m-auto rounded-full p-2 mt-6 "
             onClick={() => navigate("/login")}
           >
             <span className="text-sm font-normal mr-2 gray-100 tracking-widest">
               I have an account
             </span>{" "}
-            <span className="tracking-widest font-bold text-lg">Login</span>
+            <span className="tracking-widest font-bold text-lg text-[#F95959]">Login</span>
           </button>
         </div>
       </div>
@@ -435,9 +433,8 @@ const Register = () => {
             <input type="checkbox" className="hidden peer" />
             <div className="w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center peer-checked:border-[var(--bg-color-l)] peer-checked:bg-[var(--bg-color-l)]">
               <svg
-                className={`w-4 h-4 text-white ${
-                  isChecked ? "block" : "hidden"
-                }`}
+                className={`w-4 h-4 text-white ${isChecked ? "block" : "hidden"
+                  }`}
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
@@ -471,9 +468,8 @@ const Register = () => {
             />
             <div className="w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center peer-checked:border-[var(--bg-color-l)] peer-checked:bg-[var(--bg-color-l)]">
               <svg
-                className={`w-4 h-4 text-white ${
-                  isChecked ? "block" : "hidden"
-                }`}
+                className={`w-4 h-4 text-white ${isChecked ? "block" : "hidden"
+                  }`}
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
