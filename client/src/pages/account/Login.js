@@ -399,7 +399,7 @@ const Login = () => {
                 className="flex justify-center text-lg w-72 m-auto font-bold text-center
     rounded-full p-2 mt-5 tracking-[3px]
     bg-gradient-to-r from-[#FF5757] to-[#FF9992] text-white"
-                onClick={handleSubmitEmail}
+                onClick={handleSubmit}
               >
                 Log in
               </button>

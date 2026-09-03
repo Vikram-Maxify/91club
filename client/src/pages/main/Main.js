@@ -464,11 +464,11 @@ const Main = () => {
         </div>
 
         <button
-          className="border flex  color-l justify-center items-center border-[var(--bg-color-l)] w-[100%] rounded-full p-1 mt-3 text-base mb-3"
+          className="border flex  text-[#F95959] justify-center items-center border-[#F95959] w-[100%] rounded-full p-1 mt-3 text-base mb-3"
           onClick={() => setShowPopup(true)}
         >
           {" "}
-          <BiLogOutCircle className="rotate-90 font-thin mr-2 color-l text-2xl" />{" "}
+          <BiLogOutCircle className="rotate-90 font-thin mr-2 text-[#F95959] text-2xl" />{" "}
           Log Out
         </button>
 
