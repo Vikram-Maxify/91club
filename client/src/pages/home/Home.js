@@ -29,6 +29,8 @@ import WinningInformation from "./WinningInformation";
 import Cookies from "js-cookie";
 import { BsFire } from "react-icons/bs";
 import WheelSpinImg from "../../assets/wheelspin.png";
+import CircleImg from "../../assets/circle.png";
+import DragonImg from "../../assets/dragon.svg";
 import bonusSpin from "../../assets/yarwin/bonus.png";
 import wheelSpin from "../../assets/yarwin/wheelSpin.png";
 import { totalCommission } from "../../store/reducer/promotionReducer";
@@ -163,13 +165,17 @@ const Home = () => {
             }
           }}
         >
-          <img src={WheelSpinImg} alt="Service" className="w-20" />
           <img
             src="https://i.ibb.co/d0M6CdWR/reward-Center-BO-n76h-A.png"
             alt="Service"
-            className="w-16"
+            className="w-[70px] pe-3 mt-1"
           />
         </div>
+        <img src={CircleImg} alt="Service" className="w-[70px] pe-3 mt-1" />
+
+        <img src={WheelSpinImg} alt="Service" className="w-[70px] pe-3 mt-1" />
+        <img src={DragonImg} alt="Service" className="w-[70px] pe-3 mt-1" />
+
 
         {/* 🔗 Telegram (Open Always) */}
         {/* <Link to={userInfo?.telegram} style={{ display: "inline-block" }}>
@@ -228,8 +234,8 @@ const Home = () => {
         </div>
       )}
 
-      <div className="sticky top-0 z-50 bg-gradient-to-l pb-5">
-        <div className=" flex items-center justify-between rounded-md px-3">
+      <div className="z-40 bg-gradient-to-l pb-5">
+        <div className="flex items-center justify-between rounded-md px-3">
           <div className="logo py-2 flex flex-col items-start">
             {/* Logo */}
             <img
@@ -241,30 +247,26 @@ const Home = () => {
           </div>
 
           {userInfo ? (
-            <div className="flex  gap-2 items-center my-0.5">
+            <div className="flex gap-2 items-center my-0.5">
               <img
                 src="https://i.ibb.co/qMgWb30K/icon-Download-CAVOF-9-C.png"
                 alt=""
                 loading="lazy"
                 className="w-7"
               />
-              {/* <svg className="w-7 h-7 svg-icon">
-          <use href="#icon-down" />
-        </svg> */}
 
               <Link
-                className="flex justify-between items-center  "
-                to={`https://h5support.expressclub.site/?token=${Cookies.get("auth")}`}
+                className="flex justify-between items-center"
+                to={`https://h5support.expressclub.site/?token=${Cookies.get(
+                  "auth"
+                )}`}
               >
-                <div className="">
-                  {/* <svg className="w-7 h-7 svg-icon">
-              <use href="#icon-serverTicket" />
-            </svg> */}
+                <div>
                   <img
                     src="https://i.ibb.co/0VnqD47C/message-Icon-Dzj8-Mws-M.png"
                     alt=""
                     loading="lazy"
-                    className=" w-7"
+                    className="w-7"
                   />
                 </div>
               </Link>
@@ -273,14 +275,14 @@ const Home = () => {
             <div className="text-black flex justify-center gap-2">
               <button
                 onClick={() => navigate("/login")}
-                className="bg-white text-black px-3 py-1.5 rounded-md w-[70px] h-[34px] border border-gray-400 font-bold"
+                className="bg-white text-black px-3 py-1 -mt-1.5 rounded-[4px] w-[70px] h-[29px] border border-gray-400 font-bold"
               >
                 Log in
               </button>
 
               <button
                 onClick={() => navigate("/register")}
-                className="bg-[#FB5755] text-white px-3 py-1.5 rounded-md w-[80px] h-[34px]"
+                className="bg-[#FB5755] text-white px-3 -mt-1.5 py-1 rounded-[4px] w-[80px] h-[29px]"
               >
                 Register
               </button>
@@ -449,13 +451,13 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="flex gap-5 mx-2 mt-2">
+      <div className="flex gap-3 mx-2 mt-2 px-1">
         {/* Wheel of Fortune - Redirect to /WheelSpin */}
         <Link to="/WheelSpin" className="relative flex-1 block">
-          <img src={wheelSpin} alt="wheelSpin" className="w-full" />
-          <p className="absolute inset-0 flex items-center justify-center text-black w-[106px] -mt-4 ml-3 font-bold text-sm md:text-base z-10">
+          <img src={wheelSpin} alt="wheelSpin" className="w-full h-[58px]" />
+          {/* <p className="absolute inset-0 flex items-center justify-center text-black w-[106px] -mt-4 ml-3 font-bold text-sm md:text-base z-10">
             Wheel of Fortune
-          </p>
+          </p> */}
           <span className="absolute bottom-2 left-4 text-white text-xs font-semibold px-2 py-0.5 rounded z-10">
             View
           </span>
@@ -463,10 +465,10 @@ const Home = () => {
 
         {/* Welcome Bonus - Redirect to /promotion */}
         <Link to="/promotion" className="relative flex-1 block">
-          <img src={bonusSpin} alt="bonusSpin" className="w-full" />
-          <p className="absolute inset-0 flex items-center justify-center text-black w-[106px] -mt-4 ml-3 font-bold text-sm md:text-base z-10">
+          <img src={bonusSpin} alt="bonusSpin" className="w-full h-[58px] " />
+          {/* <p className="absolute inset-0 flex items-center justify-center text-black w-[106px] -mt-4 ml-3 font-bold text-sm md:text-base z-10">
             Welcome Bonus
-          </p>
+          </p> */}
           <span className="absolute bottom-3 left-4 text-white text-xs font-semibold px-2 py-0.5 rounded z-10">
             View
           </span>
@@ -657,16 +659,27 @@ const Home = () => {
           </div>
           <div className="middle-content-section">
             <ul>
-              {rechargeBonusData?.map((item, i) => (
+              {/* HARDCODED DATA - Same as image */}
+              {[
+                { recAmount: 100, bonus: 2 },
+                { recAmount: 500, bonus: 10 },
+                { recAmount: 1000, bonus: 25 },
+                { recAmount: 5000, bonus: 150 },
+
+                { recAmount: 10000, bonus: 300 },
+                { recAmount: 20000, bonus: 700 },
+                { recAmount: 50000, bonus: 2000 },
+                { recAmount: 100000, bonus: 5000 },
+              ].map((item, i) => (
                 <li key={i} onClick={() => navigate("/wallet/Recharge")}>
                   <div className="first-c">
                     <p className="gray-50 text-base">
                       First deposit{" "}
-                      <span className="text-[#feaa57]">
+                      <span className="text-[#FDAF62]">
                         {item.recAmount.toLocaleString()}
                       </span>
                     </p>
-                    <p className="text-[#feaa57]">
+                    <p className="text-[#FDAF62]">
                       +₹{item.bonus.toLocaleString()}.00
                     </p>
                   </div>
@@ -681,7 +694,7 @@ const Home = () => {
                     <div className="slider-box bg-[#ced6e1]">
                       0/{item.recAmount.toLocaleString()}
                     </div>
-                    <button className="border fs-sm border-[#feaa57]">
+                    <button className="border fs-sm border-[#FDAF62]">
                       Deposit
                     </button>
                   </div>

@@ -86,7 +86,7 @@ const SettingCenter = () => {
               <span className="text-base font-medium mr-2 gray-50">
                 {userInfo?.id_user}
               </span>
-              <span className="ps-2 color-l" onClick={copyToClipCode}>
+              <span className="ps-2 text-[#F95959]" onClick={copyToClipCode}>
                 <PiCopySimpleLight />
               </span>
             </Link>
@@ -107,7 +107,7 @@ const SettingCenter = () => {
             >
               <div className="flex items-center">
                 <span className="bg-[rgb(147_197_253/14%)] p-1 rounded-md">
-                  <MdLock className="color-l text-2xl " />
+                  <MdLock className="text-[#F95959] text-2xl " />
                 </span>
                 <span className="text-base text-whites ms-2 font-sans">
                   Login password
@@ -126,7 +126,7 @@ const SettingCenter = () => {
             >
               <div className="flex items-center">
                 <span className="bg-[rgb(147_197_253/14%)] p-1 rounded-md">
-                  <MdEmail className="color-l text-2xl " />
+                  <MdEmail className="text-[#F95959] text-2xl " />
                 </span>
                 <span className="text-base text-whites ms-2 font-sans">
                   {userInfo?.email?.length > 5
@@ -144,7 +144,7 @@ const SettingCenter = () => {
             <Link className="flex justify-between items-center  ">
               <div className="flex items-center">
                 <span className="bg-[rgb(147_197_253/14%)] p-1 rounded-md">
-                  <FaCircleExclamation className="color-l text-2xl " />
+                  <FaCircleExclamation className="text-[#F95959] text-2xl " />
                 </span>
                 <span className="text-base text-whites ms-2 font-sans">
                   Updated version

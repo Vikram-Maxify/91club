@@ -464,11 +464,11 @@ const Main = () => {
         </div>
 
         <button
-          className="border flex  color-l justify-center items-center border-[var(--bg-color-l)] w-[100%] rounded-full p-1 mt-3 text-base mb-3"
+          className="border flex  text-[#F95959] justify-center items-center border-[#F95959] w-[100%] rounded-full p-1 mt-3 text-base mb-3"
           onClick={() => setShowPopup(true)}
         >
           {" "}
-          <BiLogOutCircle className="rotate-90 font-thin mr-2 color-l text-2xl" />{" "}
+          <BiLogOutCircle className="rotate-90 font-thin mr-2 text-[#F95959] text-2xl" />{" "}
           Log Out
         </button>
 
@@ -491,7 +491,7 @@ const Main = () => {
                 </button>
                 <button
                   onClick={() => setShowPopup(false)}
-                  className="px-4 py-2 border border-[#F5CC2C] font-medium color-l rounded-full bg-body"
+                  className="px-4 py-2 border border-[#fb5b5b] font-medium color-l rounded-full bg-body text-[#fb5b5b]"
                 >
                   Cancel
                 </button>

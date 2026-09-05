@@ -57,7 +57,7 @@ const ChangePassword = () => {
           <div className="mt-5">
             <div className="flex items-center">
               <span>
-                <TbLockFilled className="color-l text-2xl" />
+                <TbLockFilled className="text-[#fb5b5b] text-2xl" />
               </span>
               <label htmlFor="" className="ms-1 text-whites">
                 Login Password
@@ -87,7 +87,7 @@ const ChangePassword = () => {
           <div className="mt-5">
             <div className="flex items-center">
               <span>
-                <TbLockFilled className="color-l text-2xl" />
+                <TbLockFilled className="text-[#fb5b5b] text-2xl" />
               </span>
               <label htmlFor="" className="ms-1 text-whites">
                 New login password
@@ -117,7 +117,7 @@ const ChangePassword = () => {
           <div className="mt-5">
             <div className="flex items-center">
               <span>
-                <TbLockFilled className="color-l text-2xl" />
+                <TbLockFilled className="text-[#fb5b5b] text-2xl" />
               </span>
               <label htmlFor="" className="ms-1 text-whites">
                 Confirm new password

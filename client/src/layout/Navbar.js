@@ -2,7 +2,8 @@ import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import ServiceImg from "../assets/icon_sevice.png";
+import SmileImg from "../assets/smile.png";
+
 import "./navbar.css";
 
 const Navbar = () => {
@@ -81,14 +82,14 @@ const Navbar = () => {
           onClick={closePopup}
         >
           <div
-            className={`font-sans relative w-full max-w-[480px] bg-white rounded-t-[22px] pt-14 px-5 pb-8 text-center transition-transform duration-[350ms] ease-[cubic-bezier(0.32,0.72,0,1)] ${popupVisible ? "translate-y-0" : "translate-y-full"
+            className={`font-sans relative w-full max-w-[395px] bg-white rounded-t-[22px] pt-14 pb-8 text-center transition-transform duration-[350ms] ease-[cubic-bezier(0.32,0.72,0,1)] ${popupVisible ? "translate-y-0" : "translate-y-full"
               }`}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Glow clipped separately, matching sheet's rounded corners */}
             <div className="absolute inset-0 rounded-t-[22px] overflow-hidden pointer-events-none z-0">
               <div className="absolute inset-0 rounded-t-[22px] overflow-hidden pointer-events-none z-0">
-                <div className="absolute top-0 left-0 w-full h-[280px] bg-gradient-to-b from-[#6ee7a0]/50 via-[#6ee7a0]/20 to-transparent"></div>
+                <div className="absolute top-0 left-0 w-full h-[280px] bg-gradient-to-b from-[#FDC7C7] via-[#FFE8E7] to-transparent"></div>
               </div>
             </div>
 
@@ -99,21 +100,21 @@ const Navbar = () => {
               alt="gift"
             />
 
-            <div className="relative z-10 mt-[90px]">
+            <div className="relative z-10 mt-[50px]">
               <h2 className="flex items-center justify-center gap-2 text-2xl font-extrabold text-[#1a1a1a] mb-3">
                 <span> Event Rewards </span>
               </h2>
 
               <p className="text-[15px] text-[#333] mb-6 leading-relaxed">
                 Log in to participate in the{" "}
-                <span className="text-[#22c55e] font-semibold">
+                <span className="text-[#fa6b6b] font-semibold">
                   event rewards
                 </span>{" "}
                 and unlock all 8 exclusive rewards
               </p>
 
               <button
-                className="w-full py-3.5 border-none rounded-full bg-gradient-to-r from-[#6ee7a0] to-[#34d399] text-white font-bold text-base mb-4 cursor-pointer"
+                className="w-full py-3.5 border-none rounded-full bg-gradient-to-r from-[#F95B5B] to-[#FF9890] text-white font-bold text-base mb-4 cursor-pointer"
                 onClick={handleLoginNow}
               >
                 Log in now to participate
@@ -144,9 +145,9 @@ const Navbar = () => {
             style={{ display: "inline-block" }}
           >
             <img
-              src="https://i.ibb.co/Y4NhJvDc/icon-sevice-DVRmj-Ur-R.png"
+              src="https://i.ibb.co/GfVXnKyb/smile.png"
               alt="Service"
-              className="w-14"
+              className="w-[70px] pe-3"
             />
           </Link>
         ) : (
@@ -154,7 +155,7 @@ const Navbar = () => {
             onClick={() => handleClick("main/CustomerService")}
             style={{ display: "inline-block" }}
           >
-            <img src={ServiceImg} alt="Service" className="w-14" />
+            <img src={SmileImg} alt="Service" className="w-[70px] pe-3" />
           </div>
         )}
       </div>
@@ -260,8 +261,8 @@ const Navbar = () => {
           </svg>
           <span
             className={`text-[10px] font-medium ${activeItem === "/main"
-                ? "text-[#F95959]"
-                : "text-[#BEC6D4]"
+              ? "text-[#F95959]"
+              : "text-[#BEC6D4]"
               }`}
           >
             Account

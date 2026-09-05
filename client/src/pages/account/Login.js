@@ -220,11 +220,10 @@ const Login = () => {
         <div className="container-section">
           <div className="flex items-center justify-between border-b border-gray-300">
             <div
-              className={`flex flex-col justify-center items-center cursor-pointer  w-[50%] ${
-                tabs === "phone"
-                  ? "border-b-2 border-[var(--bg-color-l)]"
-                  : "border-b-2 border-transparent"
-              }`}
+              className={`flex flex-col justify-center items-center cursor-pointer  w-[50%] ${tabs === "phone"
+                ? "border-b-2 border-[#F95959]"
+                : "border-b-2 border-transparent"
+                }`}
               onClick={() => setTabs("phone")}
             >
               <span>
@@ -235,27 +234,24 @@ const Login = () => {
                 /> */}
                 <svg
                   data-v-47f4cc84=""
-                  className={`svg-icon-login icon-phone ${
-                    tabs === "phone" ? "color-l" : "gray-color"
-                  } text-2xl`}
+                  className={`svg-icon-login icon-phone ${tabs === "phone" ? "text-[#F95959]" : "gray-color"
+                    } text-2xl`}
                 >
                   <use href="#icon-phone"></use>
                 </svg>
               </span>
               <h3
-                className={`heading-h3 text-base  font-bold font-sans   leading-7 ${
-                  tabs === "phone" ? "color-l" : "gray-color"
-                } w-full text-center `}
+                className={`heading-h3 text-base  font-bold font-sans   leading-7 ${tabs === "phone" ? "text-[#F95959]" : "gray-color"
+                  } w-full text-center `}
               >
                 phone number
               </h3>
             </div>
             <div
-              className={`flex flex-col justify-center items-center cursor-pointer  w-[50%] ${
-                tabs === "email"
-                  ? "border-b-2 border-[var(--bg-color-l)]"
-                  : "border-b-2 border-transparent"
-              }`}
+              className={`flex flex-col justify-center items-center cursor-pointer  w-[50%] ${tabs === "email"
+                ? "border-b-2 border-[#F95959]"
+                : "border-b-2 border-transparent"
+                }`}
               onClick={() => setTabs("email")}
             >
               <span className="flex">
@@ -266,17 +262,15 @@ const Login = () => {
                 /> */}
                 <svg
                   data-v-47f4cc84=""
-                  className={`svg-icon-login icon-email ${
-                    tabs === "email" ? "color-l" : "gray-color"
-                  } text-2xl`}
+                  className={`svg-icon-login icon-email ${tabs === "email" ? "text-[#F95959]" : "gray-color"
+                    } text-2xl`}
                 >
                   <use href="#icon-email"></use>
                 </svg>
               </span>
               <h3
-                className={`heading-h3 text-base  font-bold font-sans  leading-7 ${
-                  tabs === "email" ? "color-l" : "gray-color"
-                } w-full text-center `}
+                className={`heading-h3 text-base  font-bold font-sans  leading-7 ${tabs === "email" ? "text-[#F95959]" : "gray-color"
+                  } w-full text-center `}
               >
                 Email login
               </h3>
@@ -359,9 +353,8 @@ const Login = () => {
                       value={pwd}
                       placeholder="Password"
                       className={`w-full bg-light border rounded-xl p-2 py-3 ps-6 placeholder:text-sm placeholder:text-[var(--grey-200)] placeholder:font-medium 
-    ${
-      pwd ? "border-gray-200" : "border-[--bgbody]"
-    } focus:border-gray-200 focus:outline-none`}
+    ${pwd ? "border-gray-200" : "border-[--bgbody]"
+                        } focus:border-gray-200 focus:outline-none`}
                     />
 
                     <span
@@ -381,11 +374,10 @@ const Login = () => {
                       checked={isChecked}
                       onChange={handleCheckboxChange}
                     />
-                    <div className="w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center peer-checked:border-[var(--bg-color-l)] peer-checked:bg-[var(--bg-color-l)]">
+                    <div className="w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center peer-checked:border-[#F95959] peer-checked:bg-[#F95959]">
                       <svg
-                        className={`w-4 h-4 text-white ${
-                          isChecked ? "block" : "hidden"
-                        }`}
+                        className={`w-4 h-4 text-white ${isChecked ? "block" : "hidden"
+                          }`}
                         viewBox="0 0 20 20"
                         fill="currentColor"
                       >
@@ -404,18 +396,16 @@ const Login = () => {
                 {/* disabled={loader?true:false} */}
               </form>
               <button
-                className={`${
-                  username && pwd
-                    ? "blue-linear2 text-[#fff]"
-                    : "bg-[#cdcfdd] text-[#80849C]"
-                } flex justify-center text-xl w-72 m-auto font-bold text-center rounded-full p-2 mt-7 tracking-[3px]`}
+                className="flex justify-center text-lg w-72 m-auto font-bold text-center
+    rounded-full p-2 mt-5 tracking-[3px]
+    bg-gradient-to-r from-[#FF5757] to-[#FF9992] text-white"
                 onClick={handleSubmit}
               >
                 Log in
               </button>
 
               <button
-                className="border  w-72 flex color-l font-semibold  justify-center items-center border-[var(--bg-color-l)] m-auto rounded-full p-2 mt-6 "
+                className="border  w-72 flex text-[#F95959] font-semibold  justify-center items-center border-[#F95959] m-auto rounded-full p-2 mt-6 "
                 onClick={() => navigate("/register")}
               >
                 {" "}
@@ -493,11 +483,10 @@ const Login = () => {
                       checked={isChecked}
                       onChange={handleCheckboxChange}
                     />
-                    <div className="w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center peer-checked:border-[var(--bg-color-l)] peer-checked:bg-[var(--bg-color-l)]">
+                    <div className="w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center peer-checked:border-[#F95959] peer-checked:bg-[#F95959]">
                       <svg
-                        className={`w-4 h-4 text-white ${
-                          isChecked ? "block" : "hidden"
-                        }`}
+                        className={`w-4 h-4 text-white ${isChecked ? "block" : "hidden"
+                          }`}
                         viewBox="0 0 20 20"
                         fill="currentColor"
                       >
@@ -515,22 +504,20 @@ const Login = () => {
                 </div>
               </form>
               <button
-                className={`${
-                  username && pwd
-                    ? "blue-linear2 text-[#fff]"
-                    : "bg-[#cdcfdd] text-[#80849C]"
-                } flex justify-center gray-100 text-lg w-72 m-auto font-bold text-center rounded-full p-2 mt-5 tracking-[3px]`}
+                className="flex justify-center text-lg w-72 m-auto font-bold text-center
+    rounded-full p-2 mt-5 tracking-[3px]
+    bg-gradient-to-r from-[#FF5757] to-[#FF9992] text-white"
                 onClick={handleSubmitEmail}
               >
                 Log in
               </button>
 
               <button
-                className="border  w-72 flex color-l font-semibold  justify-center items-center border-[var(--bg-color-l)] m-auto rounded-full p-2 mt-6 "
+                className="border  w-72 flex color-l font-semibold  justify-center items-center border-[#F95959] m-auto rounded-full p-2 mt-6 "
                 onClick={() => navigate("/register")}
               >
                 {" "}
-                <span className="tracking-[3px] font-bold text-lg">
+                <span className="tracking-[3px] font-bold text-[#F95959] text-lg">
                   Register
                 </span>
               </button>
@@ -559,8 +546,8 @@ const Login = () => {
             >
               {/* <img src={CustomerImg} alt="" className="w-8" /> */}
               <svg className="w-7 h-7 svg-icon">
-                  <use href="#icon-serverTicket1" />
-                </svg>
+                <use href="#icon-serverTicket1" />
+              </svg>
               <p className="text-sm text-whites">Customer Service</p>
             </Link>
           </div>
