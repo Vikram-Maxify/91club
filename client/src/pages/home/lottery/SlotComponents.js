@@ -1,24 +1,23 @@
 import { useEffect, useRef, useState } from "react";
 
-import AllIcon from "../../../assets/tiranga/AllIcon.png";
+import AllIcon from "../../../assets/tiranga/allIcon.png";
 import AllActiveIcon from "../../../assets/tiranga/allactiveicon.png";
 import CasinoIcon from "../../../assets/tiranga/casino.svg";
 import CasinoActiceIcon from "../../../assets/tiranga/casinoactive.png";
 import FishingIcon from "../../../assets/tiranga/fishing.svg";
+import FishingActiveIcon from "../../../assets/tiranga/fishingactive.png";
 import LobbyIcon from "../../../assets/tiranga/lobby.svg";
 import LobbyActiveIcon from "../../../assets/tiranga/lobbyactive.svg";
-import FishingActiveIcon from "../../../assets/tiranga/fishingactive.png";
+import LotteryIcon from "../../../assets/tiranga/lottery.png";
 import originalIcon from "../../../assets/tiranga/originalIcon.png";
 import originalActiveIcon from "../../../assets/tiranga/originalactive.png";
 import lotteryactive from "../../../assets/tiranga/wingoactive.png";
-import LotteryIcon from "../../../assets/tiranga/lottery.png";
 // import RummyIcon from "../../../assets/tiranga/rummy.png";
 import SlotsIcon from "../../../assets/tiranga/slot.svg";
 import SlotsActiveIcon from "../../../assets/tiranga/slotactive.svg";
 import SportIcon from "../../../assets/tiranga/sport.svg";
 import SportActiveIcon from "../../../assets/tiranga/sportactive.svg";
 
-import { rechargeList2 } from "../../../store/reducer/userReducer";
 import SportsComponent from "./SportsComponent";
 
 import { useDispatch } from "react-redux";
@@ -43,13 +42,13 @@ const allCategories = [
   {
     name: "Lottery",
     icon: LotteryIcon,
-    activeIcon:lotteryactive,
+    activeIcon: lotteryactive,
     id: "lottery",
   },
   {
     name: "Original",
     icon: originalIcon,
-    activeIcon:originalActiveIcon,
+    activeIcon: originalActiveIcon,
     id: "orignal",
   },
   {
@@ -79,7 +78,7 @@ const allCategories = [
   {
     name: "All",
     icon: AllIcon,
-    activeIcon : AllActiveIcon,
+    activeIcon: AllActiveIcon,
     id: "all",
   },
 ];
@@ -168,8 +167,9 @@ const SlotComponents = () => {
                 className="flex flex-col items-center cursor-pointer"
               >
                 <div
-                  className={`min-w-[0px] rounded-xl flex flex-row items-center justify-center px-3 py-1 transition ${isActive ? "bg-white shadow-lg" : ""
-                    }`}
+                  className={`min-w-[0px] rounded-xl flex flex-row items-center justify-center px-3 py-1 transition ${
+                    isActive ? "bg-white shadow-lg" : ""
+                  }`}
                 >
                   <img
                     src={isActive && cat.activeIcon ? cat.activeIcon : cat.icon}
@@ -178,10 +178,11 @@ const SlotComponents = () => {
                   />
 
                   <p
-                    className={`${isActive
+                    className={`${
+                      isActive
                         ? "text-black font-semibold text-lg"
                         : "text-gray-500"
-                      }`}
+                    }`}
                   >
                     {cat.name}
                   </p>
