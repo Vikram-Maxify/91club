@@ -83,55 +83,55 @@ const data = [
   {
     name: "JILI",
     text: generateRandomText(),
-    img: FaRegGrinWink,
+    img: "https://i.ibb.co/fV1VqSHX/icon.png",
     number: getRandomINumber(),
   },
   {
     name: "JILI",
     text: generateRandomText(),
-    img: FaRegGrinWink,
+    img: "https://i.ibb.co/fV1VqSHX/icon.png",
     number: getRandomINumber(),
   },
   {
     name: "JILI",
     text: generateRandomText(),
-    img: FaRegGrinWink,
+    img: "https://i.ibb.co/fV1VqSHX/icon.png",
     number: getRandomINumber(),
   },
   {
     name: "Moto Racing",
     text: generateRandomText(),
-    img: FaRegGrinWink,
+    img: "https://i.ibb.co/fV1VqSHX/icon.png",
     number: getRandomINumber(),
   },
   {
     name: "PG",
     text: generateRandomText(),
-    img: FaRegGrinWink,
+    img: "https://i.ibb.co/fV1VqSHX/icon.png",
     number: getRandomINumber(),
   },
   {
     name: "PG",
     text: generateRandomText(),
-    img: FaRegGrinWink,
+    img: "https://i.ibb.co/fV1VqSHX/icon.png",
     number: getRandomINumber(),
   },
   {
     name: "SABA",
     text: generateRandomText(),
-    img: FaRegGrinWink,
+    img: "https://i.ibb.co/fV1VqSHX/icon.png",
     number: getRandomINumber(),
   },
   {
     name: "ARBET",
     text: generateRandomText(),
-    img: FaRegGrinWink,
+    img: "https://i.ibb.co/fV1VqSHX/icon.png",
     number: getRandomINumber(),
   },
   {
     name: "TB Chess",
     text: generateRandomText(),
-    img: FaRegGrinWink,
+    img: "https://i.ibb.co/fV1VqSHX/icon.png",
     number: getRandomINumber(),
   },
 ];
@@ -200,8 +200,12 @@ const WinningInformation = () => {
     <>
       import {FaRegGrinWink} from "react-icons/fa";
 
-      <h3 className="border-after flex mt-2 text-whites font-semibold pb-3">
-        <FaRegGrinWink className="w-6 h-5 mr-2 text-[#F95959]" />
+      <h3 className="border-after flex mt-2 items-center text-whites font-semibold pb-3">
+        <img
+          src="https://i.ibb.co/fV1VqSHX/icon.png"
+          alt="Winning Information"
+          className="w-6 h-6 mr-2 object-contain"
+        />
         Winning Information
       </h3>
 
@@ -273,21 +277,11 @@ const WinningInformation = () => {
                 {/* Game */}
                 <div className="flex items-center w-1/3">
                   <div>
-                    {(() => {
-                      const Icon = slide.img;
-
-                      return (
-                        <Icon
-                          className="
-                      rounded-md
-                      w-6
-                      h-6
-                      object-cover
-                      text-[#F95959]
-                    "
-                        />
-                      );
-                    })()}
+                    <img
+                      src={slide.img}
+                      alt={slide.name}
+                      className="rounded-md w-5 h-5 object-cover"
+                    />
                   </div>
 
                   <div className="flex items-start">
@@ -384,7 +378,7 @@ const WinningInformation = () => {
         <div className="rounded-[14px] px-3 shadow-[0_4px_16px_rgba(0,0,0,0.08)] border border-[#EEEEEE] overflow-hidden mt-5">
           <div
             style={{ backgroundImage: `url(${NewEarningImg})` }}
-            className="w-full mt-12 h-[10rem] bg-cover rounded-md"
+            className="w-full mt-12 h-[10rem] bg-contain bg-center bg-no-repeat rounded-md"
           >
             <div className="flex items-center justify-around w-full">
               <div>
@@ -402,11 +396,11 @@ const WinningInformation = () => {
                   />
                 </div>
 
-                <div className="left-4 absolute mt-[3.3rem]">
-                  <p className="text-sm left-6 relative text-[#FF772A] font-bold">
+                <div className="left-6 absolute mt-[3.3rem]">
+                  <p className="text-sm left-5 relative text-[#FF772A] font-bold">
                     Mem**SLH
                   </p>
-                  <button className="text-xs mt-1 text-[#C75C36] p-1 px-2 bg-[#FFFFFF4D]">
+                  <button className="text-[12px] mt-1 text-[#C75C36] text-center p-1 px-2 bg-[#FFFFFF4D]">
                     ₹220,499,518.82
                   </button>
                 </div>
@@ -452,8 +446,8 @@ const WinningInformation = () => {
                   />
                 </div>
 
-                <div className="left-[-15px] absolute mt-[3.5rem]">
-                  <p className="text-sm left-6 text-[#FFC528] relative font-bold">
+                <div className="left-[-10px] absolute mt-[3.5rem]">
+                  <p className="text-sm left-4 text-[#FFC528] relative font-bold">
                     Mem**IAP
                   </p>
                   <button className="text-xs mt-1 text-[#BC8735] p-1 px-2 bg-[#FFFFFF4D]">
@@ -545,7 +539,7 @@ const WinningInformation = () => {
 
             <div className="py-1 flex items-center justify-between my-1 rounded-md bg-white">
               <div className="flex items-center ps-1">
-                <span className="text-black text-sm mr-2">4</span>
+                <span className="text-black text-sm mr-4">4</span>
 
                 <img
                   src={AvatarData[5]}
@@ -569,7 +563,7 @@ const WinningInformation = () => {
 
             <div className="py-1 flex items-center justify-between my-1 rounded-md bg-white">
               <div className="flex items-center ps-1">
-                <span className="text-black text-sm mr-2">5</span>
+                <span className="text-black text-sm mr-4">5</span>
 
                 <img
                   src={AvatarData[1]}
@@ -593,7 +587,7 @@ const WinningInformation = () => {
 
             <div className="py-1 flex items-center justify-between my-1 rounded-md bg-white">
               <div className="flex items-center ps-1">
-                <span className="text-black text-sm mr-2">6</span>
+                <span className="text-black text-sm mr-4">6</span>
 
                 <img
                   src={AvatarData[1]}
@@ -617,7 +611,7 @@ const WinningInformation = () => {
 
             <div className="py-1 flex items-center justify-between my-1 rounded-md bg-white">
               <div className="flex items-center ps-1">
-                <span className="text-black text-sm mr-2">7</span>
+                <span className="text-black text-sm mr-4">7</span>
 
                 <img
                   src={AvatarData[1]}
@@ -641,7 +635,7 @@ const WinningInformation = () => {
 
             <div className="py-1 flex items-center justify-between my-1 rounded-md bg-white">
               <div className="flex items-center ps-1">
-                <span className="text-black text-sm mr-2">8</span>
+                <span className="text-black text-sm mr-4">8</span>
 
                 <img
                   src={AvatarData[1]}
@@ -665,7 +659,7 @@ const WinningInformation = () => {
 
             <div className="py-1 flex items-center justify-between my-1 rounded-md bg-white">
               <div className="flex items-center ps-1">
-                <span className="text-black text-sm mr-2">9</span>
+                <span className="text-black text-sm mr-4">9</span>
 
                 <img
                   src={AvatarData[1]}
@@ -689,7 +683,7 @@ const WinningInformation = () => {
 
             <div className="py-1 flex items-center justify-between rounded-md bg-white">
               <div className="flex items-center ps-1">
-                <span className="text-black text-sm mr-2">10</span>
+                <span className="text-black text-sm mr-4">10</span>
 
                 <img
                   src={AvatarData[1]}

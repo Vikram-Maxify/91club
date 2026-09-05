@@ -88,7 +88,7 @@ const BindEmail = () => {
           <div className="mt-4">
             <div className="flex items-center ">
               <span>
-                <MdVerifiedUser className="color-l text-2xl" />
+                <MdVerifiedUser className="text-[#fb5b5b] text-2xl" />
               </span>
               <label htmlFor="" className="ms-1 text-whites">
                 Verification Code

@@ -491,7 +491,7 @@ const Main = () => {
                 </button>
                 <button
                   onClick={() => setShowPopup(false)}
-                  className="px-4 py-2 border border-[#F5CC2C] font-medium color-l rounded-full bg-body"
+                  className="px-4 py-2 border border-[#fb5b5b] font-medium color-l rounded-full bg-body text-[#fb5b5b]"
                 >
                   Cancel
                 </button>

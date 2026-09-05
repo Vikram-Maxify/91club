@@ -451,13 +451,13 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="flex gap-5 mx-2 mt-2">
+      <div className="flex gap-3 mx-2 mt-2 px-1">
         {/* Wheel of Fortune - Redirect to /WheelSpin */}
         <Link to="/WheelSpin" className="relative flex-1 block">
-          <img src={wheelSpin} alt="wheelSpin" className="w-full" />
-          <p className="absolute inset-0 flex items-center justify-center text-black w-[106px] -mt-4 ml-3 font-bold text-sm md:text-base z-10">
+          <img src={wheelSpin} alt="wheelSpin" className="w-full h-[58px]" />
+          {/* <p className="absolute inset-0 flex items-center justify-center text-black w-[106px] -mt-4 ml-3 font-bold text-sm md:text-base z-10">
             Wheel of Fortune
-          </p>
+          </p> */}
           <span className="absolute bottom-2 left-4 text-white text-xs font-semibold px-2 py-0.5 rounded z-10">
             View
           </span>
@@ -465,10 +465,10 @@ const Home = () => {
 
         {/* Welcome Bonus - Redirect to /promotion */}
         <Link to="/promotion" className="relative flex-1 block">
-          <img src={bonusSpin} alt="bonusSpin" className="w-full" />
-          <p className="absolute inset-0 flex items-center justify-center text-black w-[106px] -mt-4 ml-3 font-bold text-sm md:text-base z-10">
+          <img src={bonusSpin} alt="bonusSpin" className="w-full h-[58px] " />
+          {/* <p className="absolute inset-0 flex items-center justify-center text-black w-[106px] -mt-4 ml-3 font-bold text-sm md:text-base z-10">
             Welcome Bonus
-          </p>
+          </p> */}
           <span className="absolute bottom-3 left-4 text-white text-xs font-semibold px-2 py-0.5 rounded z-10">
             View
           </span>
