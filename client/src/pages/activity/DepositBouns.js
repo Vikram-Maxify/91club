@@ -60,6 +60,7 @@ const DepositBouns = () => {
           <p className="flex items-start gap-1">
             <span>
               <svg
+              className="text-[#FD7D76]"
                 data-v-ca43e9bb=""
                 width="8"
                 height="8"
@@ -128,7 +129,7 @@ const DepositBouns = () => {
                 ></rect>
               </svg>
             </span>{" "}
-            ExpressClub works with more than 10,000 online live game dealers and
+            Chennai91 works with more than 10,000 online live game dealers and
             slot games, all of which are verified fair games.
           </p>
           <p className="flex items-start gap-1">
@@ -152,15 +153,15 @@ const DepositBouns = () => {
                 ></rect>
               </svg>
             </span>{" "}
-            ExpressClub supports fast deposit and withdrawal and looks forward
+            Chennai91 supports fast deposit and withdrawal and looks forward
             to your visit.
           </p>
           <br />
-          <p className="text-[#F5CC2C]">
+          <p className="text-[#FD7D76]">
             Gambling can be addictive, please play rationally.
           </p>
-          <p className="text-[#F5CC2C]">
-            ExpressClub only accepts customers above the age of 18.
+          <p className="text-[#FD7D76]">
+            Chennai91 only accepts customers above the age of 18.
           </p>
         </div>
       </div>

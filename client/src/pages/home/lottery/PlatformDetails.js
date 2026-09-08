@@ -66,7 +66,7 @@ const PlatformDetails = () => {
           <ul className="space-y-1">
             <li className="flex items-start gap-3">
               <span className="mt-2 w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0"></span>
-              <p className="text-gray-500 text-[14px] leading-relaxed">
+              <p className="text-[#7D889D] text-[12px] leading-relaxed">
                 The platform advocates fairness, justice, and openness. We mainly
                 operate fair lottery, blockchain games, live casinos, and slot
                 machine games.
@@ -75,27 +75,27 @@ const PlatformDetails = () => {
 
             <li className="flex items-start gap-3">
               <span className="mt-2 w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0"></span>
-              <p className="text-gray-500 text-[14px] leading-relaxed">
-                ExpressClub works with more than 10,000 online live game dealers
+              <p className="text-[#7D889D] text-[12px] leading-relaxed">
+                Chennai91 works with more than 10,000 online live game dealers
                 and slot games, all of which are verified fair games.
               </p>
             </li>
 
             <li className="flex items-start gap-3">
               <span className="mt-2 w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0"></span>
-              <p className="text-gray-500 text-[14px] leading-relaxed">
-                ExpressClub supports fast deposit and withdrawal, and looks
+              <p className="text-[#7D889D] text-[12px] leading-relaxed">
+                Chennai91 supports fast deposit and withdrawal, and looks
                 forward to your visit.
               </p>
             </li>
           </ul>
 
           <div className="mt-5 pl-5 space-y-1">
-            <p className="text-red-400 text-[14px]">
+            <p className="text-red-400 text-[12px]">
               Gambling can be addictive, please play rationally.
             </p>
-            <p className="text-red-400 text-[14px]">
-              ExpressClub only accepts customers above the age of 18.
+            <p className="text-red-400 text-[12px]">
+              Chennai91 only accepts customers above the age of 18.
             </p>
           </div>
         </div>
@@ -164,7 +164,7 @@ const PlatformDetails = () => {
                 ></rect>
               </svg>
             </span>{" "}
-            ExpressClub works with more than 10,000 online live game dealers and slot
+            Chennai91 works with more than 10,000 online live game dealers and slot
             games, all of which are verified fair games.
           </p>
           <p className="flex items-start gap-1">
@@ -188,7 +188,7 @@ const PlatformDetails = () => {
                 ></rect>
               </svg>
             </span>{" "}
-            ExpressClub supports fast deposit and withdrawal and looks forward to your
+            Chennai91 supports fast deposit and withdrawal and looks forward to your
             visit.
           </p>
           <br />
@@ -196,7 +196,7 @@ const PlatformDetails = () => {
             Gambling can be addictive, please play rationally.
           </p>
           <p className="text-[#F5CC2C]">
-            ExpressClub only accepts customers above the age of 18.
+            Chennai91 only accepts customers above the age of 18.
           </p>
         </div> */}
       </div>

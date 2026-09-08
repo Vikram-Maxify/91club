@@ -330,9 +330,9 @@ export default function Recharge() {
               ₹{" "}
               {userInfo?.money_user
                 ? Number(userInfo?.money_user).toLocaleString("en-IN", {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2,
-                  })
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })
                 : "0.00"}
             </h3>
             <img
@@ -348,27 +348,29 @@ export default function Recharge() {
           {tabs.map((tab) => (
             <button
               key={tab.label}
-              className={`col-span-3 py-3 bg-light relative text-sm flex justify-center flex-col items-center rounded ${
-                activeTab === tab.label
-                  ? "blue-linear text-white"
+              className={`col-span-3 py-3 relative text-sm flex justify-center flex-col items-center rounded ${activeTab === tab.label
+                  ? "bg-[#FA6F6B] text-white"
                   : "bg-light gray-100"
-              }`}
+                }`}
               onClick={() => {
-                setActiveTab(tab.label); // Update the active tab
-                setActiveIndex(0); // Reset index to 0
+                setActiveTab(tab.label);
+                setActiveIndex(0);
+
                 const firstChannel = channels.find(
-                  (channel) => channel.label === tab.label,
-                ); // Find the matching channel
+                  (channel) => channel.label === tab.label
+                );
+
                 if (firstChannel && firstChannel.channelItem.length > 0) {
-                  setActiveTab2(firstChannel.channelItem[0].label); // Update setActiveTab2 to the first item's label
+                  setActiveTab2(firstChannel.channelItem[0].label);
                 }
               }}
             >
               <img src={tab.Icons} alt="" className="w-10" />
-              <span> {tab.label}</span>
+              <span>{tab.label}</span>
+
               {tab.g && (
                 <span
-                  className="absolute top-0 w-[37px] h-[35px]  right-0 bg-cover bg-center text-white text-[11px] pt-[10px]  "
+                  className="absolute top-0 w-[37px] h-[35px] right-0 bg-cover bg-center text-white text-[11px] pt-[10px]"
                   style={{ backgroundImage: `url(${bonus})` }}
                 >
                   2%
@@ -398,24 +400,23 @@ export default function Recharge() {
                         {channel.channelItem.map((item, index) => (
                           <div
                             key={index}
-                            className={` p-2 rounded-md cursor-pointer ${
-                              index === activeIndex
-                                ? "blue-linear text-white"
+                            className={`p-2 rounded-md cursor-pointer ${index === activeIndex
+                                ? "bg-[#FA6F6B] text-white"
                                 : "bg-blues gray-100"
-                            } `}
+                              }`}
                             onClick={() => {
                               setActiveTab2(item.label);
                               setActiveIndex(index);
                             }}
                           >
-                            <p className={` text-base  `}>{item.label}</p>
-                            <p className={`text-base  `}>
+                            <p className="text-base">{item.label}</p>
+                            <p className="text-base">
                               Balance: {item.balance}
                             </p>
                           </div>
                         ))}
                       </Fragment>
-                    ),
+                    )
                 )}
               </div>
             </div>
@@ -436,11 +437,10 @@ export default function Recharge() {
                               {item.depositAmount.map((data, index2) => (
                                 <button
                                   key={index2}
-                                  className={`flex items-center justify-center col-span-4 p-1 rounded font-semibold  ${
-                                    amount == data.am
+                                  className={`flex items-center justify-center col-span-4 p-1 rounded font-semibold  ${amount == data.am
                                       ? "blue-linear text-white"
                                       : "border text-blue sky-border"
-                                  }`}
+                                    }`}
                                   onClick={() => setAmount(data.am)}
                                 >
                                   <img
@@ -483,11 +483,10 @@ export default function Recharge() {
                 </div>
 
                 <button
-                  className={`  w-full rounded-full p-2 mt-4  ${
-                    amount > 9
+                  className={`  w-full rounded-full p-2 mt-4  ${amount > 9
                       ? "blue-linear text-white"
-                      : "bg-[#08d781] text-whites"
-                  }`}
+                      : "bg-[#FA6F6B] text-whites"
+                    }`}
                   disabled={loader ? true : false}
                   onClick={handleSubmitUSDT}
                 >
@@ -511,17 +510,15 @@ export default function Recharge() {
                                 {item.depositAmount.map((data, index2) => (
                                   <button
                                     key={index2}
-                                    className={` col-span-4 p-1 rounded font-semibold  ${
-                                      amount == data.am
+                                    className={` col-span-4 p-1 rounded font-semibold  ${amount == data.am
                                         ? "blue-linear text-white"
                                         : "border text-blue sky-border"
-                                    }`}
+                                      }`}
                                     onClick={() => setAmount(data.am)}
                                   >
                                     <span
-                                      className={` mx-2 ${
-                                        amount == data.am ? "text-white" : ""
-                                      } `}
+                                      className={` mx-2 ${amount == data.am ? "text-white" : ""
+                                        } `}
                                     >
                                       ₹
                                     </span>{" "}
@@ -550,11 +547,10 @@ export default function Recharge() {
                   </div>
 
                   <button
-                    className={`  w-full rounded-full p-2 mt-4  ${
-                      amount > 99
+                    className={`  w-full rounded-full p-2 mt-4  ${amount > 99
                         ? "blue-linear text-white"
                         : "bg-[#FB5959] color-orange"
-                    }`}
+                      }`}
                     disabled={loader ? true : false}
                     onClick={handleSubmit}
                   >
@@ -622,12 +618,11 @@ export default function Recharge() {
             </h2>
           </div>
           <button
-            className={`font-bold py-3 px-6 rounded shadow-md hover:opacity-90 transition-opacity p-2 ${
-              (activeTab === "USDT" && amount > 9) ||
-              (activeTab !== "USDT" && amount > 99)
+            className={`font-bold py-3 px-6 rounded shadow-md hover:opacity-90 transition-opacity p-2 ${(activeTab === "USDT" && amount > 9) ||
+                (activeTab !== "USDT" && amount > 99)
                 ? "blue-linear text-white"
                 : "bg-[#d1d5dd] gray-100"
-            }`}
+              }`}
             disabled={activeTab === "USDT" ? amount < 10 : amount < 100}
             onClick={activeTab === "USDT" ? handleSubmitUSDT : handleSubmit}
           >

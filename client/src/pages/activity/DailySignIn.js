@@ -124,7 +124,7 @@ const DailySignIn = () => {
         </div>
 
         <button
-          className="blue-linear w-[70%] color-orange m-auto flex justify-center rounded-full p-2 mt-4"
+          className="w-[70%] color-orange m-auto flex justify-center text-lg rounded-full p-2 mt-4 border border-[#FA6F6B] bg-[#FA6F6B]"
           disabled
         >
           Attendance

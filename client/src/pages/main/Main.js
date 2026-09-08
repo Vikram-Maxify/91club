@@ -137,9 +137,9 @@ const Main = () => {
                   ₹
                   {userInfo?.money_user
                     ? Number(userInfo?.money_user).toLocaleString("en-IN", {
-                        minimumFractionDigits: 2,
-                        maximumFractionDigits: 2,
-                      })
+                      minimumFractionDigits: 2,
+                      maximumFractionDigits: 2,
+                    })
                     : "0.00"}
                 </h4>
                 <img
@@ -357,7 +357,7 @@ const Main = () => {
           </li>
           <li
             className="flex justify-between items-center p-3 py-4"
-            // onClick={() => navigate("/main/Language")}
+          // onClick={() => navigate("/main/Language")}
           >
             <div className="flex items-center">
               <svg data-v-a30d19b1="" class="svg-icon icon-language size-8 ">
@@ -485,7 +485,7 @@ const Main = () => {
               <div className="mt-6 gap-3 flex flex-col">
                 <button
                   onClick={handleLogout}
-                  className="px-4 py-2 blue-linear font-medium text-black rounded-full"
+                  className="px-4 py-2 font-medium text-white bg-[#F95959] border border-[#F95959] rounded-full"
                 >
                   Confirm
                 </button>
