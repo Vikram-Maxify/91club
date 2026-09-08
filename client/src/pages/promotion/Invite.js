@@ -21,7 +21,7 @@ const Invite = () => {
     {
       img: poster,
       logo: bannergetData?.gameall?.logo,
-      text1: "Welcome to ExpressClub",
+      text1: "Welcome to Chennai91",
       text2: "Fair and justice",
       text3: "Open and transparent",
       text4: "Full Odds Bonus Rate",
@@ -37,7 +37,7 @@ const Invite = () => {
     {
       img: poster,
       logo: bannergetData?.gameall?.logo,
-      text1: "Welcome to ExpressClub",
+      text1: "Welcome to Chennai91",
       text2: "Fair and justice",
       text3: "Open and transparent",
       text4: "Full Odds Bonus Rate",
@@ -53,7 +53,7 @@ const Invite = () => {
     {
       img: poster,
       logo: bannergetData?.gameall?.logo,
-      text1: "Welcome to ExpressClub",
+      text1: "Welcome to Chennai91",
       text2: "Fair and justice",
       text3: "Open and transparent",
       text4: "Full Odds Bonus Rate",

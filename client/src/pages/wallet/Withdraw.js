@@ -6,6 +6,8 @@ import { MdOutlineArrowForwardIos } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import Wallet from "../../assets/balance.png";
+import arImage from "../../assets/arimage.png";
+
 import CardImg from "../../assets/card.png";
 import RefereshImg from "../../assets/refresh.png";
 import UpiImg from "../../assets/upiImg.png";
@@ -16,7 +18,7 @@ import CustomeNavbar from "../../components/CustomeNavbar";
 import { userDetail } from "../../store/reducer/authReducer";
 import { getBank, withdrawal } from "../../store/reducer/userReducer";
 import WithdrawHistoryLite from "./WithdrawHistoryLite";
-const AR = "https://i.ibb.co/Tx56S3Lk/withdraw-ARPay.png";
+const AR = "https://ibb.co/67tBK6pt";
 
 const Withdraw = () => {
   const { userInfo, loader } = useSelector((state) => state.auth);
@@ -88,7 +90,7 @@ const Withdraw = () => {
     window.scrollTo(0, 0);
   }, [dispatch]);
 
-  useEffect(() => {}, [addBankData]);
+  useEffect(() => { }, [addBankData]);
 
   function accountNumber(phoneNumber) {
     const prefix = phoneNumber.slice(0, 6);
@@ -134,9 +136,9 @@ const Withdraw = () => {
               ₹{" "}
               {userInfo?.money_user
                 ? Number(userInfo?.money_user).toLocaleString("en-IN", {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2,
-                  })
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })
                 : "0.00"}
             </h3>
             <img
@@ -149,20 +151,16 @@ const Withdraw = () => {
         </div>
         <div
           onClick={() => setActiveTab("ARPay")}
-          className={`px-4 py-2 rounded w-full flex items-center mb-3  ${
-            activeTab === "ARPay"
+          className={`px-4 py-2 rounded w-full flex items-center mb-3  ${activeTab === "ARPay"
               ? "blue-linear text-white"
-              : "nav-bg text-white"
-          }`}
+              : " text-white"
+            }`}
         >
-          <img src={AR} alt="" className="w-12 mr-3" />
-          <div className="text-white">
+          <img src={arImage} alt="" className="w-12 mr-3" />
+          <div className="text-gray-500">
             <h2>ARPay </h2>
             <p className="fs-sm leading-5">
-              1.Bind your UPI in ARB Wallet and earn 1% ARB coins after each
-              successful sale. 2.Enjoy 2% up to 5% BONUS just for BUY ARB Coins
-              from AR Wallet. Start now! 3.The fastest selling speed is achieved
-              when selling a single order amount between 100 and 2000.
+              Support UPI for Fast Payment
             </p>
           </div>
         </div>
@@ -171,18 +169,15 @@ const Withdraw = () => {
           {tabs.map((tab) => (
             <button
               key={tab.label}
-              className={`px-4 py-2 rounded w-28 flex flex-col justify-center items-center ${
-                activeTab === tab.label
-                  ? "blue-linear text-white"
+              className={`px-4 py-2 rounded w-28 flex flex-col justify-center items-center ${activeTab === tab.label
+                  ? "bg-[#FA6F6B] text-white"
                   : "bg-body gray-50"
-              }`}
+                }`}
               onClick={() => setActiveTab(tab.label)}
             >
               <img src={tab.Img} alt="" className="w-10 mb-1" />
-              <span
-                className={activeTab === tab.label ? "text-sm" : " text-sm"}
-              >
-                {" "}
+
+              <span className="text-sm">
                 {tab.label}
               </span>
             </button>
@@ -255,7 +250,7 @@ const Withdraw = () => {
                       autoCorrect="off"
                       spellCheck="false"
                       className="w-full bgs-body p-2 ps-6 flex items-center focus:outline-none color-blue placeholder:text-sm placeholder:text-[#FB5959]"
-                      placeholder="Please enter the amount"
+                      placeholder="Please enter the withdrawal amount"
                       value={amount}
                       onChange={(e) => setAmount(e.target.value)}
                       onFocus={(e) => {
@@ -283,7 +278,7 @@ const Withdraw = () => {
                       setAmount(
                         Math.round(
                           Number(userInfo?.money_user) -
-                            Number(userInfo?.recharge),
+                          Number(userInfo?.recharge),
                         ),
                       )
                     }
@@ -298,7 +293,7 @@ const Withdraw = () => {
                   </span>
                 </div>
                 <button
-                  className="blue-linear  w-full rounded-full p-2 mt-4 text-whites"
+                  className=" bg-gray-300 border border-gray-300  w-full rounded-full p-2 mt-4 text-whites"
                   onClick={() => setOpenPopup(true)}
                 >
                   Withdraw
@@ -385,7 +380,7 @@ const Withdraw = () => {
                       setAmount(
                         Math.round(
                           Number(userInfo?.money_user) -
-                            Number(userInfo?.recharge),
+                          Number(userInfo?.recharge),
                         ),
                       )
                     }
@@ -395,7 +390,7 @@ const Withdraw = () => {
                 </div>
 
                 <button
-                  className="blue-linear  w-full rounded-full p-2 mt-4 text-whites"
+                  className="bg-gray-300  w-full rounded-full p-2 mt-4 text-whites"
                   onClick={() => setOpenPopup(true)}
                 >
                   Withdraw
@@ -449,7 +444,7 @@ const Withdraw = () => {
                 <span className="text-blue text-lg font-bold">₹</span>
                 <input
                   type="number"
-                  className="w-full bgs-body p-2 ps-6 flex items-center focus:outline-none text-blue placeholder:text-sm placeholder:text-[#F5CC2C]"
+                  className="w-full bgs-body p-2 ps-6 flex items-center focus:outline-none text-blue placeholder:text-sm placeholder:text-[#FA6F6B]"
                   placeholder="Please enter withdrawal amount"
                   value={amount}
                   onChange={(e) => setAmount(e.target.value)}
@@ -472,7 +467,7 @@ const Withdraw = () => {
                     setAmount(
                       Math.round(
                         Number(userInfo?.money_user) -
-                          Number(userInfo?.recharge),
+                        Number(userInfo?.recharge),
                       ),
                     )
                   }
@@ -489,7 +484,7 @@ const Withdraw = () => {
               </div>
 
               <button
-                className="blue-linear w-full rounded-full p-2 mt-4 text-whites"
+                className="bg-gray-300 w-full rounded-full p-2 mt-4 text-whites"
                 onClick={() => setOpenPopup(true)}
               >
                 Withdraw
@@ -581,9 +576,8 @@ const Withdraw = () => {
 
       {/* ✅ Recharge Popup - Directly in page */}
       <div
-        className={`fixed inset-0 z-[50] flex items-center justify-center ${
-          openPopup ? "flex" : "hidden"
-        }`}
+        className={`fixed inset-0 z-[50] flex items-center justify-center ${openPopup ? "flex" : "hidden"
+          }`}
       >
         {/* Backdrop */}
         <div

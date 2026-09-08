@@ -375,7 +375,7 @@ const Vip = () => {
             <button
               className={`flex justify-center items-center bg-light w-full py-2 rounded-md ${
                 activeRule == 1 ? "color-l border-b " : "gray-50"
-              } border-[#F5CC2C]`}
+              } border-[#FA6F6B]`}
               onClick={() => setActiveRule(1)}
             >
               {" "}
@@ -384,7 +384,7 @@ const Vip = () => {
             <button
               className={`flex justify-center items-center bg-light w-full py-2 rounded-md  ${
                 activeRule == 2 ? "color-l border-b " : "gray-50"
-              } border-[#F5CC2C]`}
+              } border-[#FA6F6B]`}
               onClick={() => setActiveRule(2)}
             >
               Rules
@@ -418,7 +418,7 @@ const Vip = () => {
 
           {activeRule == 2 && (
             <div className="container-section mt-2">
-              <h1 className="heading-h1 text-center color-blue">
+              <h1 className="heading-h1 text-center text-red-600 font-bold text-xl">
                 {" "}
                 VIP privilenges
               </h1>
@@ -427,7 +427,7 @@ const Vip = () => {
               </p>
 
               <div className="bg-popup-nav mt-5 px-2 pb-5 rounded-md">
-                <div className="nav-bg w-[60%] rounded-bl-full mb-2 py-2 rounded-br-full flex justify-center m-auto  fs-sm text-whites">
+                <div className="nav-bg w-[60%] rounded-bl-full mb-2 py-2 rounded-br-full flex justify-center m-auto  fs-sm text-white">
                   Upgrade standard
                 </div>
 
@@ -441,7 +441,7 @@ const Vip = () => {
                 </p>
               </div>
               <div className="bg-popup-nav mt-5 px-2 pb-5 rounded-md">
-                <div className="nav-bg w-[60%] rounded-bl-full mb-2 py-2 rounded-br-full flex justify-center m-auto text-whites fs-sm">
+                <div className="nav-bg w-[60%] rounded-bl-full mb-2 py-2 rounded-br-full flex justify-center m-auto text-white fs-sm">
                   Upgrade order
                 </div>
                 <p className="fs-sm gray-text leading-7">
@@ -451,7 +451,7 @@ const Vip = () => {
                 </p>
               </div>
               <div className="bg-popup-nav mt-5 px-2 pb-5 rounded-md">
-                <div className="nav-bg w-[60%] rounded-bl-full mb-2 py-2 rounded-br-full flex justify-center m-auto text-whites fs-sm">
+                <div className="nav-bg w-[60%] rounded-bl-full mb-2 py-2 rounded-br-full flex justify-center m-auto text-white fs-sm">
                   Level maintenance
                 </div>
                 <p className="fs-sm gray-text leading-7">
@@ -463,7 +463,7 @@ const Vip = () => {
                 </p>
               </div>
               <div className="bg-popup-nav mt-5 px-2 pb-5 rounded-md">
-                <div className="nav-bg w-[60%] rounded-bl-full mb-2 py-2 rounded-br-full flex justify-center m-auto text-whites fs-sm">
+                <div className="nav-bg w-[60%] rounded-bl-full mb-2 py-2 rounded-br-full flex justify-center m-auto text-white fs-sm">
                   Downgrade standard
                 </div>
                 <p className="fs-sm gray-text leading-7">
@@ -476,7 +476,7 @@ const Vip = () => {
                 </p>
               </div>
               <div className="bg-popup-nav mt-5 px-2 pb-5 rounded-md">
-                <div className="nav-bg w-[60%] rounded-bl-full mb-2 py-2 rounded-br-full flex justify-center m-auto text-whites fs-sm">
+                <div className="nav-bg w-[60%] rounded-bl-full mb-2 py-2 rounded-br-full flex justify-center m-auto text-white fs-sm">
                   Upgrade Bonus
                 </div>
                 <p className="fs-sm gray-text leading-7">
@@ -486,7 +486,7 @@ const Vip = () => {
                 </p>
               </div>
               <div className="bg-popup-nav mt-5 px-2 pb-5 rounded-md">
-                <div className="nav-bg w-[60%] rounded-bl-full mb-2 py-2 rounded-br-full flex justify-center m-auto text-whites fs-sm">
+                <div className="nav-bg w-[60%] rounded-bl-full mb-2 py-2 rounded-br-full flex justify-center m-auto text-white fs-sm">
                   Monthly reward
                 </div>
                 <p className="fs-sm gray-text leading-7">
@@ -500,7 +500,7 @@ const Vip = () => {
                 </p>
               </div>
               <div className="bg-popup-nav mt-5 px-2 pb-5 rounded-md">
-                <div className="nav-bg w-[60%] rounded-bl-full mb-2 py-2 rounded-br-full flex justify-center m-auto text-whites fs-sm">
+                <div className="nav-bg w-[60%] rounded-bl-full mb-2 py-2 rounded-br-full flex justify-center m-auto text-white fs-sm">
                   Real-time rebate
                 </div>
                 <p className="fs-sm gray-text leading-7">
@@ -509,7 +509,7 @@ const Vip = () => {
                 </p>
               </div>
               <div className="bg-popup-nav mt-5 px-2 pb-5 rounded-md">
-                <div className="nav-bg w-[60%] rounded-bl-full mb-2 py-2 rounded-br-full flex justify-center m-auto text-whites fs-sm">
+                <div className="nav-bg w-[60%] rounded-bl-full mb-2 py-2 rounded-br-full flex justify-center m-auto text-white fs-sm">
                   Safe
                 </div>
                 <p className="fs-sm gray-text leading-7">

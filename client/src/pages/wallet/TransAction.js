@@ -174,7 +174,7 @@ const TransAction = () => {
                   })}
                 </span>
               </div>
-              <div className="rounded-md w-[95%] h-16 border border-gray-200 m-2 mt-3 ps-2 text-sm overflow-hidden  font-medium color-yellow-200">
+              <div className="rounded-md w-[95%] h-16 border border-gray-200 m-2 mt-3 ps-2 text-sm overflow-hidden font-medium text-red-500">
                 {item.type == 0 ? "" : item.type}
               </div>
             </div>

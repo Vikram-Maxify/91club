@@ -50,7 +50,7 @@ const RedeemGift = () => {
           />
           <button
             disabled={loader}
-            className="blue-linear text-white w-full rounded-full p-2.5 mt-7 text-base"
+            className=" text-white w-full rounded-full p-2.5 mt-7 text-base bg-[#FA6F6B] border border-[#FA6F6B]"
             onClick={handleSubmit}
           >
             Recieve

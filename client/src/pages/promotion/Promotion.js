@@ -181,7 +181,7 @@ const Promotion = () => {
         </button> */}
         <div
           onClick={() => navigate("/invite")}
-          className="blue-linear w-full p-1 text-md font-bold my-2 rounded-full text-center  color-orange"
+          className="bg-[#FA6F6B] w-full p-1 text-md font-bold my-2 rounded-full text-center  color-orange border border-[#FA6F6B]"
         >
           <div className="w-full py-[3px]">INVITAION LINK</div>
         </div>

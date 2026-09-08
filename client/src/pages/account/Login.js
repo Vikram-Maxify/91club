@@ -523,34 +523,6 @@ const Login = () => {
               </button>
             </div>
           )}
-
-          <div className="flex items-center justify-between mt-10">
-            <Link
-              className="flex items-center justify-center flex-col w-[50%]"
-              to={"/forgot"}
-            >
-              <span>
-                {/* <MdLock className="color-l text-4xl" /> */}
-                <svg
-                  data-v-436a69c4=""
-                  className="svg-icon icon-clock_b forgetbg forgetbg color-l w-9 h-9"
-                >
-                  <use href="#icon-clock_b"></use>
-                </svg>
-              </span>
-              <p className="text-sm text-whites">Forgot password</p>
-            </Link>
-            <Link
-              className="flex items-center justify-center flex-col w-[50%]"
-              to={"/main/CustomerService"}
-            >
-              {/* <img src={CustomerImg} alt="" className="w-8" /> */}
-              <svg className="w-7 h-7 svg-icon">
-                <use href="#icon-serverTicket1" />
-              </svg>
-              <p className="text-sm text-whites">Customer Service</p>
-            </Link>
-          </div>
         </div>
       </div>
 

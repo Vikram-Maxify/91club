@@ -8,10 +8,13 @@ import FishingIcon from "../../../assets/tiranga/fishing.svg";
 import LobbyIcon from "../../../assets/tiranga/lobby.svg";
 import LobbyActiveIcon from "../../../assets/tiranga/lobbyactive.svg";
 import FishingActiveIcon from "../../../assets/tiranga/fishingactive.png";
-import originalIcon from "../../../assets/tiranga/originalIcon.png";
-import originalActiveIcon from "../../../assets/tiranga/originalactive.png";
-import lotteryactive from "../../../assets/tiranga/wingoactive.png";
-import LotteryIcon from "../../../assets/tiranga/lottery.png";
+import MiniGameIcon from "../../../assets/tiranga/minigame.svg";
+import CardIcon from "../../../assets/tiranga/card.svg";
+import CardActiveIcon from "../../../assets/tiranga/cardActiveIcon.svg";
+// import originalIcon from "../../../assets/tiranga/originalIcon.png";
+// import originalActiveIcon from "../../../assets/tiranga/originalactive.png";
+// import lotteryactive from "../../../assets/tiranga/wingoactive.png";
+// import LotteryIcon from "../../../assets/tiranga/lottery.png";
 // import RummyIcon from "../../../assets/tiranga/rummy.png";
 import SlotsIcon from "../../../assets/tiranga/slot.svg";
 import SlotsActiveIcon from "../../../assets/tiranga/slotactive.svg";
@@ -41,16 +44,10 @@ const allCategories = [
     id: "lobby",
   },
   {
-    name: "Lottery",
-    icon: LotteryIcon,
-    activeIcon: lotteryactive,
-    id: "lottery",
-  },
-  {
-    name: "Original",
-    icon: originalIcon,
-    activeIcon: originalActiveIcon,
-    id: "orignal",
+    name: "",
+    icon: MiniGameIcon,
+    activeIcon: MiniGameIcon,
+    id: "mini-game",
   },
   {
     name: "Slots",
@@ -59,16 +56,10 @@ const allCategories = [
     id: "slots",
   },
   {
-    name: "Sports",
-    icon: SportIcon,
-    activeIcon: SportActiveIcon,
-    id: "sports",
-  },
-  {
-    name: "Casino",
-    icon: CasinoIcon,
-    activeIcon: CasinoActiceIcon,
-    id: "casino",
+    name: "Card",
+    icon: CardIcon,
+    activeIcon: CardActiveIcon,
+    id: "card",
   },
   {
     name: "Fishing",
@@ -77,11 +68,23 @@ const allCategories = [
     id: "fishing",
   },
   {
-    name: "All",
-    icon: AllIcon,
-    activeIcon: AllActiveIcon,
-    id: "all",
+    name: "Casino",
+    icon: CasinoIcon,
+    activeIcon: CasinoActiceIcon,
+    id: "casino",
   },
+  {
+    name: "Sport",
+    icon: SportIcon,
+    activeIcon: SportActiveIcon,
+    id: "sport",
+  },
+  // {
+  //   name: "All",
+  //   icon: AllIcon,
+  //   activeIcon: AllActiveIcon,
+  //   id: "all",
+  // },
 ];
 
 const SlotComponents = () => {
@@ -98,7 +101,7 @@ const SlotComponents = () => {
 
   const data = localStorage.getItem("topup");
   const data22 = localStorage.getItem("topup22");
-  const [tabs, setTabs] = useState("lottery"); // Default "lottery"
+  const [tabs, setTabs] = useState("lobby"); // Default "lottery"
 
   const handleCategoryClick = (category) => {
     setActiveCategory(category);
@@ -146,7 +149,7 @@ const SlotComponents = () => {
   };
 
   return (
-    <div className="container-section mt-5 relative">
+    <div className="container-section mt-2 relative overflow-visible">
       <div className="bg-white">
         <div className={`place-bet-popup z-40 ${alertsuccess ? "active" : ""}`}>
           <div className="text-lg">
@@ -156,8 +159,8 @@ const SlotComponents = () => {
       </div>
 
       {/* lottery tabs  */}
-      <div className="w-full p-2 rounded-md top-0 z-50 bg-white">
-        <div className="overflow-x-auto scrollbar-hide">
+      <div className="sticky top-0 z-40 w-full p-2 rounded-md bg-white">
+        <div className="overflow-x-auto">
           <div className="flex gap-2 items-center w-max">
             {allCategories.map((cat) => {
               const isActive = tabs === cat.id;
@@ -173,15 +176,22 @@ const SlotComponents = () => {
                       }`}
                   >
                     <img
-                      src={isActive && cat.activeIcon ? cat.activeIcon : cat.icon}
+                      src={
+                        isActive && cat.activeIcon
+                          ? cat.activeIcon
+                          : cat.icon
+                      }
                       alt={cat.name}
-                      className="w-5 h-5 mr-2"
+                      className={`object-contain ${cat.id === "mini-game"
+                        ? "w-14 h-14 mr-0"
+                        : "w-5 h-5 mr-2"
+                        }`}
                     />
 
                     <p
                       className={`${isActive
-                        ? "text-black font-semibold text-lg"
-                        : "text-gray-500"
+                        ? "text-black font-semibold text-base"
+                        : "text-gray-500 text-xs"
                         }`}
                     >
                       {cat.name}
@@ -212,7 +222,7 @@ const SlotComponents = () => {
                   </h4>
                 </div>
                 <Link to={"/home/AllOnlineGames?game=Lottery"}>
-                  <button className="ml-3 bg-green-300/20 text-green-400 px-3 py-0 rounded-xl border border-green-300 gray-100">
+                  <button className="ml-3 text-[#F95959] px-3 py-0 rounded-xl border border-[#F95959] gray-100">
                     All 4
                   </button>
                 </Link>
@@ -255,6 +265,10 @@ const SlotComponents = () => {
             <div id="casino" className="mt-2">
               <div className="flex justify-between items-center"></div>
               <CasinoLiveGame />
+            </div>
+            <div id="mini-game" className="mt-2">
+              <div className="flex justify-between items-center"></div>
+              <OriginalGame />
             </div>
 
             {/* Slots Section */}

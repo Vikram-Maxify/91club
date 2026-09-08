@@ -204,7 +204,7 @@ const WinningInformation = () => {
         <img
           src="https://i.ibb.co/fV1VqSHX/icon.png"
           alt="Winning Information"
-          className="w-6 h-6 mr-2 object-contain"
+          className="w-5 h-5 mr-2 object-contain"
         />
         Winning Information
       </h3>
@@ -280,7 +280,7 @@ const WinningInformation = () => {
                     <img
                       src={slide.img}
                       alt={slide.name}
-                      className="rounded-md w-5 h-5 object-cover"
+                      className="rounded-md w-4 h-4 object-cover"
                     />
                   </div>
 

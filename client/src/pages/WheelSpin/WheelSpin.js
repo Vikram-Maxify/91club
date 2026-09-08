@@ -268,7 +268,7 @@ const WheelSpin = () => {
         )}
 
         {/* Next Page Links */}
-        <div className="text-[#F5CC2C] flex items-center justify-between gap-5 mt-10">
+        <div className="text-[#FA6F6B] flex items-center justify-between gap-5 mt-10">
           <Link to="/EventDescription">
             <div className="flex flex-col items-center justify-center">
               <FaFileCircleQuestion className="text-[50px]" />
@@ -300,7 +300,7 @@ const WheelSpin = () => {
         {/* History */}
         <div>
           <div className="mt-7 flex items-center justify-start gap-2">
-            <IoDocumentTextSharp className="text-[#F5CC2C] text-[30px]" />
+            <IoDocumentTextSharp className="text-[#FA6F6B] text-[30px]" />
             <h1 className="font-semibold text-[18px] text-whites">History</h1>
           </div>
           <div className="nav-bg rounded-t-lg mt-3 flex items-center justify-between px-6 py-3 text-white font-semibold">
