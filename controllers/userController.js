@@ -6327,7 +6327,7 @@ const zilpay = async (req, res) => {
     const params = {
       amount: Number(money),
       auth: "TSFHEYY8UH2FLCVCNFGT",
-      callback: "https://expressclub.site/api/webapi/zilpayCallback",
+      callback: "https://yaarclub.co/api/webapi/zilpayCallback",
       redirect_url: "https://jackpotjunctionexpress.click",
       user: userInfo.phone,
     };
@@ -6591,7 +6591,7 @@ const recharge3 = async (req, res) => {
 
   // Validate required input parameters
 
-  const callbackurl = `https://expressclub.site/api/webapi/recharge-callback`;
+  const callbackurl = `https://yaarclub.co/api/webapi/recharge-callback`;
   const OrderIds = `WP${Date.now()}${Math.floor(Math.random() * 100000)}`;
   // Sunpay request parameters
   if (type === "UPI") {
@@ -6851,257 +6851,12 @@ async function makePostRequest(url, data) {
   }
 }
 
-// const initiateTrexoPayPayment = async (req, res) => {
-//   const auth = req.cookies.auth;
-//   const am = req.body.amount;
-//   const money = req.body.amount;
-//   const type = req.body.type;
-
-//   if (!auth || !money || money <= 99) {
-//     return res.status(200).json({
-//       message: "Minimum recharge 100",
-//       status: false,
-//       timeStamp: timeNow,
-//     });
-//   }
-
-//   const [user] = await connection.query(
-//     "SELECT `phone`, `code`,`invite`,`isdemo` FROM users WHERE `token` = ?",
-//     [auth],
-//   );
-//   let userInfo = user[0];
-//   if (!user) {
-//     return res.status(200).json({
-//       message: "Failed",
-//       status: false,
-//       timeStamp: timeNow,
-//     });
-//   }
-
-//   let checkTime = timerJoin2(Date.now());
-
-//   try {
-//     const user_token = "79bf6a0f993ae54510d819a092c51905";
-
-//     const orderId = getRechargeOrderId();
-//     const redirect_url =
-//       "https://expressclub.site/api/webapi/verifyTrexoPayPayment";
-
-//     const params = {
-//       customer_mobile: userInfo.phone,
-//       user_token: user_token,
-//       amount: am,
-//       order_id: orderId,
-//       redirect_url: redirect_url,
-//       remark1: "recharge",
-//       remark2: "wallet",
-//       route: 2,
-//     };
-
-//     const url = "https://merchant.trexopayment.com/api/create-order";
-
-//     // FIX: Do NOT pass res here
-//     const response = await makePostRequest(url, params);
-
-//     if (!response || typeof response.status !== "boolean") {
-//       return res.status(500).json({
-//         message: "Invalid response from TrexoPay API",
-//         status: false,
-//         timeStamp: timeNow,
-//       });
-//     }
-
-//     if (response.status === true) {
-//       const sql = `INSERT INTO recharge
-//                 SET id_order=?, transaction_id=?, phone=?, money=?, type=?,
-//                     status=?, today=?, url=?, time=?, userStatus=?`;
-
-//       await connection.execute(sql, [
-//         orderId,
-//         orderId,
-//         userInfo.phone,
-//         am,
-//         type,
-//         0,
-//         checkTime,
-//         "0",
-//         checkTime,
-//         0,
-//       ]);
-
-//       return res.status(200).json({
-//         message: "TrexoPay payment URL successful",
-//         status: true,
-//         data: response.result,
-//       });
-//     }
-
-//     // If response.status === false
-//     return res.status(400).json({
-//       message: "TrexoPay rejected the order",
-//       status: false,
-//       data: response,
-//     });
-//   } catch (error) {
-//     //console.log("error",error)
-//     return res.status(500).json({
-//       message: `Payment initiation failed: ${error.message}`,
-//       status: false,
-//       error: error.message,
-//       trexopayError: error.response?.data || null,
-//       timeStamp: timeNow,
-//     });
-//   }
-// };
-
-// const verifyTrexoPayPayment = async (req, res) => {
-//   const rawPostData = req.body;
-//   let { status, order_id, customer_mobile, amount } = rawPostData;
-//   //console.log("verifyTrexoPayPayment - rawPostData:", rawPostData);
-//   // order_id="2025080182704184500608"
-//   try {
-//     const [info] = await connection.query(
-//       "SELECT * FROM recharge WHERE id_order = ?",
-//       [order_id],
-//     );
-
-//     if (info.length > 0) {
-//       if (info[0].status === 1) {
-//         console.log(
-//           "Recharge status is already completed. Skipping user money update.",
-//         );
-//       } else {
-//         const checkTime = timerJoin2(Date.now());
-//         const [Firstrecharge] = await connection.query(
-//           "SELECT * FROM recharge WHERE phone = ? AND status = ?",
-//           [info[0].phone, 1],
-//         );
-//         const [infos] = await connection.query(
-//           "SELECT `invite`,`code` FROM users WHERE phone = ?",
-//           [info[0].phone],
-//         );
-
-//         let bonus = 0;
-//         let bonus2 = info[0].money * 0.02;
-//         if (info[0].money > 99 && info[0].money <= 1000) {
-//           bonus = info[0].money * 0.05;
-//         } else {
-//           bonus = info[0].money * 0.1;
-//         }
-//         if (Firstrecharge.length === 0) {
-//           await connection.query(
-//             "UPDATE users SET money = money + ?, total_money = total_money + ? WHERE phone = ?",
-//             [bonus, bonus, info[0].phone],
-//           );
-//           const datasqll =
-//             "INSERT INTO transaction_history SET phone = ?, detail = ?, balance = ?, `time` = ?";
-//           await connection.query(datasqll, [
-//             info[0].phone,
-//             "First deposit bonus",
-//             bonus,
-//             checkTime,
-//           ]);
-
-//           // upline
-//           let refferal = infos[0]?.invite;
-//           //console.log("reff", refferal)
-
-//           if (refferal !== undefined) {
-//             let [refferaluser] = await connection.query(
-//               "SELECT * FROM users WHERE `code` = ? LIMIT 1",
-//               [refferal],
-//             );
-//             if (refferaluser[0]?.phone) {
-//               await connection.query(
-//                 "UPDATE users SET money = money + ?, total_money = total_money + ? WHERE phone = ?",
-//                 [10, 10, refferaluser[0]?.phone],
-//               );
-//               const datasqll =
-//                 "INSERT INTO transaction_history SET phone = ?, detail = ?, balance = ?, `time` = ?";
-//               await connection.query(datasqll, [
-//                 refferaluser[0]?.phone,
-//                 "Bonus",
-//                 10,
-//                 checkTime,
-//               ]);
-//             }
-//           }
-//         } else {
-//           await connection.query(
-//             "UPDATE users SET money = money + ?, total_money = total_money + ? WHERE phone = ?",
-//             [bonus, bonus, info[0].phone],
-//           );
-//           // upline
-//           let refferals = infos[0]?.invite;
-//           if (refferals !== undefined) {
-//             let [refferalusers] = await connection.query(
-//               "SELECT * FROM users WHERE `code` = ? LIMIT 1",
-//               [refferals],
-//             );
-//             if (refferalusers[0]?.phone) {
-//               if (refferalusers[0]?.phone) {
-//                 await connection.query(
-//                   "UPDATE users SET money = money + ?, total_money = total_money + ? WHERE phone = ?",
-//                   [bonus2, bonus2, refferalusers[0]?.phone],
-//                 );
-
-//                 const datasqls =
-//                   "INSERT INTO transaction_history SET phone = ?, detail = ?, balance = ?, `time` = ?";
-//                 await connection.query(datasqls, [
-//                   refferalusers[0]?.phone,
-//                   "Bonus",
-//                   bonus2,
-//                   checkTime,
-//                 ]);
-//               }
-//             }
-//           }
-//         }
-
-//         await connection.query(
-//           "UPDATE recharge SET status = 1 WHERE id_order = ?",
-//           [order_id],
-//         );
-//         await connection.query(
-//           "UPDATE users SET money = money + ?, total_money = total_money + ?,totalRecharge=totalRecharge+? WHERE phone = ?",
-//           [info[0].money, info[0].money, info[0].money, info[0].phone],
-//         );
-
-//         const datasqls =
-//           "INSERT INTO transaction_history SET phone = ?, detail = ?, balance = ?, `time` = ?";
-//         await connection.query(datasqls, [
-//           info[0].phone,
-//           "Deposit",
-//           info[0].money,
-//           checkTime,
-//         ]);
-
-//         return res.json("success");
-//       }
-//     } else {
-//       console.log("Transaction not found.");
-//       return res.status(404).json({
-//         message: "Transaction not found",
-//         success: false,
-//       });
-//     }
-//   } catch (error) {
-//     console.log("error", error);
-//     return res.status(500).json({
-//       message: `Payment verification failed: ${error.message}`,
-//       status: false,
-//       error: error.message,
-//       timeStamp: new Date().toISOString(),
-//     });
-//   }
-// };
-
 const initiateTrexoPayPayment = async (req, res) => {
   const auth = req.cookies.auth;
   const am = req.body.amount;
   const money = req.body.amount;
   const type = req.body.type;
-  console.log("amount", am, money, type);
+
   if (!auth || !money || money <= 99) {
     return res.status(200).json({
       message: "Minimum recharge 100",
@@ -7129,40 +6884,25 @@ const initiateTrexoPayPayment = async (req, res) => {
     const user_token = "79bf6a0f993ae54510d819a092c51905";
 
     const orderId = getRechargeOrderId();
-    const redirect_url = "https://expressclub.site/api/webapi/verifyPayPayment";
-    //     const callbackUrl =
-    // process.env.GATEWAY_CALLBACK_URL ||
-    // `${req.protocol}://${req.get("host")}/api/deposit/callback`;
+    const redirect_url = "https://yaarclub.co/api/webapi/verifyTrexoPayPayment";
 
-    const payload = {
-      amount: Math.round(am),
+    const params = {
+      customer_mobile: userInfo.phone,
+      user_token: user_token,
+      amount: am,
       order_id: orderId,
-      customer_name: userInfo.phone,
-      description: `Automatic deposit via ${type}`,
-      callback_url: redirect_url,
+      redirect_url: redirect_url,
+      remark1: "recharge",
+      remark2: "wallet",
+      route: 2,
     };
 
-    const gatewayBaseUrl = "https://paym.voterx.xyz";
+    const url = "https://merchant.trexopayment.com/api/create-order";
 
     // FIX: Do NOT pass res here
-    // const response = await makePostRequest(url, params);
+    const response = await makePostRequest(url, params);
 
-    const { data: response } = await axios.post(
-      `${gatewayBaseUrl}/api/create-order`,
-      payload,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          "X-API-Key":
-            "pi_live_22343a6ab9a88b57b0877cd7b4328d540dba19a870df1927",
-          "X-API-Secret":
-            "sk_live_194873f938eec0bcd5c3d803a223decdf0ffa7a037217ef4",
-        },
-      },
-    );
-    console.log("responce hai ye:", response);
-
-    if (!response) {
+    if (!response || typeof response.status !== "boolean") {
       return res.status(500).json({
         message: "Invalid response from TrexoPay API",
         status: false,
@@ -7170,7 +6910,7 @@ const initiateTrexoPayPayment = async (req, res) => {
       });
     }
 
-    if (response.status === "success") {
+    if (response.status === true) {
       const sql = `INSERT INTO recharge 
                 SET id_order=?, transaction_id=?, phone=?, money=?, type=?, 
                     status=?, today=?, url=?, time=?, userStatus=?`;
@@ -7189,9 +6929,9 @@ const initiateTrexoPayPayment = async (req, res) => {
       ]);
 
       return res.status(200).json({
-        message: "payment URL successful",
+        message: "TrexoPay payment URL successful",
         status: true,
-        data: response.data,
+        data: response.result,
       });
     }
 
@@ -7215,9 +6955,7 @@ const initiateTrexoPayPayment = async (req, res) => {
 
 const verifyTrexoPayPayment = async (req, res) => {
   const rawPostData = req.body;
-  // let { status, order_id, customer_mobile, amount } = rawPostData;
-  const { order_id } = req.query || req.body;
-  // const resolvedOrderId = order_id || req.body.order_id;
+  let { status, order_id, customer_mobile, amount } = rawPostData;
   //console.log("verifyTrexoPayPayment - rawPostData:", rawPostData);
   // order_id="2025080182704184500608"
   try {
@@ -7449,8 +7187,8 @@ const handleRechargeppay = async (req, res) => {
     const merchantId = "M514039"; // Replace with your actual Merchant ID
     const appId = "69816d78559c22f8bbeac1e3"; // Replace with your actual App ID
     const orderId = `PP${Date.now()}`; // Unique order number
-    const notify_url = `https://expressclub.site/api/webapi/callbackdatappay`; // Replace with your actual notification URL
-    const return_url = `https://expressclub.site`; // Replace with your actual return URL
+    const notify_url = `https://yaarclub.co/api/webapi/callbackdatappay`; // Replace with your actual notification URL
+    const return_url = `https://yaarclub.co`; // Replace with your actual return URL
 
     // Prepare parameters
     const params = {
