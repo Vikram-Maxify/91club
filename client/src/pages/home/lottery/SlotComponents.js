@@ -25,6 +25,7 @@ import { useDispatch } from "react-redux";
 import { notification } from "../../../store/reducer/activityReducer";
 
 import { Link, useNavigate } from "react-router-dom";
+import { rechargeList2 } from "../../../store/reducer/userReducer";
 import CasinoLiveGame from "../newgame/CasinoLiveGame";
 import FishingGame from "../newgame/FishingGame";
 import OriginalGame from "../newgame/OriginalGame";
@@ -110,7 +111,13 @@ const SlotComponents = () => {
 
   // TEMPORARY: removed recharge check – navigate directly to game
   const handleWingo = (path) => {
-    navigate(path);
+    dispatch(rechargeList2()).then((res) => {
+      if (res.payload.data2?.length === 0) {
+        setRepopup(true);
+      } else {
+        navigate(path);
+      }
+    });
   };
 
   useEffect(() => {
@@ -463,7 +470,7 @@ const SlotComponents = () => {
         <div className="fixed top-0 z-[60] bottom-0 pb-2 h-32 m-auto flex flex-col justify-center items-center left-0 right-0 w-[20rem] bg-light rounded-lg">
           <h3 className="heading-h3 gray-50 mt-5">Tips</h3>
           <p className="text-sm text-whites mt-2">
-            First need to recharge <span className="text-green-400">₹200</span>{" "}
+            First need to recharge <span className="text-[#FC7E77]">₹200</span>{" "}
             for this game
           </p>
 

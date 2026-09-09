@@ -14,9 +14,9 @@ const mysql = require("mysql2/promise");
 
 const connection = mysql.createPool({
   host: "31.97.233.100",
-  user: "ExpressClub",
-  password: "XERpd8Gy7nKRfdcs",
-  database: "expressclub",
+  user: "91club",
+  password: "91clubplaynosis",
+  database: "91club",
 });
 
 export default connection;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useCallback } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   IoIosArrowBack,
   IoIosArrowDropright,
@@ -6,41 +6,41 @@ import {
 } from "react-icons/io";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
-import "./wingo.css";
+import { FaCircle, FaMinus, FaPlus } from "react-icons/fa";
 import {
   MdKeyboardDoubleArrowLeft,
   MdKeyboardDoubleArrowRight,
 } from "react-icons/md";
-import { FaCircle, FaMinus, FaPlus } from "react-icons/fa";
-import io from "socket.io-client";
-import TimeImg from "../../assets/time.png";
-import TimeActiveImg from "../../assets/time_aactive.png";
-import ZeroImg from "../../assets/zero.png";
-import OneImg from "../../assets/one.png";
-import TwoImg from "../../assets/two.png";
-import ThreeImg from "../../assets/three.png";
-import FourImg from "../../assets/four.png";
-import FiveImg from "../../assets/five.png";
-import SixImg from "../../assets/six.png";
-import SevenImg from "../../assets/seven.png";
-import EightImg from "../../assets/eight.png";
-import NineImg from "../../assets/nine.png";
-import Audio1 from "../../assets/audio/di1.mp3";
-import Audio2 from "../../assets/audio/di2.mp3";
 import { PiCopySimpleBold } from "react-icons/pi";
 import { useDispatch, useSelector } from "react-redux";
-import { userDetail } from "../../store/reducer/authReducer";
+import io from "socket.io-client";
+import Audio1 from "../../assets/audio/di1.mp3";
+import Audio2 from "../../assets/audio/di2.mp3";
+import EightImg from "../../assets/eight.png";
+import FiveImg from "../../assets/five.png";
+import FourImg from "../../assets/four.png";
+import NineImg from "../../assets/nine.png";
+import OneImg from "../../assets/one.png";
+import SevenImg from "../../assets/seven.png";
+import SixImg from "../../assets/six.png";
+import ThreeImg from "../../assets/three.png";
+import TimeImg from "../../assets/time.png";
+import TimeActiveImg from "../../assets/time_aactive.png";
+import TwoImg from "../../assets/two.png";
+import ZeroImg from "../../assets/zero.png";
 import CopyCopmponent from "../../components/CopyCopmponent";
-import { wingoHistory, wingoPeriodList } from "../../store/reducer/gameReducer";
+import { userDetail } from "../../store/reducer/authReducer";
 import { wingoBet } from "../../store/reducer/betReducer";
+import { wingoHistory, wingoPeriodList } from "../../store/reducer/gameReducer";
 import HeaderInfo from "./HeaderInfo";
+import "./wingo.css";
 
-import { IoCloseCircleOutline } from "react-icons/io5";
 import debounce from "lodash/debounce";
+import { IoCloseCircleOutline } from "react-icons/io5";
+import Loader from "../../components/Loader";
+import ServiceRotate from "../../components/ServiceRotate";
 import { host } from "../../store/reducer/api";
 import EmptyData from "../activity/EmptyData";
-import ServiceRotate from "../../components/ServiceRotate";
-import Loader from "../../components/Loader";
 
 const WinImg = "https://i.ibb.co/TMnbvp0N/win-popup.png";
 const LoseImg = "https://i.ibb.co/8zTQQmx/loss-popup.png";
@@ -64,7 +64,7 @@ const socket = io(host);
 const Wingo = () => {
   const { userInfo } = useSelector((state) => state.auth);
   const { wingoPeriodListData, successMessage, wingoHistoryData } = useSelector(
-    (state) => state.game
+    (state) => state.game,
   );
   const { loader } = useSelector((state) => state.bet);
   const [messages, setMessage] = useState("");
@@ -274,7 +274,7 @@ const Wingo = () => {
         if (res.payload.status) {
           dispatch(wingoHistory({ typeid1, pageno, pageto }));
         }
-      }
+      },
     );
   };
 
@@ -294,7 +294,7 @@ const Wingo = () => {
       });
       updateNumbers();
     }, 500),
-    [dispatch, typeid1]
+    [dispatch, typeid1],
   );
 
   const debouncedDispatchResult = useCallback(
@@ -308,7 +308,7 @@ const Wingo = () => {
         }
       });
     }, 500),
-    [dispatch, typeid1]
+    [dispatch, typeid1],
   );
 
   useEffect(() => {
@@ -427,19 +427,19 @@ const Wingo = () => {
       const line = document.createElementNS(svgns, "line");
       line.setAttribute(
         "x1",
-        `${firstActive.offsetLeft + firstActive.offsetWidth / 2}px`
+        `${firstActive.offsetLeft + firstActive.offsetWidth / 2}px`,
       );
       line.setAttribute(
         "y1",
-        `${firstActive.offsetTop + firstActive.offsetHeight / 2}px`
+        `${firstActive.offsetTop + firstActive.offsetHeight / 2}px`,
       );
       line.setAttribute(
         "x2",
-        `${secondActive.offsetLeft + secondActive.offsetWidth / 2}px`
+        `${secondActive.offsetLeft + secondActive.offsetWidth / 2}px`,
       );
       line.setAttribute(
         "y2",
-        `${secondActive.offsetTop + secondActive.offsetHeight / 2}px`
+        `${secondActive.offsetTop + secondActive.offsetHeight / 2}px`,
       );
       line.setAttribute("stroke", "red");
       line.setAttribute("stroke-width", "0.6");
@@ -936,13 +936,13 @@ const Wingo = () => {
                         item.amount === 0
                           ? "color-red-voilet"
                           : item.amount === 5
-                          ? "color-green-voilet"
-                          : item.amount === 1 ||
-                            item.amount === 3 ||
-                            item.amount === 7 ||
-                            item.amount === 9
-                          ? "color-green"
-                          : "color-red-200"
+                            ? "color-green-voilet"
+                            : item.amount === 1 ||
+                                item.amount === 3 ||
+                                item.amount === 7 ||
+                                item.amount === 9
+                              ? "color-green"
+                              : "color-red-200"
                       }`}
                     >
                       {item.amount}
@@ -1266,23 +1266,23 @@ const Wingo = () => {
                        item.bet == "x"
                          ? "bgs-green"
                          : item.bet == "d"
-                         ? "bgs-red-200"
-                         : item.bet == "t"
-                         ? "bgs-violet"
-                         : item.bet == "l"
-                         ? "color-yellow-bg-200"
-                         : item.bet == "n"
-                         ? "bgs-blue-500"
-                         : item.bet == "0"
-                         ? "bg-red-voilet"
-                         : item.bet == "5"
-                         ? "bg-green-voilet"
-                         : item.bet == 1 ||
-                           item.bet == 3 ||
-                           item.bet == 7 ||
-                           item.bet == 9
-                         ? "bgs-green"
-                         : "bgs-red-200"
+                           ? "bgs-red-200"
+                           : item.bet == "t"
+                             ? "bgs-violet"
+                             : item.bet == "l"
+                               ? "color-yellow-bg-200"
+                               : item.bet == "n"
+                                 ? "bgs-blue-500"
+                                 : item.bet == "0"
+                                   ? "bg-red-voilet"
+                                   : item.bet == "5"
+                                     ? "bg-green-voilet"
+                                     : item.bet == 1 ||
+                                         item.bet == 3 ||
+                                         item.bet == 7 ||
+                                         item.bet == 9
+                                       ? "bgs-green"
+                                       : "bgs-red-200"
                      }
                       ${
                         ["l", "n", "x", "d", "t"].includes(item.bet)
@@ -1294,14 +1294,14 @@ const Wingo = () => {
                         {item.bet == "x"
                           ? "" //Green
                           : item.bet == "t"
-                          ? "Voilet"
-                          : item.bet == "l"
-                          ? "Big"
-                          : item.bet == "n"
-                          ? "Small"
-                          : item.bet == "d"
-                          ? "" //Red
-                          : item.bet}
+                            ? "Voilet"
+                            : item.bet == "l"
+                              ? "Big"
+                              : item.bet == "n"
+                                ? "Small"
+                                : item.bet == "d"
+                                  ? "" //Red
+                                  : item.bet}
                       </div>
                       <div>
                         <h3 className="heading-h4 text-whites">
@@ -1396,16 +1396,16 @@ const Wingo = () => {
                               item.result === 0
                                 ? "color-red-voilet"
                                 : item.result === 5
-                                ? "color-green-voilet"
-                                : item.result === 1 ||
-                                  item.result === 3 ||
-                                  item.result === 7 ||
-                                  item.result === 9 ||
-                                  item.result == "x"
-                                ? "color-green"
-                                : item.result == "t"
-                                ? "color-voilet"
-                                : "color-red-200"
+                                  ? "color-green-voilet"
+                                  : item.result === 1 ||
+                                      item.result === 3 ||
+                                      item.result === 7 ||
+                                      item.result === 9 ||
+                                      item.result == "x"
+                                    ? "color-green"
+                                    : item.result == "t"
+                                      ? "color-voilet"
+                                      : "color-red-200"
                             }`}
                           >
                             {item.result}
@@ -1420,14 +1420,14 @@ const Wingo = () => {
                         {item.bet == "x"
                           ? "Green"
                           : item.bet == "t"
-                          ? "Voilet"
-                          : item.bet == "l"
-                          ? "Big"
-                          : item.bet == "n"
-                          ? "Small"
-                          : item.bet == "d"
-                          ? "Red"
-                          : item.bet}
+                            ? "Voilet"
+                            : item.bet == "l"
+                              ? "Big"
+                              : item.bet == "n"
+                                ? "Small"
+                                : item.bet == "d"
+                                  ? "Red"
+                                  : item.bet}
                       </span>
                     </div>
                     <div className="flex items-center justify-between bg-[#E6EBF0] text-sm p-1 mb-2  rounded-md">
@@ -1507,8 +1507,6 @@ const Wingo = () => {
         )}
       </div>
 
-      <div className={openPopup ? "overlay-section block" : "hidden"}></div>
-
       {/* popups */}
       <div
         className={`bg-body z-[12] items-center transition ease-in-out delay-150 justify-center fixed bottom-0 rounded-t-2xl filter-section w-[24.7rem] ${
@@ -1521,23 +1519,23 @@ const Wingo = () => {
               selectBet == "x"
                 ? "bgs-green"
                 : selectBet == "d"
-                ? "bgs-red-200"
-                : selectBet == "t"
-                ? "bgs-violet"
-                : selectBet == "l"
-                ? "color-yellow-bg-200"
-                : selectBet == "n"
-                ? "bgs-blue-500"
-                : selectBet == "0"
-                ? "bg-red-voilet"
-                : selectBet == "5"
-                ? "bg-green-voilet"
-                : selectBet == 1 ||
-                  selectBet == 3 ||
-                  selectBet == 7 ||
-                  selectBet == 9
-                ? "bgs-green"
-                : "bgs-red-200"
+                  ? "bgs-red-200"
+                  : selectBet == "t"
+                    ? "bgs-violet"
+                    : selectBet == "l"
+                      ? "color-yellow-bg-200"
+                      : selectBet == "n"
+                        ? "bgs-blue-500"
+                        : selectBet == "0"
+                          ? "bg-red-voilet"
+                          : selectBet == "5"
+                            ? "bg-green-voilet"
+                            : selectBet == 1 ||
+                                selectBet == 3 ||
+                                selectBet == 7 ||
+                                selectBet == 9
+                              ? "bgs-green"
+                              : "bgs-red-200"
             }`}
           >
             <h2 className="text-md font-semibold">
@@ -1549,14 +1547,14 @@ const Wingo = () => {
                 {selectBet == "x"
                   ? "Green"
                   : selectBet == "t"
-                  ? "Voilet"
-                  : selectBet == "l"
-                  ? "Big"
-                  : selectBet == "n"
-                  ? "Small"
-                  : selectBet == "d"
-                  ? "Red"
-                  : selectBet}
+                    ? "Voilet"
+                    : selectBet == "l"
+                      ? "Big"
+                      : selectBet == "n"
+                        ? "Small"
+                        : selectBet == "d"
+                          ? "Red"
+                          : selectBet}
               </span>
             </button>
           </div>
@@ -1573,20 +1571,20 @@ const Wingo = () => {
                         ? selectBet == "x"
                           ? "bgs-green text-white"
                           : selectBet == "d"
-                          ? "bgs-red-200 text-white"
-                          : selectBet == "t"
-                          ? "bgs-violet text-white"
-                          : selectBet == "l"
-                          ? "color-yellow-bg-200 text-white"
-                          : selectBet == "n"
-                          ? "bgs-blue-500 text-white"
-                          : selectBet == 1 ||
-                            selectBet == 3 ||
-                            selectBet == 5 ||
-                            selectBet == 7 ||
-                            selectBet == 9
-                          ? "bgs-green text-white"
-                          : "bgs-red-200 text-white"
+                            ? "bgs-red-200 text-white"
+                            : selectBet == "t"
+                              ? "bgs-violet text-white"
+                              : selectBet == "l"
+                                ? "color-yellow-bg-200 text-white"
+                                : selectBet == "n"
+                                  ? "bgs-blue-500 text-white"
+                                  : selectBet == 1 ||
+                                      selectBet == 3 ||
+                                      selectBet == 5 ||
+                                      selectBet == 7 ||
+                                      selectBet == 9
+                                    ? "bgs-green text-white"
+                                    : "bgs-red-200 text-white"
                         : "bg-[#E6EBF0] "
                     }`}
                   >
@@ -1607,20 +1605,20 @@ const Wingo = () => {
                       selectBet == "x"
                         ? "bgs-green"
                         : selectBet == "d"
-                        ? "bgs-red-200"
-                        : selectBet == "t"
-                        ? "bgs-violet"
-                        : selectBet == "l"
-                        ? "color-yellow-bg-200"
-                        : selectBet == "n"
-                        ? "bgs-blue-500"
-                        : selectBet == 1 ||
-                          selectBet == 3 ||
-                          selectBet == 5 ||
-                          selectBet == 7 ||
-                          selectBet == 9
-                        ? "bgs-green"
-                        : "bgs-red-200"
+                          ? "bgs-red-200"
+                          : selectBet == "t"
+                            ? "bgs-violet"
+                            : selectBet == "l"
+                              ? "color-yellow-bg-200"
+                              : selectBet == "n"
+                                ? "bgs-blue-500"
+                                : selectBet == 1 ||
+                                    selectBet == 3 ||
+                                    selectBet == 5 ||
+                                    selectBet == 7 ||
+                                    selectBet == 9
+                                  ? "bgs-green"
+                                  : "bgs-red-200"
                     }
                     `}
                 >
@@ -1641,20 +1639,20 @@ const Wingo = () => {
                       selectBet == "x"
                         ? "bgs-green"
                         : selectBet == "d"
-                        ? "bgs-red-200"
-                        : selectBet == "t"
-                        ? "bgs-violet"
-                        : selectBet == "l"
-                        ? "color-yellow-bg-200"
-                        : selectBet == "n"
-                        ? "bgs-blue-500"
-                        : selectBet == 1 ||
-                          selectBet == 3 ||
-                          selectBet == 5 ||
-                          selectBet == 7 ||
-                          selectBet == 9
-                        ? "bgs-green"
-                        : "bgs-red-200"
+                          ? "bgs-red-200"
+                          : selectBet == "t"
+                            ? "bgs-violet"
+                            : selectBet == "l"
+                              ? "color-yellow-bg-200"
+                              : selectBet == "n"
+                                ? "bgs-blue-500"
+                                : selectBet == 1 ||
+                                    selectBet == 3 ||
+                                    selectBet == 5 ||
+                                    selectBet == 7 ||
+                                    selectBet == 9
+                                  ? "bgs-green"
+                                  : "bgs-red-200"
                     }
                     `}
                 >
@@ -1671,20 +1669,20 @@ const Wingo = () => {
                       ? selectBet == "x"
                         ? "bgs-green text-white"
                         : selectBet == "d"
-                        ? "bgs-red-200 text-white"
-                        : selectBet == "t"
-                        ? "bgs-violet text-white"
-                        : selectBet == "l"
-                        ? "color-yellow-bg-200 text-white"
-                        : selectBet == "n"
-                        ? "bgs-blue-500 text-white"
-                        : selectBet == 1 ||
-                          selectBet == 3 ||
-                          selectBet == 7 ||
-                          selectBet == 5 ||
-                          selectBet == 9
-                        ? "bgs-green text-white"
-                        : "bgs-red-200 text-white"
+                          ? "bgs-red-200 text-white"
+                          : selectBet == "t"
+                            ? "bgs-violet text-white"
+                            : selectBet == "l"
+                              ? "color-yellow-bg-200 text-white"
+                              : selectBet == "n"
+                                ? "bgs-blue-500 text-white"
+                                : selectBet == 1 ||
+                                    selectBet == 3 ||
+                                    selectBet == 7 ||
+                                    selectBet == 5 ||
+                                    selectBet == 9
+                                  ? "bgs-green text-white"
+                                  : "bgs-red-200 text-white"
                       : "bg-[#E6EBF0] text-whites"
                   }`}
                   key={i}
@@ -1744,20 +1742,20 @@ const Wingo = () => {
                 selectBet == "x"
                   ? "bgs-green"
                   : selectBet == "d"
-                  ? "bgs-red-200"
-                  : selectBet == "t"
-                  ? "bgs-violet"
-                  : selectBet == "l"
-                  ? "color-yellow-bg-200"
-                  : selectBet == "n"
-                  ? "bgs-blue-500"
-                  : selectBet == 1 ||
-                    selectBet == 3 ||
-                    selectBet == 5 ||
-                    selectBet == 7 ||
-                    selectBet == 9
-                  ? "bgs-green"
-                  : "bgs-red-200"
+                    ? "bgs-red-200"
+                    : selectBet == "t"
+                      ? "bgs-violet"
+                      : selectBet == "l"
+                        ? "color-yellow-bg-200"
+                        : selectBet == "n"
+                          ? "bgs-blue-500"
+                          : selectBet == 1 ||
+                              selectBet == 3 ||
+                              selectBet == 5 ||
+                              selectBet == 7 ||
+                              selectBet == 9
+                            ? "bgs-green"
+                            : "bgs-red-200"
               }
               `}
               disabled={loader ? true : false}
@@ -1821,10 +1819,10 @@ const Wingo = () => {
                 {wingoHistoryData?.gameslist[0]?.result == "0"
                   ? "Violet"
                   : wingoHistoryData?.gameslist[0]?.result == "5"
-                  ? "Violet"
-                  : wingoHistoryData?.gameslist[0]?.result % 2 == 0
-                  ? "Red"
-                  : "Green"}
+                    ? "Violet"
+                    : wingoHistoryData?.gameslist[0]?.result % 2 == 0
+                      ? "Red"
+                      : "Green"}
               </span>
 
               <span
@@ -1855,7 +1853,7 @@ const Wingo = () => {
                     ₹
                     {Array.isArray(wingoHistoryData?.gameslist) &&
                       Number(
-                        wingoHistoryData?.gameslist[0]?.get
+                        wingoHistoryData?.gameslist[0]?.get,
                       ).toLocaleString("en-IN", {
                         minimumFractionDigits: 2,
                         maximumFractionDigits: 2,
