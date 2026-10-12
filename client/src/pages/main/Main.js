@@ -137,9 +137,9 @@ const Main = () => {
                   ₹
                   {userInfo?.money_user
                     ? Number(userInfo?.money_user).toLocaleString("en-IN", {
-                      minimumFractionDigits: 2,
-                      maximumFractionDigits: 2,
-                    })
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                      })
                     : "0.00"}
                 </h4>
                 <img
@@ -357,7 +357,7 @@ const Main = () => {
           </li>
           <li
             className="flex justify-between items-center p-3 py-4"
-          // onClick={() => navigate("/main/Language")}
+            // onClick={() => navigate("/main/Language")}
           >
             <div className="flex items-center">
               <svg data-v-a30d19b1="" class="svg-icon icon-language size-8 ">
@@ -417,7 +417,7 @@ const Main = () => {
             </div>
             <Link
               className="col-span-4  flex flex-col justify-center items-center ms-2 mt-2"
-              to={`https://h5support.expressclub.site/?token=${Cookies.get("auth")}`}
+              to={`https://h5support.chennai91.co/?token=${Cookies.get("auth")}`}
             >
               <svg
                 data-v-159bf81f=""

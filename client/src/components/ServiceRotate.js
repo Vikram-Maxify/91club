@@ -80,7 +80,7 @@ const ServiceRotate = () => {
 
     if (userInfo) {
       const token = Cookies.get("auth");
-      window.location.href = `https://h5support.expressclub.site/?token=${token}`;
+      window.location.href = `https://h5support.chennai91.co/?token=${token}`;
     } else {
       navigate("/main/CustomerService");
     }

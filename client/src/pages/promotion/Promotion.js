@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import { FaUsers } from "react-icons/fa";
-import { HiUsers } from "react-icons/hi2";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 import { PiCopySimpleLight } from "react-icons/pi";
 import { Link, useNavigate } from "react-router-dom";
@@ -300,7 +298,7 @@ const Promotion = () => {
           <li className="mt-2 bg-body p-3 py-4 rounded-lg">
             <Link
               className="flex justify-between items-center"
-              to={`https://h5support.expressclub.site/?token=${Cookies.get("auth")}`}
+              to={`https://h5support.chennai91.co/?token=${Cookies.get("auth")}`}
             >
               <div className="flex items-center">
                 <svg className="w-7 h-7 svg-icon">

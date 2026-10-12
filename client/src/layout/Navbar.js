@@ -75,15 +75,17 @@ const Navbar = () => {
       {/* ================= EVENT REWARDS POPUP ================= */}
       {showPopup && (
         <div
-          className={`fixed inset-0 flex items-end justify-center z-[2000] transition-colors duration-300 ${popupVisible
-            ? "bg-black/55 pointer-events-auto"
-            : "bg-black/0 pointer-events-none"
-            }`}
+          className={`fixed inset-0 flex items-end justify-center z-[2000] transition-colors duration-300 ${
+            popupVisible
+              ? "bg-black/55 pointer-events-auto"
+              : "bg-black/0 pointer-events-none"
+          }`}
           onClick={closePopup}
         >
           <div
-            className={`font-sans relative w-full max-w-[395px] bg-white rounded-t-[22px] pt-14 pb-8 text-center transition-transform duration-[350ms] ease-[cubic-bezier(0.32,0.72,0,1)] ${popupVisible ? "translate-y-0" : "translate-y-full"
-              }`}
+            className={`font-sans relative w-full max-w-[395px] bg-white rounded-t-[22px] pt-14 pb-8 text-center transition-transform duration-[350ms] ease-[cubic-bezier(0.32,0.72,0,1)] ${
+              popupVisible ? "translate-y-0" : "translate-y-full"
+            }`}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Glow clipped separately, matching sheet's rounded corners */}
@@ -141,7 +143,7 @@ const Navbar = () => {
       >
         {userInfo ? (
           <Link
-            to={`https://h5support.expressclub.site/?token=${Cookies.get("auth")}`}
+            to={`https://h5support.chennai91.co/?token=${Cookies.get("auth")}`}
             style={{ display: "inline-block" }}
           >
             <img
@@ -163,46 +165,50 @@ const Navbar = () => {
       {/* ================= BOTTOM NAVBAR ================= */}
       <div className="navbar-section">
         <div
-          className={`flex justify-center items-center flex-col p-2 pb-5 ${activeItem === "/" || activeItem === "//" ? "active" : ""
-            }`}
+          className={`flex justify-center items-center flex-col p-2 pb-5 ${
+            activeItem === "/" || activeItem === "//" ? "active" : ""
+          }`}
           onClick={() => handleClick("/")}
         >
           <svg
             data-v-cbfefb2b=""
-            className={`size-6 ${activeItem === "/" || activeItem === "//"
-              ? "svg-icon"
-              : "svg-icons"
-              }`}
+            className={`size-6 ${
+              activeItem === "/" || activeItem === "//"
+                ? "svg-icon"
+                : "svg-icons"
+            }`}
           >
             <use href="#icon-home"></use>
           </svg>
           <span
-            className={`text-[10px] font-medium ${activeItem === "/" || activeItem === "//"
-              ? "text-[#F95959]"
-              : "text-[#BEC6D4]"
-              }`}
+            className={`text-[10px] font-medium ${
+              activeItem === "/" || activeItem === "//"
+                ? "text-[#F95959]"
+                : "text-[#BEC6D4]"
+            }`}
           >
             Home
           </span>
         </div>
 
         <div
-          className={`flex justify-center items-center flex-col p-2 pb-5 ${activeItem === "/activity" ? "active" : ""
-            }`}
+          className={`flex justify-center items-center flex-col p-2 pb-5 ${
+            activeItem === "/activity" ? "active" : ""
+          }`}
           onClick={() => handleClick("activity")}
         >
           <svg
             data-v-cbfefb2b=""
-            className={`size-6 ${activeItem === "/activity" ? "svg-icon" : "svg-icons"
-              }`}
+            className={`size-6 ${
+              activeItem === "/activity" ? "svg-icon" : "svg-icons"
+            }`}
           >
             <use href="#icon-activity"></use>
           </svg>
           <span
-            className={`text-[10px] font-medium ${activeItem === "/activity"
-              ? "text-[#F95959]"
-              : "text-[#BEC6D4]"
-              }`}
+            className={`text-[10px] font-medium ${
+              activeItem === "/activity" ? "text-[#F95959]" : "text-[#BEC6D4]"
+            }`}
           >
             Activity
           </span>
@@ -216,8 +222,9 @@ const Navbar = () => {
               className="relative"
             />
             <span
-              className={`absolute top-14 text-[16px] font-bold ${activeItem === "/WheelSpin" ? "active" : "text-red-500"
-                }`}
+              className={`absolute top-14 text-[16px] font-bold ${
+                activeItem === "/WheelSpin" ? "active" : "text-red-500"
+              }`}
             >
               Get 500
             </span>
@@ -225,22 +232,23 @@ const Navbar = () => {
         </div>
 
         <div
-          className={`flex justify-center items-center flex-col p-2 pb-5 ${activeItem === "/promotion" ? "active" : ""
-            }`}
+          className={`flex justify-center items-center flex-col p-2 pb-5 ${
+            activeItem === "/promotion" ? "active" : ""
+          }`}
           onClick={() => handleClick("promotion")}
         >
           <svg
             data-v-6ab3f23e
-            className={`size-6 icon-promotion2 ${activeItem === "/promotion" ? "svg-icon" : "svg-icons"
-              }`}
+            className={`size-6 icon-promotion2 ${
+              activeItem === "/promotion" ? "svg-icon" : "svg-icons"
+            }`}
           >
             <use xlinkHref="#icon-promotion2" />
           </svg>
           <span
-            className={`text-[10px] font-medium ${activeItem === "/promotion"
-              ? "text-[#F95959]"
-              : "text-[#BEC6D4]"
-              }`}
+            className={`text-[10px] font-medium ${
+              activeItem === "/promotion" ? "text-[#F95959]" : "text-[#BEC6D4]"
+            }`}
           >
             Promotion
           </span>
@@ -248,22 +256,23 @@ const Navbar = () => {
 
         {/* ACCOUNT TAB -> yahan special handler use ho raha hai */}
         <div
-          className={`flex justify-center items-center flex-col p-2 pb-5 ${activeItem === "/main" ? "active" : ""
-            }`}
+          className={`flex justify-center items-center flex-col p-2 pb-5 ${
+            activeItem === "/main" ? "active" : ""
+          }`}
           onClick={handleAccountClick}
         >
           <svg
             data-v-cbfefb2b=""
-            className={`size-6 ${activeItem === "/main" ? "svg-icon" : "svg-icons"
-              }`}
+            className={`size-6 ${
+              activeItem === "/main" ? "svg-icon" : "svg-icons"
+            }`}
           >
             <use href="#icon-main"></use>
           </svg>
           <span
-            className={`text-[10px] font-medium ${activeItem === "/main"
-              ? "text-[#F95959]"
-              : "text-[#BEC6D4]"
-              }`}
+            className={`text-[10px] font-medium ${
+              activeItem === "/main" ? "text-[#F95959]" : "text-[#BEC6D4]"
+            }`}
           >
             Account
           </span>
