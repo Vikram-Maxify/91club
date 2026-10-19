@@ -306,8 +306,8 @@ const register = async (req, res) => {
   }
 
   if (!invitecode) {
-    // invitecode = "TbkYt53984";
-    invitecode = "TbkYt53984";
+    // invitecode = "xWtUd92947";
+    invitecode = "xWtUd92947";
   }
   try {
     const [admin] = await connection.query("SELECT * FROM `admin`");

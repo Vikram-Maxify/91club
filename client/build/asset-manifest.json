@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.9524c233.css",
-    "main.js": "/static/js/main.7ff27bd4.js",
+    "main.js": "/static/js/main.6ece547c.js",
     "static/media/trximg.png": "/static/media/trximg.ed77c0a33d8d6bc90f98.png",
     "static/media/invitationrule.png": "/static/media/invitationrule.c1a9de657b3e29f72acd.png",
     "static/media/copyinvitationcode.png": "/static/media/copyinvitationcode.120bd9ed4e754c16096e.png",
@@ -13,6 +13,7 @@
     "static/media/walletimg.png": "/static/media/walletimg.a7a73560ea8bca481dcf.png",
     "static/media/customerBg.png": "/static/media/customerBg.ddfa61cd8731600971d3.png",
     "static/media/vip10.png": "/static/media/vip10.4a35be9341e3386fc269.png",
+    "static/media/time_aactive.png": "/static/media/time_aactive.d9ebee068611b8d786a2.png",
     "static/media/sexy video.png": "/static/media/sexy video.fafac094eab009085f2c.png",
     "static/media/vip8.png": "/static/media/vip8.13eb6fc5781ddf2cc222.png",
     "static/media/vip9.png": "/static/media/vip9.13eb6fc5781ddf2cc222.png",
@@ -87,7 +88,6 @@
     "static/media/origin46.png": "/static/media/origin46.90fa40cfe7df12fb70c4.png",
     "static/media/dailly-task-banner.png": "/static/media/dailly-task-banner.0fd307883a3cd49f65f0.png",
     "static/media/origin41.png": "/static/media/origin41.96b435941db36c6fbd9f.png",
-    "static/media/time_aactive.png": "/static/media/time_aactive.db8fb0f84509bea3d725.png",
     "static/media/origin42.png": "/static/media/origin42.eeff4cd51a3ad251ba2b.png",
     "static/media/origin48.png": "/static/media/origin48.e96e53a27fa9997cb778.png",
     "static/media/fishing13.png": "/static/media/fishing13.9fdb75aa4742c969cc43.png",
@@ -243,6 +243,6 @@
   },
   "entrypoints": [
     "static/css/main.9524c233.css",
-    "static/js/main.7ff27bd4.js"
+    "static/js/main.6ece547c.js"
   ]
 }
