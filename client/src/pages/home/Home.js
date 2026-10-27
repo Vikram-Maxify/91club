@@ -336,7 +336,7 @@ const Home = () => {
           HEADER
       ======================================================== */}
 
-      <div className="sticky top-0 z-40 bg-gradient-to-l pb-5">
+      <div className="sticky top-0 z-40 bg-gradient-to-l bg-white shadow-md">
         <div className="flex items-center justify-between rounded-md px-3">
           <div className="logo py-2 flex flex-col items-start">
             <img
@@ -687,12 +687,12 @@ const Home = () => {
       ======================================================== */}
 
       {topup && (
-        <div className="absolute top-56 left-1 right-0 bg-light flex m-auto flex-col mx-8 pb-1 rounded-xl z-[9999] w-[82%] max-w-md">
+        <div className="absolute top-[6rem] left-1 right-0 bg-light flex m-auto flex-col mx-8 pb-1 rounded-xl z-[9999] w-[82%] max-w-md">
           <div className="blue-linear2 text-center p-2 font-bold text-lg rounded-t-xl">
             ⚠️ Withdrawal Security Alert ⚠️
           </div>
 
-          <div className="h-[360px] w-full overflow-x-auto overflow-y-auto text-black px-4 text-center">
+          <div className="h-[250px] w-full overflow-x-auto overflow-y-auto text-black px-4 text-center">
             <h1 className="text-red-700 mt-4 font-extrabold text-sm">
               NOTICE SCAM ALERT
             </h1>
@@ -719,7 +719,7 @@ const Home = () => {
       ======================================================== */}
 
       {topup3 && (
-        <div className="absolute top-56 left-0 right-0 flex m-auto flex-col bg-light mx-8 pb-2 rounded-xl z-[9999]">
+        <div className="absolute top-[6rem] left-0 right-0 flex m-auto flex-col bg-light mx-8 pb-2 rounded-xl z-[9999]">
           <div className="blue-linear2 text-center p-2 font-bold text-lg text-white rounded-t-xl">
             📢 IMPORTANT NOTICE
           </div>
@@ -783,7 +783,7 @@ const Home = () => {
       ======================================================== */}
 
       {topup4 && (
-        <div className="absolute top-56 left-0 right-0 flex m-auto flex-col bg-light mx-8 pb-4 rounded-xl z-[9999]">
+        <div className="absolute top-[6rem] left-0 right-0 flex m-auto flex-col bg-light mx-8 pb-4 rounded-xl z-[9999]">
           <div className="blue-linear2 text-center p-2 font-bold text-lg text-white rounded-t-xl">
             🎁 GIFT CODE 🎁
           </div>
@@ -852,7 +852,7 @@ const Home = () => {
       ======================================================== */}
 
       {topup5 && (
-        <div className="absolute top-56 left-0 right-0 flex m-auto flex-col bg-white mx-8 pb-4 rounded-xl z-[9999] shadow-2xl max-w-md">
+        <div className="absolute top-[6rem] left-0 right-0 flex m-auto flex-col bg-white mx-8 pb-4 rounded-xl z-[9999] shadow-2xl max-w-md">
           <div className="blue-linear2 text-center p-2 font-bold text-lg text-white rounded-t-xl">
             Welcome to Chennai91
           </div>

@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.9524c233.css",
-    "main.js": "/static/js/main.6ece547c.js",
+    "main.css": "/static/css/main.e583ad4a.css",
+    "main.js": "/static/js/main.f796472c.js",
     "static/media/trximg.png": "/static/media/trximg.ed77c0a33d8d6bc90f98.png",
     "static/media/invitationrule.png": "/static/media/invitationrule.c1a9de657b3e29f72acd.png",
     "static/media/copyinvitationcode.png": "/static/media/copyinvitationcode.120bd9ed4e754c16096e.png",
@@ -242,7 +242,7 @@
     "static/media/lobbyactive.svg": "/static/media/lobbyactive.3ccd4cb4f8bc8696843903966dd6748e.svg"
   },
   "entrypoints": [
-    "static/css/main.9524c233.css",
-    "static/js/main.6ece547c.js"
+    "static/css/main.e583ad4a.css",
+    "static/js/main.f796472c.js"
   ]
 }

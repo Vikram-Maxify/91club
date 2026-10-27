@@ -9,7 +9,7 @@ const RechargePopup = ({ repopup, setRepopup }) => {
 
   return (
     <>
-      <div className={repopup ? "overlay-section block" : "hidden"}></div>
+      <div className={repopup ? "" : "hidden"}></div>
       {repopup && (
         <div className="fixed top-0 z-[20] bottom-0 pb-2 h-32 m-auto flex flex-col justify-center items-center left-0 right-0 w-[20rem] bg-light rounded-lg">
           <h3 className="heading-h3 gray-50 mt-5">Tips</h3>

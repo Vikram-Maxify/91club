@@ -1,17 +1,10 @@
-import React, { useState } from "react";
-import { IoIosArrowBack } from "react-icons/io";
-import { IoChevronDown } from "react-icons/io5";
+import { useState } from "react";
 import { FaCheck } from "react-icons/fa";
+import { IoIosArrowBack } from "react-icons/io";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
-const CustomeNavbar = ({
-  name,
-  details,
-  link,
-  logo,
-  bgClass = "bg-body",
-}) => {
+const CustomeNavbar = ({ name, details, link, logo, bgClass = "bg-body" }) => {
   const { bannergetData } = useSelector((state) => state.user);
 
   const navigate = useNavigate();
@@ -71,18 +64,15 @@ const CustomeNavbar = ({
       {/* =====================================================
           NAVBAR
       ====================================================== */}
-      <div
-        className={`${bgClass} p-1 py-3 sticky top-0 z-40`}
-      >
+      <div className={`${bgClass} p-1 py-3 sticky top-0 z-40`}>
         <div className="container-section flex items-center relative min-h-[30px]">
-
           {/* ================= BACK BUTTON ================= */}
           <button
             type="button"
             onClick={handleBack}
             className="absolute left-0 flex items-center justify-center z-10"
           >
-            <IoIosArrowBack className="text-xl text-white" />
+            <IoIosArrowBack className="text-xl text-black" />
           </button>
 
           {/* ================= PAGE NAME ================= */}
@@ -106,10 +96,7 @@ const CustomeNavbar = ({
           {/* ================= DETAILS ================= */}
           {details && (
             <p className="absolute right-1">
-              <Link
-                className="fs-sm text-whites"
-                to={link}
-              >
+              <Link className="fs-sm text-whites" to={link}>
                 {details}
               </Link>
             </p>
@@ -142,9 +129,7 @@ const CustomeNavbar = ({
               />
 
               {/* Language Code */}
-              <span className="text-base">
-                {selectedLanguage.code}
-              </span>
+              <span className="text-base">{selectedLanguage.code}</span>
 
               {/* Arrow */}
               {/* <IoChevronDown className="text-sm" /> */}
@@ -184,18 +169,14 @@ const CustomeNavbar = ({
           >
             {/* ================= LANGUAGE LIST ================= */}
             <div className="px-4">
-
               {languages.map((language, index) => {
-                const isSelected =
-                  selectedLanguage.code === language.code;
+                const isSelected = selectedLanguage.code === language.code;
 
                 return (
                   <button
                     key={language.code}
                     type="button"
-                    onClick={() =>
-                      handleLanguageSelect(language)
-                    }
+                    onClick={() => handleLanguageSelect(language)}
                     className={`
                       w-full
                       flex
@@ -212,7 +193,6 @@ const CustomeNavbar = ({
                   >
                     {/* ================= LEFT ================= */}
                     <div className="flex items-center gap-3">
-
                       {/* Flag Image */}
                       <img
                         src={language.flag}

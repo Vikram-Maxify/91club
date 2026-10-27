@@ -127,7 +127,7 @@ const Main = () => {
       </div>
 
       <div className="container-section relative mt-[-100px]">
-        <div className="bg-popup-nav p-3 rounded-lg pb-3">
+        <div className="bg-popup-nav p-3 rounded-lg pb-3 shadow-md">
           <div>
             <p className="gray-text text-sm">Total balance</p>
             <div className="flex items-center justify-between mt-2">
