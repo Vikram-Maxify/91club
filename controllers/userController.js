@@ -6328,6 +6328,7 @@ const zilpay = async (req, res) => {
       amount: Number(money),
       auth: "TSFHEYY8UH2FLCVCNFGT",
       callback: "https://chennai91.co/api/webapi/zilpayCallback",
+      callback: "https://chennai91.co/api/webapi/zilpayCallback",
       redirect_url: "https://jackpotjunctionexpress.click",
       user: userInfo.phone,
     };
@@ -6591,6 +6592,7 @@ const recharge3 = async (req, res) => {
 
   // Validate required input parameters
 
+  const callbackurl = `https://chennai91.co/api/webapi/recharge-callback`;
   const callbackurl = `https://chennai91.co/api/webapi/recharge-callback`;
   const OrderIds = `WP${Date.now()}${Math.floor(Math.random() * 100000)}`;
   // Sunpay request parameters
@@ -7188,6 +7190,8 @@ const handleRechargeppay = async (req, res) => {
     const merchantId = "M514039"; // Replace with your actual Merchant ID
     const appId = "69816d78559c22f8bbeac1e3"; // Replace with your actual App ID
     const orderId = `PP${Date.now()}`; // Unique order number
+    const notify_url = `https://chennai91.co/api/webapi/callbackdatappay`; // Replace with your actual notification URL
+    const return_url = `https://chennai91.co`; // Replace with your actual return URL
     const notify_url = `https://chennai91.co/api/webapi/callbackdatappay`; // Replace with your actual notification URL
     const return_url = `https://chennai91.co`; // Replace with your actual return URL
 
