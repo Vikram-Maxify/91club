@@ -6327,8 +6327,7 @@ const zilpay = async (req, res) => {
     const params = {
       amount: Number(money),
       auth: "TSFHEYY8UH2FLCVCNFGT",
-      callback: "https://chennai91.co/api/webapi/zilpayCallback",
-      callback: "https://chennai91.co/api/webapi/zilpayCallback",
+      callback: "http://chennai91.co/api/webapi/zilpayCallback",
       redirect_url: "https://jackpotjunctionexpress.click",
       user: userInfo.phone,
     };
@@ -6592,8 +6591,7 @@ const recharge3 = async (req, res) => {
 
   // Validate required input parameters
 
-  const callbackurl = `https://chennai91.co/api/webapi/recharge-callback`;
-  const callbackurl = `https://chennai91.co/api/webapi/recharge-callback`;
+  const callbackurl = `http://chennai91.co/api/webapi/recharge-callback`;
   const OrderIds = `WP${Date.now()}${Math.floor(Math.random() * 100000)}`;
   // Sunpay request parameters
   if (type === "UPI") {
@@ -6886,8 +6884,7 @@ const initiateTrexoPayPayment = async (req, res) => {
     const user_token = "79bf6a0f993ae54510d819a092c51905";
 
     const orderId = getRechargeOrderId();
-    const redirect_url =
-      "https://chennai91.co/api/webapi/verifyTrexoPayPayment";
+    const redirect_url = "http://chennai91.co/api/webapi/verifyTrexoPayPayment";
 
     const params = {
       customer_mobile: userInfo.phone,
@@ -7190,10 +7187,8 @@ const handleRechargeppay = async (req, res) => {
     const merchantId = "M514039"; // Replace with your actual Merchant ID
     const appId = "69816d78559c22f8bbeac1e3"; // Replace with your actual App ID
     const orderId = `PP${Date.now()}`; // Unique order number
-    const notify_url = `https://chennai91.co/api/webapi/callbackdatappay`; // Replace with your actual notification URL
-    const return_url = `https://chennai91.co`; // Replace with your actual return URL
-    const notify_url = `https://chennai91.co/api/webapi/callbackdatappay`; // Replace with your actual notification URL
-    const return_url = `https://chennai91.co`; // Replace with your actual return URL
+    const notify_url = `http://chennai91.co/api/webapi/callbackdatappay`; // Replace with your actual notification URL
+    const return_url = `http://chennai91.co`; // Replace with your actual return URL
 
     // Prepare parameters
     const params = {
