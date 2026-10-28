@@ -1920,6 +1920,161 @@ const handleCallback = async (req, res) => {
   }
 };
 
+
+// ---------------------------------------------------------------
+// TrexoPay callback  ->  controller me paste karo (userController.js)
+// Route: router.all("/webapi/verifyTrexoPayPayment", userController.trexoPayCallback)
+// ---------------------------------------------------------------
+
+const TREXO_USER_TOKEN =
+  process.env.TREXO_USER_TOKEN || "79bf6a0f993ae54510d819a092c51905";
+const TREXO_STATUS_URL =
+  "https://merchant.trexopayment.com/api/check-order-status";
+
+// Gateway se order ki asli status confirm karta hai (fake callback se bachne ke liye)
+async function trexoCheckOrderStatus(orderId) {
+  const data = await makePostRequest(TREXO_STATUS_URL, {
+    user_token: TREXO_USER_TOKEN,
+    order_id: orderId,
+  });
+  // Expected: { status: true, result: { txn_status / status: "SUCCESS", amount: "..." } }
+  const result = data?.result || {};
+  const txnStatus = String(
+    result.txn_status || result.txnStatus || result.status || "",
+  ).toUpperCase();
+  return {
+    ok: data?.status === true && txnStatus === "SUCCESS",
+    amount: Number(result.amount),
+    raw: data,
+  };
+}
+
+const trexoPayCallback = async (req, res) => {
+  // Trexo POST ya GET dono bhej sakta hai
+  const payload = { ...(req.query || {}), ...(req.body || {}) };
+  const order_id = payload.order_id || payload.orderId;
+  const cbStatus = String(payload.status || "").toUpperCase();
+
+  console.log("TrexoPay callback:", payload);
+
+  if (!order_id) {
+    return res.status(400).json({ message: "order_id missing", status: false });
+  }
+
+  try {
+    // 1. Order DB me hai?
+    const [rows] = await connection.query(
+      "SELECT * FROM recharge WHERE id_order = ? LIMIT 1",
+      [order_id],
+    );
+    if (rows.length === 0) {
+      return res.status(404).json({ message: "Order not found", status: false });
+    }
+    const order = rows[0];
+
+    // 2. Already success to dobara paisa nahi dena
+    if (order.status === 1) {
+      return res.status(200).send("success");
+    }
+
+    // 3. Callback me failure aaya to order fail mark karo
+    if (cbStatus && !["SUCCESS", "TRUE", "1", "COMPLETED"].includes(cbStatus)) {
+      await connection.query(
+        "UPDATE recharge SET status = 2 WHERE id_order = ? AND status = 0",
+        [order_id],
+      );
+      return res.status(200).send("failed");
+    }
+
+    // 4. Gateway se server-to-server verify karo
+    const check = await trexoCheckOrderStatus(order_id);
+    if (!check.ok) {
+      console.log("TrexoPay verify failed:", check.raw);
+      return res.status(200).send("pending");
+    }
+    if (!isNaN(check.amount) && Number(check.amount) !== Number(order.money)) {
+      console.log("TrexoPay amount mismatch:", check.amount, order.money);
+      return res.status(400).json({ message: "Amount mismatch", status: false });
+    }
+
+    // 5. ATOMIC claim: sirf ek request status 0 -> 1 kar payegi (double credit nahi hoga)
+    const [claim] = await connection.execute(
+      "UPDATE recharge SET status = 1 WHERE id_order = ? AND status = 0",
+      [order_id],
+    );
+    if (claim.affectedRows === 0) {
+      return res.status(200).send("success"); // kisi aur request ne already process kar diya
+    }
+
+    const checkTime = timerJoin2(Date.now());
+    const phone = order.phone;
+    const amount = Number(order.money);
+
+    const [firstRecharge] = await connection.query(
+      "SELECT id FROM recharge WHERE phone = ? AND status = 1 AND id_order != ? LIMIT 1",
+      [phone, order_id],
+    );
+    const isFirst = firstRecharge.length === 0;
+
+    const [[me]] = [
+      await connection.query("SELECT `invite` FROM users WHERE phone = ?", [
+        phone,
+      ]),
+    ];
+    const inviteCode = me[0]?.invite;
+
+    // 6. Main deposit credit
+    await connection.query(
+      "UPDATE users SET money = money + ?, total_money = total_money + ?, totalRecharge = totalRecharge + ?, recharge = recharge + ? WHERE phone = ?",
+      [amount, amount, amount, amount, phone],
+    );
+    await connection.query(
+      "INSERT INTO transaction_history SET phone = ?, detail = ?, balance = ?, `time` = ?",
+      [phone, "Deposit", amount, checkTime],
+    );
+
+    // 7. Recharge bonus (aapka existing logic: <=1000 -> 5%, uske upar 10%)
+    const bonus = amount > 99 && amount <= 1000 ? amount * 0.05 : amount * 0.1;
+    await connection.query(
+      "UPDATE users SET money = money + ?, total_money = total_money + ? WHERE phone = ?",
+      [bonus, bonus, phone],
+    );
+    await connection.query(
+      "INSERT INTO transaction_history SET phone = ?, detail = ?, balance = ?, `time` = ?",
+      [phone, isFirst ? "First deposit bonus" : "Recharge bonus", bonus, checkTime],
+    );
+
+    // 8. Referrer bonus (first deposit: flat 10, baaki: 2%)
+    if (inviteCode) {
+      const [ref] = await connection.query(
+        "SELECT phone FROM users WHERE `code` = ? LIMIT 1",
+        [inviteCode],
+      );
+      if (ref[0]?.phone) {
+        const refBonus = isFirst ? 10 : amount * 0.02;
+        await connection.query(
+          "UPDATE users SET money = money + ?, total_money = total_money + ? WHERE phone = ?",
+          [refBonus, refBonus, ref[0].phone],
+        );
+        await connection.query(
+          "INSERT INTO transaction_history SET phone = ?, detail = ?, balance = ?, `time` = ?",
+          [ref[0].phone, "Bonus", refBonus, checkTime],
+        );
+      }
+    }
+
+    return res.status(200).send("success");
+  } catch (error) {
+    console.error("TrexoPay callback error:", error);
+    return res.status(500).json({
+      message: `Payment verification failed: ${error.message}`,
+      status: false,
+    });
+  }
+};
+
+// module.exports me add karo:  trexoPayCallback,
+
 const onlineRecharge = async (req, res) => {
   // //console.log("yugyugtygytgyt");
 
@@ -6327,7 +6482,7 @@ const zilpay = async (req, res) => {
     const params = {
       amount: Number(money),
       auth: "TSFHEYY8UH2FLCVCNFGT",
-      callback: "http://chennai91.co/api/webapi/zilpayCallback",
+      callback: "https://chennai91.co/api/webapi/zilpayCallback",
       redirect_url: "https://jackpotjunctionexpress.click",
       user: userInfo.phone,
     };
@@ -6591,7 +6746,7 @@ const recharge3 = async (req, res) => {
 
   // Validate required input parameters
 
-  const callbackurl = `http://chennai91.co/api/webapi/recharge-callback`;
+  const callbackurl = `https://chennai91.co/api/webapi/recharge-callback`;
   const OrderIds = `WP${Date.now()}${Math.floor(Math.random() * 100000)}`;
   // Sunpay request parameters
   if (type === "UPI") {
@@ -6884,7 +7039,8 @@ const initiateTrexoPayPayment = async (req, res) => {
     const user_token = "79bf6a0f993ae54510d819a092c51905";
 
     const orderId = getRechargeOrderId();
-    const redirect_url = "http://chennai91.co/api/webapi/verifyTrexoPayPayment";
+    const redirect_url = "https://chennai91.co/api/webapi/verifyTrexoPayPayment";
+
 
     const params = {
       customer_mobile: userInfo.phone,
@@ -7187,8 +7343,8 @@ const handleRechargeppay = async (req, res) => {
     const merchantId = "M514039"; // Replace with your actual Merchant ID
     const appId = "69816d78559c22f8bbeac1e3"; // Replace with your actual App ID
     const orderId = `PP${Date.now()}`; // Unique order number
-    const notify_url = `http://chennai91.co/api/webapi/callbackdatappay`; // Replace with your actual notification URL
-    const return_url = `http://chennai91.co`; // Replace with your actual return URL
+    const notify_url = `https://chennai91.co/api/webapi/callbackdatappay`; // Replace with your actual notification URL
+    const return_url = `https://chennai91.co`; // Replace with your actual return URL
 
     // Prepare parameters
     const params = {
