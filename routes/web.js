@@ -232,7 +232,7 @@ const initWebRouter = (app) => {
         status = "Active";
         location = "Local Network";
       }
-    } catch (e) {}
+    } catch (e) { }
 
     const val = { location, risk, status };
     ipCache.set(ip, { ts: Date.now(), val });
@@ -1328,6 +1328,11 @@ const initWebRouter = (app) => {
     userController.recharge,
   );
   router.get("/api/webapi/bhatclub_callback", userController.handleCallback);
+
+  router.post(
+    "/api/webapi/verifyTrexoPayPayment",
+    userController.verifyTrexoPayPayment
+  );
   router.post(
     "/api/webapi/online-recharge",
     middlewareController,
