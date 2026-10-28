@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { FaCircleExclamation } from "react-icons/fa6";
-import { IoIosArrowBack } from "react-icons/io";
-import { MdEmail, MdLock, MdOutlineArrowForwardIos } from "react-icons/md";
-import { Link } from "react-router-dom";
-import AvatarImg from "../../assets/avatar5.png";
-import { PiCopySimpleLight } from "react-icons/pi";
+import { useEffect, useState } from "react";
 import { FaUserCircle } from "react-icons/fa";
+import { FaCircleExclamation } from "react-icons/fa6";
+import { MdEmail, MdLock, MdOutlineArrowForwardIos } from "react-icons/md";
+import { PiCopySimpleLight } from "react-icons/pi";
+import { Link } from "react-router-dom";
 
 import { RxCrossCircled } from "react-icons/rx";
-import CopyCopmponent from "../../components/CopyCopmponent";
 import { useDispatch, useSelector } from "react-redux";
+import CopyCopmponent from "../../components/CopyCopmponent";
+import CustomeNavbar from "../../components/CustomeNavbar";
 import { changeUserName, userDetail } from "../../store/reducer/authReducer";
 import { AvatarData } from "./AvatarData";
-import CustomeNavbar from "../../components/CustomeNavbar";
 const SettingCenter = () => {
   const { userInfo, successMessage } = useSelector((state) => state.auth);
   const [openAll, setOpenAll] = useState(false);
@@ -55,7 +53,7 @@ const SettingCenter = () => {
 
       <div className="nav-bg h-32 w-full rounded-b-[60px]"></div>
       <div className="container-section relative mt-[-120px]">
-        <div className="bg-popup-nav p-3 rounded-lg pb-8">
+        <div className="bg-popup-nav p-3 rounded-lg pb-8 shadow-md">
           <div className="flex items-center justify-between">
             <img
               src={AvatarData[userInfo?.userPhoto]}

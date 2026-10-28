@@ -150,7 +150,7 @@ const Register = () => {
     }, 2000);
     setState({
       ...state,
-      invitecode: invitecode || "xWtUd92947",
+      invitecode: invitecode || "395683828017",
       ccode: ccode,
     });
   }, [successMessage, dispatch, alerts, alertsuccess]);

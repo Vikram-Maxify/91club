@@ -463,9 +463,7 @@ const SlotComponents = () => {
           <SuperJackportGame />
         </div> */}
       </div>
-      <div
-        className={repopup ? "overlay-section block z-[50]" : "hidden"}
-      ></div>
+
       {repopup && (
         <div className="fixed top-0 z-[60] bottom-0 pb-2 h-32 m-auto flex flex-col justify-center items-center left-0 right-0 w-[20rem] bg-light rounded-lg">
           <h3 className="heading-h3 gray-50 mt-5">Tips</h3>
